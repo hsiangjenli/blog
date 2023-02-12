@@ -3,13 +3,13 @@ name: Pages
 on:
   push:
     branches:
-      - master  # default branch
+      - main  # default branch
 
 jobs:
   pages:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
