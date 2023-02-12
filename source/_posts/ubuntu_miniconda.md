@@ -7,8 +7,6 @@ cover: https://i.imgur.com/Cn2JYj8.png
 thumbnail: https://i.imgur.com/Cn2JYj8.png
 ---
 
-# **Setting up Miniconda on Ubuntu**
-
 <!-- more -->
 
 ```shell!
