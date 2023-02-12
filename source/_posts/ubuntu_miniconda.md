@@ -1,6 +1,6 @@
 ---
-title:
-date: 
+title: Setting up Miniconda on Ubuntu
+date: 2023-02-13
 tags: Ubuntu, Python
 toc: true
 cover: https://i.imgur.com/Cn2JYj8.png
