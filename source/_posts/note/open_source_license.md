@@ -14,7 +14,7 @@ thumbnail: https://i.imgur.com/llL0Tud.jpg
 在軟體和軟體的**所有副本中都必須包含以上著作權聲明**和本許可聲明。
 
 
-## GNU General Public License (GNU GPL)
+## **GNU General Public License (GNU GPL)**
 - 要求任何使用或分發代碼的人都必須使用相同的許可證並公開他們的修改。
 
 
