@@ -105,7 +105,7 @@ comment:
 #     install_url: ''
 sidebar:
     left:
-        sticky: true
+        sticky: false
     right:
         sticky: true
 widgets:
