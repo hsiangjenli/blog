@@ -6,11 +6,8 @@ toc: true
 cover: https://i.imgur.com/llL0Tud.jpg
 thumbnail: https://i.imgur.com/llL0Tud.jpg
 ---
-
-<!-- more -->
-# **開源專案 License**
-
 # The MIT License (MIT)
+<!-- more -->
 - 被授權人**權利**
 允許任何人以任何方式使用、修改和分發代碼，包括商業用途，但作者不對代碼負責。
 - 被授權人**義務**
