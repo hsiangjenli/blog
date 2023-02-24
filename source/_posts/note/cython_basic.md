@@ -8,10 +8,13 @@ thumbnail: https://i.imgur.com/65dETIz.jpg
 chatgpt: true
 ---
 
-## **Cython**
+## Cython
 ### 什麼是Cython？
-!!! note **Chat GPT:**
-    Cython是一種基於Python的靜態編譯器，可以將Python代碼轉換成C語言代碼，進而編譯成機器碼，從而提高Python代碼的運行速度和效率。Cython既保留了Python的簡單易用和動態特性，同時也支持C語言的靜態類型聲明和高效內存管理，是一種非常強大的Python優化工具。Cython還可以用於編寫Python擴展、簡化C/C++代碼、加速數值計算、並行運算等方面的應用。
+
+<!-- more -->
+
+> **Chat GPT:**
+> Cython是一種基於Python的靜態編譯器，可以將Python代碼轉換成C語言代碼，進而編譯成機器碼，從而提高Python代碼的運行速度和效率。Cython既保留了Python的簡單易用和動態特性，同時也支持C語言的靜態類型聲明和高效內存管理，是一種非常強大的Python優化工具。Cython還可以用於編寫Python擴展、簡化C/C++代碼、加速數值計算、並行運算等方面的應用。
 
 ### Cython的優點
 1. 執行速度快
