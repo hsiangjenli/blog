@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>note: Cython 基礎知識 - RN Lee</title><link rel="manifest" href="/blog/manifest.json"><meta name="application-name" content="RN Lee"><meta name="msapplication-TileImage" content="/img/ico.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="RN Lee"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Cython什麼是Cython？!!! note Chat GPT:    Cython是一種基於Python的靜態編譯器，可以將Python代碼轉換成C語言代碼，進而編譯成機器碼，從而提高Python代碼的運行速度和效率。Cython既保留了Python的簡單易用和動態特性，同時也支持C語言的靜態類型聲明和高效內存管理，是一種非常強大的Python優化工具。Cython還可以用於編寫Python"><meta property="og:type" content="blog"><meta property="og:title" content="note: Cython 基礎知識"><meta property="og:url" content="https://hsiangjenli.github.io/blog/note/cython_basic/"><meta property="og:site_name" content="RN Lee"><meta property="og:description" content="Cython什麼是Cython？!!! note Chat GPT:    Cython是一種基於Python的靜態編譯器，可以將Python代碼轉換成C語言代碼，進而編譯成機器碼，從而提高Python代碼的運行速度和效率。Cython既保留了Python的簡單易用和動態特性，同時也支持C語言的靜態類型聲明和高效內存管理，是一種非常強大的Python優化工具。Cython還可以用於編寫Python"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://i.imgur.com/65dETIz.jpg"><meta property="article:published_time" content="2023-02-23T00:00:00.000Z"><meta property="article:modified_time" content="2023-02-24T16:47:53.534Z"><meta property="article:author" content="Hsiang-Jen Li"><meta property="article:tag" content="Python"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://i.imgur.com/65dETIz.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hsiangjenli.github.io/blog/note/cython_basic/"},"headline":"note: Cython 基礎知識","image":["https://i.imgur.com/65dETIz.jpg"],"datePublished":"2023-02-23T00:00:00.000Z","dateModified":"2023-02-24T16:47:53.534Z","author":{"@type":"Person","name":"Hsiang-Jen Li"},"publisher":{"@type":"Organization","name":"RN Lee","logo":{"@type":"ImageObject","url":"https://hsiangjenli.github.io/img/profile.svg"}},"description":"Cython什麼是Cython？!!! note Chat GPT:    Cython是一種基於Python的靜態編譯器，可以將Python代碼轉換成C語言代碼，進而編譯成機器碼，從而提高Python代碼的運行速度和效率。Cython既保留了Python的簡單易用和動態特性，同時也支持C語言的靜態類型聲明和高效內存管理，是一種非常強大的Python優化工具。Cython還可以用於編寫Python"}</script><link rel="canonical" href="https://hsiangjenli.github.io/blog/note/cython_basic/"><link rel="icon" href="/blog/img/ico.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/blog/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="/blog/img/profile.svg" alt="RN Lee" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/blog/">Home</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="/blog/categories">Categories</a><a class="navbar-item" href="http://hsiangjenli.github.io/">About</a><a class="navbar-item" href="https://hsiangjenli.github.io/cheat-sheet/">Cheat sheets</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="https://i.imgur.com/65dETIz.jpg" alt="note: Cython 基礎知識"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-02-23T00:00:00.000Z" title="2/23/2023, 12:00:00 AM">2023-02-23</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-24T16:47:53.534Z" title="2/24/2023, 4:47:53 PM">2023-02-24</time></span><span class="level-item">3 minutes read (About 443 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">note: Cython 基礎知識</h1><div class="content"><h2 id="Cython"><a href="#Cython" class="headerlink" title="Cython"></a><strong>Cython</strong></h2><h3 id="什麼是Cython？"><a href="#什麼是Cython？" class="headerlink" title="什麼是Cython？"></a>什麼是Cython？</h3><p>!!! note <strong>Chat GPT:</strong><br>    Cython是一種基於Python的靜態編譯器，可以將Python代碼轉換成C語言代碼，進而編譯成機器碼，從而提高Python代碼的運行速度和效率。Cython既保留了Python的簡單易用和動態特性，同時也支持C語言的靜態類型聲明和高效內存管理，是一種非常強大的Python優化工具。Cython還可以用於編寫Python擴展、簡化C&#x2F;C++代碼、加速數值計算、並行運算等方面的應用。</p>
+<h3 id="Cython的優點"><a href="#Cython的優點" class="headerlink" title="Cython的優點"></a>Cython的優點</h3><ol>
+<li>執行速度快</li>
+<li>語法簡單</li>
+<li>靜態聲明</li>
+<li>兼容性高</li>
+</ol>
+<h3 id="應用場景"><a href="#應用場景" class="headerlink" title="應用場景"></a>應用場景</h3><ol>
+<li>讓 Python 執行更快</li>
+<li>簡化繁雜的 C 語法，改用 Python 的寫法，增加維護、可讀性</li>
+</ol>
+<h3 id="安裝和配置"><a href="#安裝和配置" class="headerlink" title="安裝和配置"></a>安裝和配置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install cython</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gcc</span><br></pre></td></tr></table></figure>
+
+<h3 id="Python和Cython的區別"><a href="#Python和Cython的區別" class="headerlink" title="Python和Cython的區別"></a>Python和Cython的區別</h3><table>
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="left">Python</th>
+<th align="left">Cython</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">靜態類型聲明</td>
+<td align="left">不支持</td>
+<td align="left">支持</td>
+</tr>
+<tr>
+<td align="left">靜態編譯</td>
+<td align="left">不支持</td>
+<td align="left">支持</td>
+</tr>
+<tr>
+<td align="left">運行速度</td>
+<td align="left">較慢</td>
+<td align="left">較快</td>
+</tr>
+<tr>
+<td align="left">內存使用</td>
+<td align="left">較高</td>
+<td align="left">較低</td>
+</tr>
+<tr>
+<td align="left">與C&#x2F;C++代碼集成</td>
+<td align="left">需要使用Cython或其他庫</td>
+<td align="left">直接支持</td>
+</tr>
+<tr>
+<td align="left">優化效果</td>
+<td align="left">較弱</td>
+<td align="left">較強</td>
+</tr>
+</tbody></table>
+<h3 id="Cython中的靜態型別"><a href="#Cython中的靜態型別" class="headerlink" title="Cython中的靜態型別"></a>Cython中的靜態型別</h3><table>
+<thead>
+<tr>
+<th align="left">Python</th>
+<th align="left">Cython</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>bool</code></td>
+<td align="left"><code>bint</code></td>
+</tr>
+<tr>
+<td align="left"><code>int</code> <code>long</code></td>
+<td align="left"><code>char</code> <code>short</code> <code>int</code> <code>long</code> <code>long long</code></td>
+</tr>
+<tr>
+<td align="left"><code>float</code></td>
+<td align="left"><code>float</code> <code>double</code> <code>long double</code></td>
+</tr>
+<tr>
+<td align="left"><code>complex</code></td>
+<td align="left"><code>float complex</code> <code>double complex</code></td>
+</tr>
+<tr>
+<td align="left"><code>bytes</code> <code>str</code> <code>unicode</code></td>
+<td align="left"><code>char *</code> <code>std::string</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Reference</strong></p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/55451545/what-are-all-the-types-available-in-cython">What are all the types available in Cython?</a></li>
+</ol>
+</blockquote>
+<h3 id="常用的Cython指令"><a href="#常用的Cython指令" class="headerlink" title="常用的Cython指令"></a>常用的Cython指令</h3><table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>pyximport</code></td>
+<td align="left">直接從Cython代碼中引入模塊或函數</td>
+</tr>
+<tr>
+<td align="left"><code>cdef</code></td>
+<td align="left">聲明Cython中的C變量和函數</td>
+</tr>
+<tr>
+<td align="left"><code>cpdef</code></td>
+<td align="left">定義既可被Python調用又可被Cython調用的函數</td>
+</tr>
+<tr>
+<td align="left"><code>cimport</code></td>
+<td align="left">import <code>.pyx</code> <code>.pxd</code> <code>.pxi</code> 的檔案</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Reference</strong></p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lidyan/p/7474244.html">Cython中def,cdef,cpdef的区别</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/273570750">第13篇：Cython封装C++类接口</a></li>
+</ol>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>note: Cython 基礎知識</p><p><a href="https://hsiangjenli.github.io/blog/note/cython_basic/">https://hsiangjenli.github.io/blog/note/cython_basic/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Hsiang-Jen Li</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2023-02-23</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2023-02-24</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/blog/tags/Python/">Python</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/blog/note/open_source_license/"><span class="level-item">note: 開源專案 License</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://hsiangjenli.github.io/blog/note/cython_basic/';
+            this.page.identifier = 'note/cython_basic/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'RN Lee' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/blog/img/ico.svg" alt="Hsiang-Jen Li"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Hsiang-Jen Li</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Taiwan</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/blog/archives"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/blog/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/blog/tags"><p class="title">3</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/hsiangjenli" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/hsiangjenli"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Gitlab" href="https://gitlab.com/hsiangjenli"><i class="fab fa-gitlab"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Kaggle" href="https://www.kaggle.com/hsiangjenli"><i class="fa-brands fa-kaggle"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mail" href="mailto:hsiangjenli"><i class="fa-regular fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Cython"><span class="level-left"><span class="level-item">1</span><span class="level-item">Cython</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#什麼是Cython？"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">什麼是Cython？</span></span></a></li><li><a class="level is-mobile" href="#Cython的優點"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">Cython的優點</span></span></a></li><li><a class="level is-mobile" href="#應用場景"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">應用場景</span></span></a></li><li><a class="level is-mobile" href="#安裝和配置"><span class="level-left"><span class="level-item">1.4</span><span class="level-item">安裝和配置</span></span></a></li><li><a class="level is-mobile" href="#Python和Cython的區別"><span class="level-left"><span class="level-item">1.5</span><span class="level-item">Python和Cython的區別</span></span></a></li><li><a class="level is-mobile" href="#Cython中的靜態型別"><span class="level-left"><span class="level-item">1.6</span><span class="level-item">Cython中的靜態型別</span></span></a></li><li><a class="level is-mobile" href="#常用的Cython指令"><span class="level-left"><span class="level-item">1.7</span><span class="level-item">常用的Cython指令</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/blog/js/toc.js" defer></script></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/blog/note/cython_basic/"><img src="https://i.imgur.com/65dETIz.jpg" alt="note: Cython 基礎知識"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-02-23T00:00:00.000Z">2023-02-23</time></p><p class="title"><a href="/blog/note/cython_basic/">note: Cython 基礎知識</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/blog/note/open_source_license/"><img src="https://i.imgur.com/llL0Tud.jpg" alt="note: 開源專案 License"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-02-21T00:00:00.000Z">2023-02-21</time></p><p class="title"><a href="/blog/note/open_source_license/">note: 開源專案 License</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/blog/ubuntu_miniconda/"><img src="https://i.imgur.com/Cn2JYj8.png" alt="Setting up Miniconda on Ubuntu"></a></figure><div class="media-content"><p class="date"><time dateTime="2023-02-13T00:00:00.000Z">2023-02-13</time></p><p class="title"><a href="/blog/ubuntu_miniconda/">Setting up Miniconda on Ubuntu</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/blog/archives/2023/02/"><span class="level-start"><span class="level-item">February 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/blog/"><img src="/blog/img/profile.svg" alt="RN Lee" height="28"></a><p class="is-size-7"><span>&copy; 2023 Hsiang-Jen Li</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/blog/js/column.js"></script><script src="/blog/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/mhchem.min.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/blog/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/blog/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/blog/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
