@@ -12,6 +12,9 @@ thumbnail:
 # demo-1.py
 print("This is demo 1.")
 ```
+
+<!-- more -->
+
 ### How write and run shell script
 1. Write a shell script similar to the example below and save it as `run.sh`
     ```shell
