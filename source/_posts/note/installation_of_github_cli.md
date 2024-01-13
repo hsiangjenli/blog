@@ -9,7 +9,7 @@ thumbnail:
 ```shell
 npm install -g @githubnext/github-copilot-cli
 ```
-
+<!-- more -->
 ```shell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
