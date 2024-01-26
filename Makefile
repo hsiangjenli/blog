@@ -2,7 +2,6 @@ DOCKER_USERNAME ?= hsiangjenli
 APPLICATION_NAME ?= hexo-icarus
 
 build:
-	# sass themes/hexo-cheatsheets/source/sass/2017/style.scss themes/hexo-cheatsheets/source/css/main.css
 	hexo clean
 	hexo server
 
