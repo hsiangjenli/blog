@@ -1,10 +1,10 @@
 ---
-title: "note: 開源專案 License"
+title: "[note] 開源專案 License"
 date: 2023-02-21
-tags: Github, Note
+tags: 
+    - github
+    - note
 toc: true
-cover: https://i.imgur.com/llL0Tud.jpg
-thumbnail: https://i.imgur.com/llL0Tud.jpg
 ---
 ## **The MIT License (MIT)**
 <!-- more -->

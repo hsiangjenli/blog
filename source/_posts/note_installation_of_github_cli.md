@@ -1,9 +1,7 @@
 ---
-title: The installation of GitHub Copilot CLI
+title: "[note]The installation of GitHub Copilot CLI"
 date: 2023-07-10
 toc: true
-cover:
-thumbnail:
 ---
 
 ```shell

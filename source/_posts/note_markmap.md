@@ -1,10 +1,10 @@
 ---
-title: "Efficient Mind Mapping with Markmap: A Markdown-Based VScode Extension"
+title: "[note] Efficient Mind Mapping with Markmap: A Markdown-Based VScode Extension"
 date: 2023-03-05
-tags: VS-Code
+tags: 
+    - vs-code
+    - note
 toc: true
-cover: https://i.imgur.com/xReO9L3.png
-thumbnail: https://i.imgur.com/xReO9L3.png
 ---
 
 > Here are the steps to use a VS Code Extension to convert Markdown syntax to Mindmap

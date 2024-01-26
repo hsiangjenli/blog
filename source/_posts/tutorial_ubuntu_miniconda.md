@@ -1,10 +1,10 @@
 ---
-title: Setting up Miniconda on Ubuntu
+title: "[tutorial] Setting up Miniconda on Ubuntu"
 date: 2023-02-13
-tags: Ubuntu, Python
+tags: 
+    - ubuntu
+    - python
 toc: true
-cover: https://i.imgur.com/Cn2JYj8.png
-thumbnail: https://i.imgur.com/Cn2JYj8.png
 ---
 ```shell!
 sudo wget -c https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh

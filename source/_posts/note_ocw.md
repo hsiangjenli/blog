@@ -1,7 +1,9 @@
 ---
-title: Free online course
+title: "[note] Free online course"
 date: 2024-01-13
-tags: OCW
+tags: 
+    - note
+    - ocw
 toc: true
 ---
 

@@ -1,10 +1,8 @@
 ---
-title: "[Tutorial] Combining Shell Script and Python for Efficient Automation"
+title: "[tutorial] Combining Shell Script and Python for Efficient Automation"
 date: 2023-04-05
-tags: Python
+tags: python
 toc: true
-cover: 
-thumbnail: 
 ---
 ## **🚀 Example-1**
 

@@ -1,8 +1,8 @@
 version: 5.1.0
 variant: default
-logo: /img/profile.svg
+logo: https://hsiangjenli.github.io/static/image/ico.svg
 head:
-    favicon: /img/ico.svg
+    favicon: https://hsiangjenli.github.io/static/image/ico.svg
     manifest:
         name: 
         short_name: 
@@ -12,7 +12,7 @@ head:
         display: standalone
         icons:
             -
-                src: '/img/ico.svg'
+                src: 'https://hsiangjenli.github.io/static/image/ico.svg'
                 sizes: ''
                 type: 
     open_graph:
@@ -44,8 +44,8 @@ navbar:
     menu:
         Home: /
         Archives: /archives
-        Categories: /categories
-        About: http://hsiangjenli.github.io/
+        # Categories: /categories
+        About me: http://hsiangjenli.github.io/
         Cheat sheets: https://hsiangjenli.github.io/cheat-sheet/
 
 footer:
@@ -62,24 +62,24 @@ article:
         theme: atom-one-light
         clipboard: true
         fold: unfolded
-    readtime: true
-    update_time: true
-    licenses:
-        Creative Commons:
-            icon: fab fa-creative-commons
-            url: https://creativecommons.org/
-        Attribution:
-            icon: fab fa-creative-commons-by
-            url: https://creativecommons.org/licenses/by/4.0/
-        Noncommercial:
-            icon: fab fa-creative-commons-nc
-            url: https://creativecommons.org/licenses/by-nc/4.0/
+    # readtime: true
+    update_time: false
+    # licenses:
+    #     Creative Commons:
+    #         icon: fab fa-creative-commons
+    #         url: https://creativecommons.org/
+    #     Attribution:
+    #         icon: fab fa-creative-commons-by
+    #         url: https://creativecommons.org/licenses/by/4.0/
+    #     Noncommercial:
+    #         icon: fab fa-creative-commons-nc
+    #         url: https://creativecommons.org/licenses/by-nc/4.0/
 search:
     type: insight
     index_pages: true
-comment:
-    type: disqus
-    shortname: 'RN Lee'
+# comment:
+#     type: disqus
+#     shortname: 'RN Lee'
 # donates:
 #     -
 #         type: afdian
@@ -121,7 +121,7 @@ widgets:
         author: Hsiang-Jen Li
         # author_title: Your title
         location: Taiwan
-        avatar: img/ico.svg
+        avatar: https://hsiangjenli.github.io/static/image/ico.svg
         avatar_rounded: false
         gravatar: 
         follow_link: https://github.com/hsiangjenli
@@ -129,15 +129,15 @@ widgets:
             Github:
                 icon: fab fa-github
                 url: https://github.com/hsiangjenli
-            Gitlab:
-                icon: fab fa-gitlab
-                url: https://gitlab.com/hsiangjenli
-            Kaggle:
-                icon: fa-brands fa-kaggle
-                url: https://www.kaggle.com/hsiangjenli
-            Mail:
-                icon: fa-regular fa-envelope
-                url: mailto:hsiangjenli
+            # Gitlab:
+            #     icon: fab fa-gitlab
+            #     url: https://gitlab.com/hsiangjenli
+            # Kaggle:
+            #     icon: fa-brands fa-kaggle
+            #     url: https://www.kaggle.com/hsiangjenli
+            # Mail:
+            #     icon: fa-regular fa-envelope
+            #     url: mailto:hsiangjenli
     -
         position: left
         type: categories

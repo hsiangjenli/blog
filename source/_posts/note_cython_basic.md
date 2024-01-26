@@ -1,10 +1,9 @@
 ---
-title: 'note: Cython 基礎知識' 
+title: "[note] Cython 基礎知識"
 date: 2023-02-23
-tags: Python
+tags: 
+    - python
 toc: true
-cover: https://i.imgur.com/65dETIz.jpg
-thumbnail: https://i.imgur.com/65dETIz.jpg
 chatgpt: true
 ---
 
