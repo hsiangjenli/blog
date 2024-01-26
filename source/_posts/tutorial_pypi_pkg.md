@@ -9,6 +9,8 @@ tags:
 ## Why Build Your Own Python Package?
 As projects grow in size, maintaing code scattered across different directories becomes increasingly challenges for programmers.
 
+<!-- more -->
+
 ## How to build your own Python Package?
 
 https://github.com/NTUST-SiMS-Lab/tutorial-simple-pypkg
