@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@font-face {
+    font-family: 'jf-openhuninn';
+    src: url('https://hsiangjenli.github.io/static/font/jf-openhuninn/jf-openhuninn.ttf');
+}
+
+:root {
+    --global-text-color: #4e4e4e;
+}
+
+
+body {
+    font-family: "Lato", 'jf-openhuninn' !important;
+}
+
+strong {
+    color: var(--global-text-color) !important;
+    font-weight: 700 !important;
+}
+
+em {
+    color: var(--global-text-color) !important;
+}
+
+.title {
+    font-weight: 700 !important;
+    color: var(--global-text-color) !important;
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+    color: var(--global-text-color) !important;
+    font-weight: 400 !important;
+}
+
+.card-content .article {
+    color: var(--global-text-color) !important;
+}
+
+.navbar-item {
+    color: var(--global-text-color) !important;
+    font-weight: 700 !important;
+}

@@ -6,7 +6,7 @@ tags:
     - note
 toc: true
 ---
-## **The MIT License (MIT)**
+## The MIT License (MIT)
 <!-- more -->
 - 被授權人**權利**
 允許任何人以任何方式使用、修改和分發代碼，包括商業用途，但作者不對代碼負責。

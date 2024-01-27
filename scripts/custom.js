@@ -1,0 +1,1 @@
+hexo.extend.injector.register('head_begin', '<link rel="stylesheet" href="/blog/css/custom.css" />', 'default');
