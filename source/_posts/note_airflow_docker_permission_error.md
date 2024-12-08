@@ -1,5 +1,5 @@
 ---
-title: "[note] Fixing Git Installation Issues in `apache/airflow:2.10.2` Docker Image"
+title: "[note] Fixing Git Installation Issues in apache/airflow:2.10.2 Docker Image"
 date: 2024-09-26
 tags: docker
 toc: true
