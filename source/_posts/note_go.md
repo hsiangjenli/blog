@@ -8,6 +8,8 @@ toc: true
 
 ## Install Go on macOS
 
+<!-- more -->
+
 1. **Install Go using Homebrew:**
    ```shell
    brew install go
