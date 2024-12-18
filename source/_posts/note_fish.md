@@ -5,7 +5,7 @@ tags: linux
 toc: true
 ---
 
-<!-- more -->
+
 
 <!-- ## What's shell
 
@@ -16,6 +16,8 @@ Bash is the most common shell used in Linux distributions -->
 
 
 ## FISH (Friendly Interactive SHell)
+
+<!-- more -->
 
 ### Installation on MacOS
 
