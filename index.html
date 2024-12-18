@@ -29,36 +29,9 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="https://hsiangjenli.github.io/static/image/ico.svg" alt="Hsiang-Jen Li&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/blog/">Home</a><a class="navbar-item" href="http://hsiangjenli.github.io/">About me</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="https://hsiangjenli.github.io/cheat-sheet/">Cheat sheets</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-12-18T00:00:00.000Z" title="12/18/2024, 12:00:00 AM">2024-12-18</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/note_pip_github_branch/">[note] Want to install the latest version from a GitHub repo using pip</a></h1><div class="content"><span id="more"></span>
-
-<h2 id="Want-to-install-the-latest-version-from-a-GitHub-repo-using-pip"><a href="#Want-to-install-the-latest-version-from-a-GitHub-repo-using-pip" class="headerlink" title="Want to install the latest version from a GitHub repo using pip?"></a>Want to install the latest version from a GitHub repo using pip?</h2><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="https://hsiangjenli.github.io/static/image/ico.svg" alt="Hsiang-Jen Li&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/blog/">Home</a><a class="navbar-item" href="http://hsiangjenli.github.io/">About me</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="https://hsiangjenli.github.io/cheat-sheet/">Cheat sheets</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-12-18T00:00:00.000Z" title="12/18/2024, 12:00:00 AM">2024-12-18</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/note_pip_github_branch/">[note] Want to install the latest version from a GitHub repo using pip</a></h1><div class="content"><ul>
 <li><code>devel</code> - stands for <strong>development</strong></li>
-</ul>
-<p>If you want to install a specific branch from GitHub, instead of the stable version from PyPI:</p>
-<ul>
-<li><strong>Repo URL :</strong> <code>https://github.com/username/repository.git</code></li>
-<li><strong>Repo Branch :</strong> <code>devel</code></li>
-</ul>
-<p>The command to pip install this repo:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install git+&#123;repo_url&#125;@&#123;branch_name&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install git+https://github.com/username/repository.git@devel</span><br></pre></td></tr></table></figure>
-
-<!-- 「Installing devel from GitHub with pip」指的是使用 `pip` 來安裝 GitHub 上某個專案的開發版（development version），通常這個版本位於 GitHub 專案的 `devel` 或 `development` 分支。這些分支一般是專案的開發者用來進行功能測試和改進的地方，並不一定像正式釋出的版本那樣穩定。
-
-`devel` 是「development」的縮寫，通常代表專案的開發過程中進行中的版本，而不是一個穩定、經過完整測試的版本。開發版會包含最新的功能和修復，但可能也會有一些尚未解決的問題。
-
-以下是使用 `pip` 從 GitHub 安裝 `devel` 分支的方法：
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install git+https://github.com/username/repository.git@devel</span><br></pre></td></tr></table></figure>
-
-<p>這個指令中：</p>
-<ul>
-<li><code>git+https://github.com/username/repository.git</code> 是 GitHub 上專案的 URL。</li>
-<li><code>@devel</code> 指的是你要從 <code>devel</code> 分支安裝專案。</li>
-</ul>
-<p>這樣可以讓你安裝某個專案的開發版，而不是安裝從 PyPI 發佈的穩定版本。 –&gt;</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-12-17T00:00:00.000Z" title="12/17/2024, 12:00:00 AM">2024-12-17</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/note_fish/">[note] Fish?</a></h1><div class="content"><!-- ## What's shell
+</ul></div><a class="article-more button is-small is-size-7" href="/blog/note_pip_github_branch/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-12-17T00:00:00.000Z" title="12/17/2024, 12:00:00 AM">2024-12-17</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/note_fish/">[note] Fish?</a></h1><div class="content"><!-- ## What's shell
 
 You probably heard it, but what is it?
 
