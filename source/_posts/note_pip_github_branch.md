@@ -8,11 +8,9 @@ tags:
 toc: true
 ---
 
-<!-- more -->
-
-## Want to install the latest version from a GitHub repo using pip?
-
 - `devel` - stands for **development**
+
+<!-- more -->
 
 If you want to install a specific branch from GitHub, instead of the stable version from PyPI:
 
