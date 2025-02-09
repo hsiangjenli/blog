@@ -1,5 +1,5 @@
 ---
-title: "[tutorial] Automating Commit Messages with Ollama: A Quick Guide"
+title: "[tutorial] Using Ollama with OpenCommit for Local Commit Message Generation"
 date: 2024-08-29
 created_at: 2024-08-29
 tags: ollama

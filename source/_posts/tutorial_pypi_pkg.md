@@ -19,14 +19,14 @@ https://github.com/NTUST-SiMS-Lab/tutorial-simple-pypkg
 - `pyproject.toml`
 
 ```python
-# setup.py
+# setup.py, the old way
 from setuptools import setup, find_packages
 
 setup(name="ntust_simslab", version="0.13", packages=find_packages())
 ```
 
 ```toml
-# pyproject.toml
+# pyproject.toml, the new way
 [tool.poetry]
 name = "ntust_simslab"
 version = "0.13"

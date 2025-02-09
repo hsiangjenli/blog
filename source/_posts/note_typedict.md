@@ -6,11 +6,11 @@ tags: python
 toc: true
 ---
 
-## The reason why we meed to use `TypedDict`
+##  Why Use TypedDict?
 
 <!-- more -->
 
-In general, we use **dataclasses** and **Pydantic** to store data. However, using **dictionaries** to store complex data is often an easier approach. Nevertheless, without predefined fields, it becomes difficult for later developers to maintain the code effectively. Using `TypedDict` allows the IDE to provide developers with suggestions, enhancing their development efficiency. But, `TypedDict` have some limitations; it cannot enforce strict type checking.
+In general, we use **dataclasses** and **Pydantic** to store data. However, using **dictionaries** to store complex data is often an easier approach. Nevertheless, without predefined fields, it becomes difficult for later developers to maintain the code effectively. Using `TypedDict` allows the IDE to provide developers with suggestions, enhancing their development efficiency. However, TypedDict has limitations, such as the inability to enforce strict type checking.
 
 ```python
 from typing import TypedDict

@@ -16,7 +16,7 @@ toc: true
 ```python
 pip install psutil
 ```
-## Usefull functions in psutil
+## Useful functions in psutil
 
 ### CPU
 ```python

@@ -1,5 +1,5 @@
 ---
-title: "[note]The installation of GitHub Copilot CLI"
+title: "[note] Installing GitHub Copilot CLI and Usage Guide"
 date: 2023-07-10
 toc: true
 ---

@@ -12,9 +12,6 @@ ePUB（Electronic Publication）是在 2007 由**國際數位出版論壇**（In
 > - 支援不同載具、硬體
 > - 支援 HTML、CSS（客製化不同）
 
-<!-- > **缺點**
-> - 版權 -->
-
 ### 核心概念 - 自動排版
 因應多種的載具（手機、平板、電腦...）可以自動調整最合適的字體大小
 
@@ -26,18 +23,6 @@ ePUB（Electronic Publication）是在 2007 由**國際數位出版論壇**（In
 1. [OPS（Open Publication Structure）](https://idpf.org/epub/20/spec/OPS_2.0.1_draft.htm)
 1. [OPF（Open Packaging Format）](https://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm)
 1. [OCF（OEBPS Container Format）](https://www.w3.org/TR/epub/#sec-ocf)
-
-<!-- 支援
-圖片格式
-表格
-影片
- -->
-
-<!-- ## 其他競爭者
-- word
-- Open eBook -->
-
-<!-- ## 版本更替 -->
 
 ## 相關工具
 - [w3c/epubcheck](https://github.com/w3c/epubcheck)
