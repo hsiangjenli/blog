@@ -8,6 +8,8 @@ toc: true
 ## 介紹
 ePUB（Electronic Publication）是在 2007 由**國際數位出版論壇**（International Digital Publishing Forum, IDPF）
 
+<!-- more -->
+
 > **優點**
 > - 支援不同載具、硬體
 > - 支援 HTML、CSS（客製化不同）

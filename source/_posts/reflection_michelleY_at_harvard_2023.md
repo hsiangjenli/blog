@@ -10,6 +10,8 @@ categories:
 
 > https://youtu.be/PZ7YERWPftA?si=5RpTYUj1nzmDjCmv
 
+<!-- more -->
+
 ## How to survive the fall
 
 1. Stay loose

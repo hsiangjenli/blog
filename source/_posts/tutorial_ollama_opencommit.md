@@ -9,6 +9,8 @@ toc: true
 
 ## Run ollama
 
+<!-- more -->
+
 ### Start a container
 ```shell
 docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama-commit ollama/ollama:0.3.6
