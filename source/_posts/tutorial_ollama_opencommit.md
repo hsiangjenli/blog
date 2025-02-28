@@ -1,16 +1,20 @@
 ---
-title: "[tutorial] Using Ollama with OpenCommit for Local Commit Message Generation"
-date: 2024-08-29
-created_at: 2024-08-29
-tags: ollama
+title: '[tutorial] Using Ollama with OpenCommit for Local Commit Message Generation'
+date: '2024-08-29'
+updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+author:
+  - 'Hsiang-Jen Li'
+  - ' & ChatGPT-4o Mini'
+tags:
+- ollama
 toc: true
 ---
 
-
-## Run ollama
-
+# 📌 Introduction
+This article covers using Ollama with OpenCommit for generating commit messages locally. It includes an overview of running Ollama in a Docker container, instructions for using the Ollama CLI, and how to combine Ollama with OpenCommit for generating commit messages.
 <!-- more -->
 
+# 🚀 Quick Start
 ### Start a container
 ```shell
 docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama-commit ollama/ollama:0.3.6
@@ -21,63 +25,25 @@ docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama-commit ollama
 docker exec -it ollama-commit bash
 ```
 
-## Ollama CLI
-
-```shell
-ollama
-
->>> Usage:
->>>   ollama [flags]
->>>   ollama [command]
->>> 
->>> Available Commands:
->>>   serve       Start ollama
->>>   create      Create a model from a Modelfile
->>>   show        Show information for a model
->>>   run         Run a model
->>>   pull        Pull a model from a registry
->>>   push        Push a model to a registry
->>>   list        List models
->>>   ps          List running models
->>>   cp          Copy a model
->>>   rm          Remove a model
->>>   help        Help about any command
->>> 
->>> Flags:
->>>   -h, --help      help for ollama
->>>   -v, --version   Show version information
->>> 
->>> Use "ollama [command] --help" for more information about a command.
-```
-
 ### Pull model
-
-Click [here](https://ollama.com/models) to view the available models.
-
 ```shell
 ollama run gemma2:2b
 ```
 
 ### Start a chat
-
 ```shell
 >>> Send a message (/? for help)
 ```
 
 ### Exit the chat
-
 Type `/bye` to exit the chat.
 
-## Combine Ollama and opencommit to generate commit messages
-
 ### Install opencommit
-
 ```shell
 npm install -g opencommit
 ```
 
 ### Generate commit messages with local ollama server
-
 ```shell
 OCO_AI_PROVIDER='ollama/gemma2:2b' opencommit
 ```
@@ -133,3 +99,14 @@ Error: llama runner process has terminated: exit status 127
 ```
 
 The error code occurs when the Docker image version is greater than `0.3.6`. Therefore, you need to pull the ollama image with version `0.3.6` and run the container. Click [here](https://github.com/ollama/ollama/issues/6541) to view the discussion.
+
+
+# 🔁 Recap
+- Ollama allows for the generation of commit messages using AI models.
+- The article details setting up Ollama in a Docker environment.
+- OpenCommit is integrated to simplify the process of generating commit messages using an AI model.
+- Users can interact with the AI model through a chat interface.
+
+# 🔗 References
+- https://ollama.com/models
+- https://github.com/ollama/ollama/issues/6541
