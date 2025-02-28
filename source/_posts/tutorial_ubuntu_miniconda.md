@@ -1,15 +1,25 @@
 ---
-title: "[tutorial] Setting up Miniconda on Ubuntu"
-date: 2023-02-13
-tags: 
-    - ubuntu
-    - python
+title: '[tutorial] Setting up Miniconda on Ubuntu'
+date: '2023-02-13'
+updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+author:
+  - 'Hsiang-Jen Li'
+  - ' & ChatGPT-4o Mini'
+tags:
+- ubuntu
+- python
 toc: true
 ---
+
+# 📌 Introduction
+This article details the steps required to install Miniconda on Ubuntu, including downloading the installer and setting up the initial environment.
+<!-- more -->
+
+# 🚀 Quick Start
 ```shell!
 sudo wget -c https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
-<!-- more -->
+
 ```shell!
 sudo chmod +x Miniconda3-latest-Linux-x86_64.sh
 ```
@@ -23,5 +33,10 @@ conda activate
 conda env list
 ```
 
-> Reference
-> 1. [Setting up Miniconda on Ubuntu](https://medium.com/featurepreneur/setting-up-miniconda-on-ubuntu-4bf6bece6f9b)
+# 🔁 Recap
+- Miniconda is a minimal installer for conda, useful for managing environments and packages in Python.
+- The installation process includes downloading the installer, making it executable, and running it to set up Miniconda.
+- After installation, you can easily create and manage Python environments using conda commands.
+
+# 🔗 References
+- https://medium.com/featurepreneur/setting-up-miniconda-on-ubuntu-4bf6bece6f9b

@@ -1,17 +1,20 @@
 ---
-title: "[note] Enhancing Code Clarity with TypedDict"
-date: 2024-09-07
-created_at: 2024-09-07
-tags: python
+title: '[note] Enhancing Code Clarity with TypedDict'
+date: '2024-09-07'
+updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+author:
+  - 'Hsiang-Jen Li'
+  - ' & ChatGPT-4o Mini'
+tags:
+- python
 toc: true
 ---
 
-##  Why Use TypedDict?
-
+# 📌 Introduction
+This article discusses the benefits of using TypedDict in Python for enhancing code clarity when storing complex data. It highlights how TypedDict helps developers by providing suggestions through their IDE, while also noting its limitations regarding strict type enforcement.
 <!-- more -->
 
-In general, we use **dataclasses** and **Pydantic** to store data. However, using **dictionaries** to store complex data is often an easier approach. Nevertheless, without predefined fields, it becomes difficult for later developers to maintain the code effectively. Using `TypedDict` allows the IDE to provide developers with suggestions, enhancing their development efficiency. However, TypedDict has limitations, such as the inability to enforce strict type checking.
-
+# 🚀 Quick Start
 ```python
 from typing import TypedDict
 import datetime
@@ -25,6 +28,10 @@ class News(TypedDict):
 
 ![image](https://hackmd.io/_uploads/HkpDhsFhR.png)
 
+# 🔁 Recap
+- TypedDict is useful for maintaining code clarity with predefined fields.
+- It enhances development efficiency by providing IDE suggestions.
+- There are limitations to TypedDict, particularly regarding strict type checking.
 
-## Reference
-- [【一分钟快学】提高 Python 3 代码质量：掌握 TypedDict 实现精确的类型安全字典](https://juejin.cn/post/7342790243009363977)
+# 🔗 References
+- https://juejin.cn/post/7342790243009363977
