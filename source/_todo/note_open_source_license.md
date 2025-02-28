@@ -1,26 +1,28 @@
 ---
-title: "[note] 開源專案 License"
-date: 2023-02-21
-tags: 
-    - github
-    - note
+title: "[note] \u958B\u6E90\u5C08\u6848 License"
+date: '2023-02-21'
+updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+author:
+  - 'Hsiang-Jen Li'
+  - ' & ChatGPT-4o Mini'
+tags:
+- github
+- note
 toc: true
 ---
-## The MIT License (MIT)
+
+# 📌 Introduction
+This article discusses various open-source licenses including the MIT License, GNU General Public License, Apache License, and Berkeley Software Distribution License, outlining the rights and obligations of users under each license.
 <!-- more -->
-- 被授權人**權利**
-允許任何人以任何方式使用、修改和分發代碼，包括商業用途，但作者不對代碼負責。
-- 被授權人**義務**
-在軟體和軟體的**所有副本中都必須包含以上著作權聲明**和本許可聲明。
+
+# 🚀 Quick Start
 
 
-## **GNU General Public License (GNU GPL)**
-- 要求任何使用或分發代碼的人都必須使用相同的許可證並公開他們的修改。
+# 🔁 Recap
+- The MIT License allows for code usage, modification, and distribution without liability to the author.
+- GNU GPL requires any code distributor to share modifications under the same license.
+- Apache License permits the same freedoms as MIT but retains certain rights for the author.
+- BSD License is similar to MIT but emphasizes the author's lack of liability.
 
+# 🔗 References
 
-## **Apache License**
-- 允許任何人以任何方式使用、修改和分發代碼，包括商業用途，但作者對代碼有版權並保留某些權利
-
-
-## **Berkeley Software Distribution license (BSD)**
-- 與 MIT 許可證類似，允許任何人以任何方式使用、修改和分發代碼，包括商業用途，但作者不對代碼負責。
