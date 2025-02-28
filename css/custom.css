@@ -9,9 +9,12 @@
     --global-text-color: #4e4e4e;
 }
 
-
 body {
-    font-family: "Lato", 'jf-openhuninn' !important;
+    font-family: "Lato", 'jf-openhuninn', "Verdana" !important;
+}
+
+.section {
+    background-color: #e1e1e1 !important;
 }
 
 strong {
@@ -24,13 +27,24 @@ em {
 }
 
 .title {
-    font-weight: 700 !important;
+    font-weight: bolder !important;
     color: var(--global-text-color) !important;
 }
 
-.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
     color: var(--global-text-color) !important;
-    font-weight: 400 !important;
+    font-weight: bolder !important;
+}
+
+.content h1,
+.card-content h2 {
+    padding-bottom: .75rem !important;
+    border-bottom: 1px solid #e4e4e7 !important;
 }
 
 .card-content .article {
@@ -40,4 +54,8 @@ em {
 .navbar-item {
     color: var(--global-text-color) !important;
     font-weight: 700 !important;
+}
+
+.highlight-body {
+    background-color: #eaeaea !important;
 }
