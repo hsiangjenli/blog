@@ -13,6 +13,10 @@ body {
     font-family: "Lato", 'jf-openhuninn', "Verdana" !important;
 }
 
+.section {
+    background-color: #e1e1e1 !important;
+}
+
 strong {
     color: var(--global-text-color) !important;
     font-weight: 700 !important;
