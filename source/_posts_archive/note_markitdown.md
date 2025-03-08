@@ -1,24 +1,15 @@
 ---
-title: '[note] MarkItDown: A tool for smoothly converting docx and pptx into markdown'
-date: '2024-12-13'
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
-author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
-tags:
-- python
-- markdown
+title: "[note] MarkItDown: A tool for smoothly converting docx and pptx into markdown"
+date: 2024-12-13
+tags: python, markdown
 toc: true
 ---
 
-# 📌 Introduction
-This article discusses MarkItDown, a tool specifically designed to effortlessly convert docx and pptx files into markdown format. It highlights various Python libraries that serve as dependencies for this conversion process, enabling users to handle documents and multimedia content effectively.
-<!-- more -->
-
-# 🚀 Quick Start
-
 ## How MarkItDown works?
-Down below are the module use for MarkItDown
+
+- Down below are the module use for MarkItDown
+
+<!-- more -->
 
 ```python
 dependencies = [
@@ -97,19 +88,5 @@ Pdfminer.six is a community-maintained version that was forked from original PDF
 ...
 ```
 
-# 🔁 Recap
-- MarkItDown allows smooth conversion of docx and pptx files to markdown format.
-- A variety of dependencies are required for this conversion, including libraries for handling documents, audio, and data.
-- Each library mentioned has its own specific functionality, such as converting Word documents to HTML or reading Excel files.
 
-# 🔗 References
-- https://pypi.org/project/mammoth/
-- https://github.com/scanny/python-pptx
-- https://openpyxl.readthedocs.io/en/stable/
-- https://github.com/pdfminer/pdfminer.six
-- https://github.com/jiaaro/pydub
-- https://github.com/jdepoix/youtube-transcript-api
-- https://github.com/Uberi/speech_recognition/tree/master
-- https://github.com/matthewwithanm/python-markdownify
-- https://github.com/thombashi/pathvalidate
-- https://github.com/cdgriffith/puremagic/tree/master
+

@@ -1,32 +1,34 @@
 ---
-title: '[tutorial] Enhancing Commit Messages with commitollama: A Guide for VSCode
-  and Local LLM Integration'
-date: '2024-09-04'
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
-author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
-tags:
-- ollama
+title: "[tutorial] Enhancing Commit Messages with commitollama: A Guide for VSCode and Local LLM Integration"
+date: 2024-09-04
+created_at: 2024-09-04
+tags: ollama
 toc: true
 ---
 
-# 📌 Introduction
-This article introduces commitollama, an alternative to GitHub Copilot designed for generating commit messages using local LLMs, ensuring privacy for confidential projects. It outlines the installation process for the commitollama extension in VSCode and necessary setup steps to start using it effectively.
-<!-- more -->
+## commitollama
 
-# 🚀 Quick Start
+<!-- more -->
 
 ![](https://commitollama.gallerycdn.vsassets.io/extensions/commitollama/commitollama/1.7.2/1723710671949/Microsoft.VisualStudio.Services.Icons.Default)
 
+<!-- The commitollama is an alternative of github copilot commit generator which based on open source llama (llama3, gemma, mistral, phi3 etc). If your project is confidential, you can use local LLM to ensure privacy issue. -->
+
+**commitollama** is an alternative to GitHub Copilot’s commit message generator, powered by open-source models such as Llama (Llama3, Gemma, Mistral, Phi3, etc. For projects where confidentiality is a concern, commitollama allows you to use a local Large Language Model (LLM), ensuring privacy.
+
 ## How to use
 
-1. Install the extension in VSCode.  
+<!-- Thanks to the contributors, commitollama can be directly used by simply install the extension in vscode and ollama -->
+
+Thanks to its contributors, commitollama can be directly integrated into VSCode by installing the extension and setting up Ollama.
+
+1. Install the extension in VSCode.
 1. Install Ollama to integrate the LLM.
 
 ![Screenshot from 2024-09-04 22-35-57](https://hackmd.io/_uploads/r1Vdxl8nR.png)
 
 ![Screenshot from 2024-09-04 22-37-24](https://hackmd.io/_uploads/Bk-6gx830.png)
+
 ### Installing Ollama
 
 Run the following command to install Ollama:
@@ -102,13 +104,3 @@ To prevent the model from being deleted after downloading, refer to this discuss
 
 ![image](https://hackmd.io/_uploads/HklK2W82C.png)
 
-
-# 🔁 Recap
-- commitollama is a privacy-focused commit message generator alternative to GitHub Copilot.
-- The tool leverages open-source LLMs like Llama, Mistral, and Phi3.
-- Easy integration with VSCode through a simple extension installation process.
-- Users can easily retrieve models, run services, and generate commit messages efficiently.
-
-# 🔗 References
-- https://github.com/ollama/ollama/issues/707
-- https://github.com/ollama/ollama/issues/1493

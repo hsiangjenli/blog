@@ -1,26 +1,19 @@
 ---
-title: '[tutorial] GitHub + PicGo + VSCode Extension'
-date: '2025-01-29'
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
-author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+title: "[tutorial] GitHub + PicGo + VSCode Extension"
+date: 2025-01-29
 tags:
-- picgo
+    - picgo
 toc: true
 ---
 
-# 📌 Introduction
-This article provides a tutorial on setting up GitHub, PicGo, and a VSCode extension to facilitate image uploading to GitHub repositories. It outlines the necessary prerequisites, the procedure to generate a GitHub token, and essential steps for configuring the PicGo extension in VSCode.
-<!-- more -->
-
-# 🚀 Quick Start
 ## Before You Start
 
 Make sure you have following:
 
 - A Github Token with access to your repo
 - A repo to store images
+
+<!-- more -->
 
 ## GitHUb
 
@@ -78,8 +71,6 @@ To fix this, install `xclip` using the following command:
 sudo apt install xclip
 ```
 
-# 🔁 Recap
-- You need a Github token and a public repository for image storage.
-- Install the PicGo extension in VSCode for image uploading.
-- Follow specific configuration steps in the PicGo extension to link it with GitHub.
-- Potential troubleshooting includes ensuring `xclip` is installed on your system.
+
+
+
