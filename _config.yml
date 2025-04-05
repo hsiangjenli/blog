@@ -74,3 +74,12 @@ hexo_info_api:
   - getLatestPost
   - getLatest5Posts
   disable_default_api: false
+# Markdown-it config
+## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
+markdown:
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
