@@ -83,7 +83,9 @@ plugins:
     mathjax: true
     outdated_browser: false
     progressbar: true
-
+    google_analytics:
+        tracking_id: G-RMY40RWC3B
+        
 providers:
     cdn: jsdelivr
     fontcdn: google
