@@ -51,23 +51,6 @@ sidebar:
         sticky: true
 
 widgets:
-    # - type: profile
-    #   position: left
-    #   author: Hsiang-Jen Li
-    #   author_title: RN
-    #   location: Taiwan
-    #   avatar: https://hsiangjenli.github.io/static/image/ico.svg
-    #   avatar_rounded: false
-    #   gravatar: 
-    #   follow_link: https://github.com/hsiangjenli
-    #   social_links:
-    #     Github:
-    #       icon: fab fa-github
-    #       url: https://github.com/hsiangjenli
-    #     Mail:
-    #       icon: fa-regular fa-envelope
-    #       url: mailto:hsiangjenli
-    #   index: true
     - type: recent_posts
       position: right
     - type: toc
