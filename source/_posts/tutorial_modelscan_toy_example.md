@@ -1,5 +1,5 @@
 ---
-title: '[tutorial] A toy example of scanning model'
+title: '[tutorial] A toy example of scanning models'
 date: '2025-06-14'
 updated: '2025-06-14'
 author:
