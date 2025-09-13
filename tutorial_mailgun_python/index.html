@@ -33,7 +33,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9209299049234744" crossorigin="anonymous"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="https://hsiangjenli.github.io/static/image/ico.svg" alt="Hsiang-Jen Li&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/blog/">Home</a><a class="navbar-item" href="http://hsiangjenli.github.io/">About me</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="/blog/note_strategic_thinking_models/">Stragetic Thinking</a><a class="navbar-item" href="https://hsiangjenli.github.io/cheat-sheet/">Cheat sheets</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2025-03-08T00:00:00.000Z" title="3/8/2025, 12:00:00 AM">2025-03-08</time></span><span class="level-item"> Hsiang-Jen Li </span></div></div><h1 class="title is-3 is-size-4-mobile">[tutorial] Using Mailgun + Python to send email</h1><div class="content"><h1>📌 Introduction</h1>
+  </script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9209299049234744" crossorigin="anonymous"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="https://hsiangjenli.github.io/static/image/ico.svg" alt="Hsiang-Jen Li&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/blog/">Home</a><a class="navbar-item" href="http://hsiangjenli.github.io/">About me</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="/blog/note_strategic_thinking_models/">Stragetic Thinking</a><a class="navbar-item" href="https://hsiangjenli.github.io/cheat-sheet/">Cheat sheets</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Language" href="/blog/zh-TW/"><i class="fas fa-globe"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2025-03-08T00:00:00.000Z" title="3/8/2025, 12:00:00 AM">2025-03-08</time></span><span class="level-item"> Hsiang-Jen Li </span></div></div><h1 class="title is-3 is-size-4-mobile">[tutorial] Using Mailgun + Python to send email</h1><div class="content"><h1>📌 Introduction</h1>
 <p>This tutorial covers how to send emails using Mailgun and Python. You’ll learn how to set up Mailgun, generate an API key, and write Python code to send emails with or without attachments.</p>
 <span id="more"></span>
 <h1>🚀 Quick Start</h1>
@@ -122,4 +122,40 @@
             }
         });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><script src="/blog/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/blog/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
             loadInsight({"contentUrl":"/blog/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
-        });</script></body></html>
+        });</script><!-- hexo injector body_end start -->
+<script>
+(function(){
+  function basePath() {
+    var p = window.location.pathname; // e.g. /blog/zh-TW/...
+    var segs = p.split('/').filter(Boolean);
+    // If first segment is 'blog', treat '/blog/' as base; otherwise '/'
+    return (segs[0] === 'blog') ? '/blog/' : '/';
+  }
+  function toggleLangHref(){
+    var a = document.querySelector('.navbar .navbar-end a.navbar-item[title="Language"]');
+    if(!a) return;
+    // If page-level translation switch exists, use its target
+    var postSwitch = document.querySelector('.post-lang-switch');
+    if (postSwitch && postSwitch.getAttribute('href')) {
+      a.setAttribute('href', postSwitch.getAttribute('href'));
+    } else {
+      var p = window.location.pathname;
+      var base = basePath();
+      var segs = p.split('/').filter(Boolean);
+      var idx = (base === '/blog/') ? 1 : 0;
+      var inZh = (segs[idx] === 'zh-TW');
+      var href = inZh ? base : base + 'zh-TW/';
+      a.setAttribute('href', href);
+    }
+    // open in same tab
+    a.removeAttribute('target');
+    a.removeAttribute('rel');
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', toggleLangHref);
+  } else {
+    toggleLangHref();
+  }
+})();
+</script>
+<!-- hexo injector body_end end --></body></html>
