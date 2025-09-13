@@ -1,6 +1,6 @@
 ---
-title: '[tutorial] Enhancing Commit Messages with commitollama: A Guide for VSCode
-  and Local LLM Integration'
+title: '[tutorial] Using commitollama to improve commit messages: VSCode and local
+  LLM integration guide'
 date: '2024-09-04'
 lang: en
 updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
@@ -12,10 +12,16 @@ tags:
 toc: true
 translation_key: tutorial-enhancing-commit-messages-with-commitollama-a-guide-for-vscode-and-local-llm-integration
 slug: tutorial-enhancing-commit-messages-with-commitollama-a-guide-for-vscode-and-local-llm-integration
+source_sha: 616ece52a38bfab5290866615254fa5fa7a5c7405c2edbab3f4b49006bd04ff8
+origin_lang: zh-TW
 ---
 
-# 📌 Introduction
-This article introduces commitollama, an alternative to GitHub Copilot designed for generating commit messages using local LLMs, ensuring privacy for confidential projects. It outlines the installation process for the commitollama extension in VSCode and necessary setup steps to start using it effectively.
+> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
+> 
+> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
+> 
+> # 📌 Introduction
+This article introduces commitollama, a local-LLM-based alternative for generating commit messages, suitable for situations where project privacy must be protected. It explains the process of installing the commitollama extension in VSCode and the necessary setup before getting started.
 <!-- more -->
 
 # 🚀 Quick Start
@@ -25,12 +31,12 @@ This article introduces commitollama, an alternative to GitHub Copilot designed 
 ## How to use
 
 1. Install the extension in VSCode.  
-1. Install Ollama to integrate the LLM.
+1. Install Ollama to integrate LLMs.
 
 ![Screenshot from 2024-09-04 22-35-57](https://hackmd.io/_uploads/r1Vdxl8nR.png)
 
 ![Screenshot from 2024-09-04 22-37-24](https://hackmd.io/_uploads/Bk-6gx830.png)
-### Installing Ollama
+### Install Ollama
 
 Run the following command to install Ollama:
 ```shell
@@ -39,11 +45,11 @@ curl -fsSL https://ollama.com/install.sh | sh
 
 ![Screenshot from 2024-09-04 23-01-51](https://hackmd.io/_uploads/rJwuUxIn0.png)
 
-After installation, you can run Ollama using:
+After installation, you can run Ollama:
 ```python
 ollama
 ```
-This will display a list of available commands:
+This will show a list of available commands:
 ```python
 Usage:
   ollama [flags]
@@ -69,7 +75,7 @@ Flags:
 Use "ollama [command] --help" for more information about a command.
 ```
 
-<!-- In this case, we will use `tavernari/git-commit-message` as our LLM model. This model is trained on Mistral0.3 . -->
+<!-- In this example, we will use `tavernari/git-commit-message` as the LLM model. That model is trained on Mistral0.3. -->
 
 Download the Phi3 model (3.8b) by running:
 
@@ -77,40 +83,39 @@ Download the Phi3 model (3.8b) by running:
 ollama pull phi3:3.8b
 ```
 
-Start the Ollama service using:
+Start the Ollama service:
 ```shell
 ollama serve
 ```
 
-<!-- If there a error message `Error: listen tcp 127.0.0.1:11434: bind: address already in use`. Which can be found at [there](https://github.com/ollama/ollama/issues/707) . You need to shutdown the ollama and restart it. -->
+<!-- If you encounter the error `Error: listen tcp 127.0.0.1:11434: bind: address already in use`, refer to this discussion: https://github.com/ollama/ollama/issues/707. You may need to stop ollama and restart it. -->
 
+If you encounter the error `Error: listen tcp 127.0.0.1:11434: bind: address already in use`, you can find a solution here: [https://github.com/ollama/ollama/issues/707](https://github.com/ollama/ollama/issues/707).
 
-If you encounter the error message `Error: listen tcp 127.0.0.1:11434: bind: address already in use`, you can find a solution [here](https://github.com/ollama/ollama/issues/707) .
-
-To restart Ollama, stop the current service and relaunch it:
+To restart Ollama, stop the current service and then restart:
 
 ```shell
 systemctl stop ollama.service
 ollama serve
 ```
 
-To prevent the model from being deleted after downloading, refer to this discussion [here](https://github.com/ollama/ollama/issues/1493) .
+To avoid models being deleted after download, see this discussion: [https://github.com/ollama/ollama/issues/1493](https://github.com/ollama/ollama/issues/1493).
 
 
 
-### Setting Up VSCode
+### Configuring in VSCode
 
-- After installing the extension, use a custom model for commit message generation.
-- Press the button in the interface to automatically generate the commit message.
+- After installing the extension, you can use a custom model to generate commit messages.
+- Press the button in the UI to automatically generate a commit message.
 
 ![image](https://hackmd.io/_uploads/HklK2W82C.png)
 
 
-# 🔁 Recap
-- commitollama is a privacy-focused commit message generator alternative to GitHub Copilot.
-- The tool leverages open-source LLMs like Llama, Mistral, and Phi3.
-- Easy integration with VSCode through a simple extension installation process.
-- Users can easily retrieve models, run services, and generate commit messages efficiently.
+# 🔁 Summary
+- commitollama is a privacy-focused alternative for generating commit messages, serving as a replacement for GitHub Copilot in this use case.
+- The tool can use open-source LLMs like Llama, Mistral, and Phi3.
+- It integrates easily into VSCode through a simple extension installation process.
+- Users can obtain models, run the service, and effectively generate commit messages with minimal effort.
 
 # 🔗 References
 - https://github.com/ollama/ollama/issues/707

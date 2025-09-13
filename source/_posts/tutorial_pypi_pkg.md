@@ -1,5 +1,5 @@
 ---
-title: '[tutorial] Build your own python package'
+title: '[tutorial] Create Your Own Python Package'
 date: '2024-01-15'
 lang: en
 updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
@@ -11,10 +11,16 @@ tags:
 toc: true
 translation_key: tutorial-build-your-own-python-package
 slug: tutorial-build-your-own-python-package
+source_sha: 26f844ffb12a23ae7816a79472fdcc7d5a68491f480a4f9afb873ebd0f1cc321
+origin_lang: zh-TW
 ---
 
-# 📌 Introduction
-Building your own Python package is beneficial for maintaining large projects, as it helps manage code that is otherwise scattered across directories.
+> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
+> 
+> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
+>
+> # 📌 Introduction
+Creating your own Python package helps maintain large projects because it organizes code that was previously scattered across directories.
 <!-- more -->
 
 # 🚀 Quick Start
@@ -42,12 +48,12 @@ requests = "^2.28.2"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 ```
-- Sign up for a PyPI account at https://pypi.org/ to publish your package.
+- Register a PyPI account at https://pypi.org/ to publish your package.
 
 # 🔁 Recap
-- Building a Python package helps maintain code organization in larger projects.
-- Using `setup.py` is the traditional method, while `pyproject.toml` is the modern approach with Poetry.
-- It's essential to have an account on PyPI to publish your package.
+- Creating a Python package helps keep code organized in larger projects.
+- Using `setup.py` is the traditional approach, while `pyproject.toml` is the modern approach when using Poetry.
+- A PyPI account is required to publish packages.
 
 # 🔗 References
 - https://github.com/NTUST-SiMS-Lab/tutorial-simple-pypkg

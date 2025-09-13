@@ -1,5 +1,5 @@
 ---
-title: '[note] Docker Model Runner Installation'
+title: '[Notice] Docker Model Runner Installation'
 date: '2025-07-25'
 lang: en
 updated: '2025-08-19'
@@ -12,14 +12,20 @@ tags:
 toc: true
 translation_key: note-docker-model-runner-installation
 slug: note-docker-model-runner-installation
+source_sha: 7cc496b70fe2349caa0e90a01090d581b7ba25420fe2cd719aec8d487644e943
+origin_lang: zh-TW
 ---
 
-# 📌 Introduction
+> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
+> 
+> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
+> 
+> # 📌 Introduction
 
-While installing the Docker Model Plugin on Ubuntu 24.04, I ran into an issue where apt couldn’t locate the package. It turned out that the Docker repository was pointing to the wrong release (focal instead of noble).
+On Ubuntu 24.04 while installing the Docker Model Plugin, I encountered an issue where apt could not find the package. It turned out the Docker repository was pointing to the wrong release (pointing to focal instead of noble).
 
-> **⭐ Note** 
-> This article was initially drafted with the help of ChatGPT based on a real issue I encountered. I verified the solution and revised the content to ensure accuracy and clarity for others facing similar problems.
+> **⭐ Note**
+> This article was initially drafted based on the real issue I encountered, with assistance from ChatGPT. I have verified the fix and revised the content to ensure it is accurate and clear for others facing a similar problem.
 
 <!-- more -->
 
@@ -47,7 +53,7 @@ Reading state information... Done
 E: Unable to locate package docker-model-plugin
 ```
 
-When I following the tuorial from [How to Run Docker Model Runner on Ubuntu 24.04](https://mrcloudbook.com/how-to-run-docker-model-runner-on-ubuntu-24-04/). I found an issue that apt install cannot find docker-model-plugin. The solution is 
+When I followed the tutorial [How to Run Docker Model Runner on Ubuntu 24.04](https://mrcloudbook.com/how-to-run-docker-model-runner-on-ubuntu-24-04/) I found that apt install could not find docker-model-plugin. The solution is
 
 ```shell
 sudo apt-get update
@@ -65,11 +71,11 @@ echo \
 sudo apt-get update
 ```
 
-# 🔁 Recap
+# 🔁 Key Takeaways
 
-- The error occurred because the Docker APT repository was pointing to the wrong release (focal instead of noble)
-- Fixing the issue required adding the correct Docker GPG key and configuring the proper repository for Ubuntu 24.04
-- After updating the APT sources, the docker-model-plugin package became available for installation
+- The cause was that Docker's APT repository pointed to the wrong release (focal instead of noble)
+- Fixing this requires adding the correct Docker GPG key and configuring the proper repository for Ubuntu 24.04
+- After updating the APT sources, the docker-model-plugin package can be installed
 
 # 🔗 References
 

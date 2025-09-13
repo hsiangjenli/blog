@@ -1,5 +1,5 @@
 ---
-title: '[tutorial] 使用 AWS SAM 建立與執行 Lambda 函數'
+title: '[教學] 使用 AWS SAM 建立與執行 Lambda 函數'
 date: '2025-06-20'
 lang: zh-TW
 updated: '2025-06-20'
@@ -11,15 +11,21 @@ tags:
 toc: true
 translation_key: tutorial-aws-sam-lambda
 slug: tutorial-aws-sam-lambda
+source_sha: 8fc8b9b7b4bcc881d2cb5e361e51d46798a7998523d9f52e7e938f9bb8e288db
+origin_lang: en
 ---
 
-# 📌 Introduction
+> 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。
+> 
+> > 注意：此頁面為 AI 生成（gpt-5-mini-2025-08-07）的繁體中文翻譯，可能包含些微不準確之處。
+> 
+> # 📌 介紹
 
-主要介紹如何使用 AWS SAM 建立與執行 Lambda 函數，包含基本安裝、專案結構說明，以及在本地端執行 Lambda 的操作流程
+本指南介紹如何使用 AWS SAM 建立與執行 Lambda 函數，包含基本安裝、專案結構說明，以及在本機執行 Lambda 的流程。
 
 <!-- more -->
 
-# 🚀 Quick Start
+# 🚀 快速開始
 
 ## AWS CLI
 
@@ -27,20 +33,20 @@ slug: tutorial-aws-sam-lambda
 brew install awscli
 ```
 
-## AWS SAM (Serverless Application Model) CLI
+## AWS SAM（Serverless Application Model）CLI
 
 ```shell
 brew install aws-sam-cli
 ```
 
-### 初始化 SAM project
+### 初始化 SAM 專案
 ```shell
 sam init
 ```
 
-### 介紹專案架構
+### 專案結構總覽
 
-```shell
+```text
 .
 ├── __init__.py
 ├── events
@@ -63,17 +69,17 @@ sam init
         └── test_handler.py
 ```
 
-- `events/` - 放置模擬事件（Event Payload）的 Json 檔，用來測試 Lambda 函數
-- `hello_world/` - Application 的放置處，與 Lambda 有關的函數，包含 handler 函式（例如 app.py）以及依賴（例如 requirements.txt）
-- `tests/` - 單元測試的資料夾
-- `samconfig.toml` - 儲存 SAM CLI 執行參數（如部署區域、Stack 名稱、S3 bucket 等），用來簡化 `sam deploy` 時的設定流程
-- `template.yaml` - 定義所有 Lambda 函數，IaC 的主要核心檔案（主要會用到哪些服務，互相的相依關係），是基於 AWS CloudFormation 的擴充語法
+- `events/` - 包含用來測試 Lambda 函數的模擬事件有效載荷 JSON 檔案
+- `hello_world/` - 應用程式所在；Lambda 相關函數（例如 handler，例如 app.py）與相依套件（例如 requirements.txt）
+- `tests/` - 單元測試資料夾
+- `samconfig.toml` - 儲存 SAM CLI 執行參數（例如部署區域、stack 名稱、S3 桶等），以便在執行 `sam deploy` 時簡化設定
+- `template.yaml` - 定義所有 Lambda 函數；主要的基礎設施即程式碼（IaC）檔案（哪些服務被使用以及它們的相依性）。它是 AWS CloudFormation 語法的擴充。
 
 #### `template.yaml`
 
-> 可使用 CloudFormation Linter 工具 [`cfn-lint`](https://github.com/aws-cloudformation/cfn-lint) 對檔案偵測格式、屬性錯誤
+> 您可以使用 CloudFormation Linter 工具 [`cfn-lint`](https://github.com/aws-cloudformation/cfn-lint) 來偵測檔案中的格式與屬性錯誤
 
-**Header**
+**標頭**
 
 ```yaml
 AWSTemplateFormatVersion: '2010-09-09'
@@ -81,40 +87,40 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   TODO....
 ```
-1. **AWSTemplateFormatVersion** - AWS CloudFormation 的版本號
-1. **Transform** - 告訴 CloudFormation 這個模板要額外使用 SAM 來擴充語法
-1. **Description** - 專案介紹
+1. **AWSTemplateFormatVersion** - AWS CloudFormation 的版本
+1. **Transform** - 指示 CloudFormation 使用 SAM 擴充模板語法
+1. **Description** - 專案描述
 
-**Content**
+**內容**
 
-1. **Globals** - 預設設定，提供給 Resources 使用
-2. **Resources** - 建立的 AWS 資源，可參考 [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-template-resource-type-ref.html)、[AWS SAM resources and properties](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-resources-and-properties.html)
-3. **Outputs** - 在部署完後預期印出的結果（你需要知道哪些資訊）
+1. **Globals** - 提供給資源的預設設定
+2. **Resources** - 要建立的 AWS 資源。請參閱 [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-template-resource-type-ref.html) 與 [AWS SAM resources and properties](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-resources-and-properties.html)
+3. **Outputs** - 部署後的預期輸出（您需要的資訊）
 
 #### `samconfig.toml`
 
-> 可參考 [AWS SAM CLI configuration file](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html)、[Configuring the AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/using-sam-cli-configure.html)、[AWS SAM CLI command reference](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.html)
+> 參見 [AWS SAM CLI configuration file](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html)、[Configuring the AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/using-sam-cli-configure.html)、[AWS SAM CLI command reference](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.html)
 
-目的是為了簡化使用 sam 指令時的複雜度
+目的在於簡化使用 sam 指令時的複雜度
 
-| Original                                                                 | Optimized with `samconfig`         |
-|--------------------------------------------------------------------------|------------------------------------|
-| `sam build --cached --parallel --use-containers`                        | `sam build`                        |
-| `sam local invoke --env-vars locals.json`                               | `sam local invoke`                 |
-| `sam local start-api --env-vars locals.json --warm-containers EAGER`   | `sam local start-api`              |
+| 原本                                                                 | 使用 `samconfig` 後                  |
+|---------------------------------------------------------------------|------------------------------------|
+| `sam build --cached --parallel --use-containers`                    | `sam build`                        |
+| `sam local invoke --env-vars locals.json`                           | `sam local invoke`                 |
+| `sam local start-api --env-vars locals.json --warm-containers EAGER`| `sam local start-api`              |
 
-### Local Invoke
+### 本機呼叫
 
 ```shell
 sam local invoke
 ```
 
 ```shell
-No current session found, using default AWS::AccountId                                                      
+No current session found, using default AWS::AccountId                                                       
 Invoking app.lambda_handler (python3.13)                                                                    
-Local image is up-to-date                                                                                   
-Using local image: public.ecr.aws/lambda/python:3.13-rapid-x86_64.                                          
-                                                                                                            
+Local image is up-to-date                                                                                  
+Using local image: public.ecr.aws/lambda/python:3.13-rapid-x86_64.                                           
+                                                                                                           
 Mounting /Users/XXXXXX/Documents/TEST/hello_world as 
 /var/task:ro,delegated, inside runtime container                                                            
 START RequestId: f6a6ec50-58b2-432c-9381-ec45ca43b130 Version: $LATEST
@@ -123,12 +129,12 @@ REPORT RequestId: e883464b-1216-43ae-b0fe-f7f803a73057  Init Duration: 1.26 ms  
 {"statusCode": 200, "body": "{\"message\": \"hello world\"}"}
 ```
 
-# 🔁 Recap
+# 🔁 重點回顧
 
 - 安裝指令
-- 理解 AWS SAM 的專案架構
-- 知道特定檔案 `template.yaml`、`samconfig.toml` 檔案用途以及欄位的官方相關文件
-- 在地端 Invoke 一個簡單的 `Hello World` Lambda Function
+- 了解 AWS SAM 專案結構
+- 了解 `template.yaml` 與 `samconfig.toml` 這些檔案的用途及其相關官方文件
+- 在本機呼叫一個簡單的「Hello World」Lambda 函數
 
-# 🔗 References
+# 🔗 參考資料
 - [Day02-環境準備(一)安裝AWS CLI、Docker、AWS SAM CLI](https://ithelp.ithome.com.tw/articles/10214954)

@@ -1,5 +1,5 @@
 ---
-title: '[note] Solving fstatat canonical snap directory: Permission denied'
+title: '[note] Resolve fstatat canonical snap directory: Permission denied'
 date: '2025-03-27'
 lang: en
 updated: '2025-03-31'
@@ -12,38 +12,43 @@ tags:
 toc: true
 translation_key: note-solving-fstatat-canonical-snap-directory-permission-denied
 slug: note-solving-fstatat-canonical-snap-directory-permission-denied
+source_sha: cb220fd9a116bf9af2b1f53a7eaab047c7731f1726041c6a6252ac00acd6bb42
+origin_lang: zh-TW
 ---
 
-# 📌 Introduction
+> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
+> 
+> > Note: This page was automatically translated by AI (gpt-5-mini-2025-08-07) from the original English, and may contain minor inaccuracies.
+> 
+> # 📌 Introduction
 
-When using Snap apps on Ubuntu, you might encounter a confusing permission error related to fstatat. This note documents a real-world issue, explores possible causes, and shares the simple solution that worked.
+When using Snap applications on Ubuntu, you may encounter a confusing permission error related to fstatat. This note records a real issue, explores possible causes, and shares a simple, practical fix that worked.
 
-> **⭐ Note** 
-> This article was initially drafted with the help of ChatGPT based on a real issue I encountered. I verified the solution and revised the content to ensure accuracy and clarity for others facing similar problems.
-
+> **⭐ Note**
+> This article was initially drafted with the help of ChatGPT based on a real issue I encountered. I have verified the solution and revised the content to ensure people facing a similar problem can understand it clearly and correctly.
 
 <!-- more -->
 
-# 📚 Prerequisite
+# 📚 Prerequisites
 
 - AppArmor
 - LDAP (Lightweight Directory Access Protocol)
 - fstatat
 - snap
 
-Below are some key concepts mentioned in this article:
+Below are some key concepts mentioned in this post:
 
-| Term | 中文說明 | English Description |
-|------|----------|---------------------|
-| **AppArmor** | Ubuntu 的一種安全模組，用來限制應用程式能存取的資源，例如檔案、網路。 | A security module in Ubuntu that restricts what resources an application can access. |
-| **LDAP (Lightweight Directory Access Protocol)** | 一種常見的用戶驗證協定，常用於企業環境集中管理帳號。 | A common user authentication protocol used for centralized account management, especially in enterprise environments. |
-| **fstatat** | 一個 Linux 系統呼叫，用來查詢檔案資訊。這個錯誤就是因為它失敗了。 | A Linux system call used to get information about files. The error occurs when this call fails. |
-| **Snap** | Ubuntu 推出的套件系統，讓應用程式更容易安裝、升級與隔離管理。 | A packaging system by Ubuntu that makes applications easy to install, update, and sandbox. |
+| Term | Chinese description | English description |
+|------|---------------------|---------------------|
+| **AppArmor** | Ubuntu's security module used to restrict the resources an application can access, such as files and network. | Ubuntu's security module that restricts the resources applications can access. |
+| **LDAP (Lightweight Directory Access Protocol)** | A common user authentication protocol used for centralized account management, typically in enterprise environments. | A common user authentication protocol used for centralized account management, especially in enterprise environments. |
+| **fstatat** | A Linux system call used to query file information. This error occurs because it failed. | A Linux system call used to obtain file information. When this call fails, an error is produced. |
+| **Snap** | Ubuntu's packaging system that makes it easier to install, upgrade, and isolate applications. | Ubuntu's packaging system that makes it easier to install, update, and run applications in isolation. |
 
-- **Non-standard home directory**: The user’s home directory is located outside the default `/home/username` path, often on a different drive or mount point
-- **Home directory is symlinked**: The home directory appears to be in `/home/username`, but it’s actually a symbolic link pointing to another location
+- **Non-standard home directory**: The user's home directory is located outside the default /home/username path, often on a different disk or mount point.
+- **Home directory is a symlink**: The home directory appears under /home/username but is actually a symbolic link pointing to another location.
 
-# 🧭 Problem-solving Framework
+# 🧭 Troubleshooting framework
 
 ## Problem
 
@@ -51,14 +56,14 @@ Below are some key concepts mentioned in this article:
 cannot fstatat canonical snap directory: Permission denied
 ```
 
-## Root Cause Analysis
+## Root cause analysis
 
 In general, there are two common causes for this issue:
 
 1. The system is installed on an NTFS partition.
 1. The home directory is symlinked to a non-standard location.
 
-### Check Filesystem Type
+### Check filesystem type
 
 ```shell
 df -T /
@@ -70,7 +75,7 @@ Filesystem     Type 1K-blocks     Used Available Use% Mounted on
 The system is installed on an ext4 partition
 
 
-### Check for Symlinks
+### Check symlinks
 
 ```shell
 ls -l /home/hsiangjenli/Documents/github
@@ -84,38 +89,38 @@ drwxrwxr-x 11 hsiangjenli hsiangjenli 4096  二  16 08:44 python-package-templat
 drwxrwxr-x  6 hsiangjenli hsiangjenli 4096  一  27 17:25 star-to-review
 ```
 
-None of the folders are symbolic links
+These folders are not symlinks
 
-## Why This Happens
+## Why this happened
 
 I don't know ...
 
 ## Solution
 
-Surprisingly, running the following command solved the issue:
+Surprisingly, running the following command resolved the issue:
 
 ```
 sudo dpkg-reconfigure apparmor
 ```
-Enter the destination directory that you want to use
+Enter the target directory you want to use
 ![image](https://hackmd.io/_uploads/Bk5RTUG6Jg.png)
 
-Reboot the computer~~
+Restart the computer~~
 
-# 🔁 Recap
+# 🔁 Key takeaways
 
 - ✅ The error `cannot fstatat canonical snap directory: Permission denied` is often related to AppArmor restrictions
 - ✅ Common causes include:
-  - Using an NTFS partition for your system or home directory
-  - Having a symlinked or non-standard home directory
+  - The system or home directory using an NTFS partition
+  - The home directory being a symlink or located in a non-standard location
 - 🔍 In this case:
   - The system is on an ext4 partition — ✅ not NTFS.
-  - The home directory is not a symlink — ✅ not symlinked.
+  - The home directory is not a symlink — ✅ not a symlink.
 - ⚠️ The root cause remains unclear
-- 🛠 The problem was resolved by:
-  1. Running `sudo dpkg-reconfigure apparmor`
-  1. Entering the actual path to the home directory during configuration
-  1. Rebooting the system
+- 🛠 The issue was resolved with the following steps:
+  1. Run `sudo dpkg-reconfigure apparmor`
+  1. During setup, enter the actual path of the home directory
+  1. Reboot the system
 
 
 # 🔗 References

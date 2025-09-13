@@ -1,5 +1,5 @@
 ---
-title: '[tutorial] A toy example of scanning models'
+title: '[Tutorial] Toy Example for Scanning Models'
 date: '2025-06-14'
 lang: en
 updated: '2025-06-14'
@@ -11,23 +11,29 @@ tags:
 toc: true
 translation_key: tutorial-a-toy-example-of-scanning-models
 slug: tutorial-a-toy-example-of-scanning-models
+source_sha: ea7e80fae82eab972b7b46e4a141f5840a24092630c76fdd05087141e800e373
+origin_lang: zh-TW
 ---
 
-# 📌 Introduction
+> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
+> 
+> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
+> 
+> # 📌 Introduction
 
-This article shows how to detect unsafe PyTorch models using a simple example and the `modelscan` tool.
+This article demonstrates how to use a simple example and the `modelscan` tool to detect unsafe PyTorch models.
 
 <!-- more -->
 
 # 🚀 Quick Start
 
-> Before start you need to install following packages
+> Before getting started you need to install the following packages
 
 ```shell
 pip install numpy torch modelscan
 ```
 
-## Prepare Safe Model
+## Prepare a safe model
 
 ```python
 from torch import nn
@@ -49,9 +55,9 @@ if __name__ == "__main__":
     torch.save(model.state_dict(), "safe_model.pth")
 ```
 
-## Prepare Malicious Model
+## Prepare a malicious model
 
-This is a malicious model that will generate an output when you load it.
+This is a malicious model that produces output when you load it.
 
 ```python
 from torch import nn
@@ -61,7 +67,7 @@ import os
 class MaliciousModel:
 
     def __reduce__(self):
-        print("Reduce called!")  # 應該會印出
+        print("Reduce called!")  # Should print
         return (os.system, ("echo 'This is a malicious model!' > malicious_output.txt",))
     
 if __name__ == "__main__":
@@ -71,9 +77,9 @@ if __name__ == "__main__":
     torch.save(model, "malicious_model.pth")
 ```
 
-## Load model
+## Loading models
 
-Torch already has basic protection, so we need to temporarily turn off the `weights_only` option. After you load the model, you will see a file called `malicious_output.txt`. This means the malicious behavior has already happened suddenly.
+Torch has basic protections, so we need to temporarily disable the `weights_only` option. After loading the model, you'll see a file named `malicious_output.txt`. This indicates the malicious action occurred during loading.
 
 ```python
 import torch
@@ -85,9 +91,9 @@ s_model = torch.load(safe_model_path)
 m_model = torch.load(malicious_model_path, weights_only=False)
 ```
 
-## Using `modelscan` to scan the model
+## Using `modelscan` to scan models
 
-### Safe Model
+### Safe model
 
 ```shell
 modelscan -p safe_model.pth
@@ -105,7 +111,7 @@ Scanning /Users/hsiangjenli/Documents/github/mlops-survey/safe_model.pth:safe_mo
 Total skipped: 7 - run with --show-skipped to see the full list.
 ```
 
-### Malicious Model
+### Malicious model
 
 ```shell
 modelscan -p malicious_model.pth
@@ -139,10 +145,10 @@ Unsafe operator found:
 Total skipped: 5 - run with --show-skipped to see the full list.
 ```
 
-# 🔁 Recap
+# 🔁 Review
 
-1. Created a safe model and a malicious model (which generates output on load)
-1. Scanned both models using `modelscan`
+1. Created a safe model and a malicious model (which produces output when loaded)
+1. Scanned both models with `modelscan`
 
 # 🔗 References
 

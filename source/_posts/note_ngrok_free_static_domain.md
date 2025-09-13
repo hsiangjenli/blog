@@ -1,5 +1,5 @@
 ---
-title: '[note] ngrok - static domain for free'
+title: '[note] ngrok - Free Static Domains'
 date: '2025-07-22'
 lang: en
 updated: '2025-07-22'
@@ -10,11 +10,17 @@ tags:
 toc: true
 translation_key: note-ngrok-static-domain-for-free
 slug: note-ngrok-static-domain-for-free
+source_sha: 51b05bd4ae9294707a546d0a9907855893020f641012f3eee6b29b3977f6010d
+origin_lang: zh-TW
 ---
 
-# 📌 Introduction
+> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
+> 
+> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
+> 
+> # 📌 Introduction
 
-ngrok provides users with free static domains!
+ngrok offers users free static domains!
 
 <!-- more -->
 
@@ -26,22 +32,21 @@ ngrok provides users with free static domains!
 sudo snap install ngrok
 ```
 
-## Create Domain
+## Create a domain
 
-> Login to [ngrok](https://dashboard.ngrok.com/login) and create your personal domain (random)
+> Log in to [ngrok](https://dashboard.ngrok.com/login) and create your personal domain (random)
 
-![image](https://hackmd.io/_uploads/BJj8LzTLge.png)
+![Image](https://hackmd.io/_uploads/BJj8LzTLge.png)
 
-## Setup Token
+## Set up Token
 
-![image](https://hackmd.io/_uploads/BklCszTUlx.png)
-
+![Image](https://hackmd.io/_uploads/BklCszTUlx.png)
 
 ```shell
 ngrok config add-authtoken $YOUR_AUTHTOKEN
 ```
 
-## Create Tunnel
+## Create a tunnel
 
 ```shell
 ngrok http --url=$URL $PORT
@@ -49,4 +54,4 @@ ngrok http --url=$URL $PORT
 
 # 🔗 References
 
-- [Static domains for all ngrok users](https://ngrok.com/blog-post/free-static-domains-ngrok-users)
+- [Free static domains for all ngrok users](https://ngrok.com/blog-post/free-static-domains-ngrok-users)

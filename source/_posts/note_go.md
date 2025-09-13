@@ -1,5 +1,5 @@
 ---
-title: '[note] Installation of Golang (PATH)'
+title: '[note] Install Golang (PATH)'
 date: '2024-08-27'
 lang: en
 updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
@@ -11,10 +11,16 @@ tags:
 toc: true
 translation_key: note-installation-of-golang-path
 slug: note-installation-of-golang-path
+source_sha: 4ac8890ddd25d5c5224bb7163e3a4e3864189786b96ed4fc8b80fb6590917648
+origin_lang: zh-TW
 ---
 
-# 📌 Introduction
-This article provides a step-by-step guide on how to install Go on macOS and configure the system's PATH variable to include Go binaries.
+> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
+> 
+> > Note: This page was automatically translated from the original English by an AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
+> 
+> # 📌 Introduction
+> This article provides a step-by-step guide to installing Go on macOS and configuring the system PATH variable to include Go executables.
 <!-- more -->
 
 # 🚀 Quick Start
@@ -23,23 +29,23 @@ This article provides a step-by-step guide on how to install Go on macOS and con
    brew install go
    ```
 
-2. **Verify the Installation:**
+2. **Verify the installation:**
    ```shell
    ls ~/go/bin/
    ```
 
-3. **Update PATH Temporarily:**
+3. **Temporarily update PATH:**
    ```shell
    export PATH=$PATH:~/go/bin
    ```
 
-4. **Update PATH Permanently:**
+4. **Permanently update PATH:**
    ```shell
    echo 'export PATH=$PATH:~/go/bin' >> ~/.zshrc
    source ~/.zshrc
    ```
 
 # 🔁 Recap
-- The guide covers how to install Go programming language on macOS.
-- It includes verification steps to check the installation.
-- Instructions are provided for temporarily and permanently updating the PATH environment variable.
+- This guide explains how to install the Go programming language on macOS.
+- Includes verification steps to check if the installation succeeded.
+- Provides instructions for temporarily and permanently updating the PATH environment variable.

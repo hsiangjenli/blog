@@ -1,5 +1,5 @@
 ---
-title: '[tutorial] Using Mailgun + Python to send email'
+title: '[tutorial] Send Email with Mailgun + Python'
 date: '2025-03-08'
 lang: en
 updated: '2025-03-08'
@@ -11,22 +11,28 @@ tags:
 toc: true
 translation_key: tutorial-using-mailgun-python-to-send-email
 slug: tutorial-using-mailgun-python-to-send-email
+source_sha: a39c3eb3395e321f58ce6a9c123cd7e9b58ec053205a4540405cbd2b88885981
+origin_lang: zh-TW
 ---
 
-# 📌 Introduction
-This tutorial covers how to send emails using Mailgun and Python. You’ll learn how to set up Mailgun, generate an API key, and write Python code to send emails with or without attachments.
+> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
+> 
+> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
+> 
+> # 📌 Introduction
+This tutorial explains how to send emails using Mailgun and Python. You will learn how to set up Mailgun, generate an API key, and write Python code to send emails with or without attachments.
 
 <!-- more -->
 
 # 🚀 Quick Start
 
 ## Mailgun
-- Mailgun provides a free plan allows sending up to 100 emails per day.
+- Mailgun offers a free plan, allowing up to 100 emails per day.
 
-Here are three things you need to do
+Here are the three things you need to do
 1. Generate a Mailgun API key
-1. Remember your Mailgun domain name (used for sending email)
-1. Add your email to Mailgun (Mailgun only allows sending an email to authorized recipients)
+1. Note your Mailgun domain name (used for sending emails)
+1. Add your email to Mailgun (Mailgun only allows sending to authorized recipients)
 
 ![image](https://hackmd.io/_uploads/Hk6SuIujkg.png)
 <!-- ![image](https://hackmd.io/_uploads/HkFMY8_syx.png) -->
@@ -37,14 +43,14 @@ Here are three things you need to do
 ![image](https://hackmd.io/_uploads/ry8XkmFikl.png)
 ![image](https://hackmd.io/_uploads/BJOHy7Fjkg.png)
 
-### Get your domain from Mailgun
+### Obtain your Mailgun domain
 
 ![image](https://hackmd.io/_uploads/SkoMbQtsyg.png)
 
-### Set up your email & verify it
+### Set up and verify your email
 
-1. Add your email to mailgun
-1. Check your mailbox to verify it
+1. Add your email to Mailgun
+1. Check your mailbox to complete verification
 
 ![image](https://hackmd.io/_uploads/S14QdQtoke.png)
 ![image](https://hackmd.io/_uploads/HkU8_Qtj1g.png)
@@ -104,14 +110,14 @@ def send_email_with_attachment(
 ```
 
 ## Gmail
-After sending the email from Mailgun, you can check your inbox. It might be marked as spam, so you can check your spam folder to see if the email is there.
+After sending mail from Mailgun, you can check the inbox. The message may be marked as spam; please check the spam folder for the email.
 
 ![image](https://hackmd.io/_uploads/BJtOYQtoyl.png)
 
-# 🔁 Recap
-- Mailgun Setup: Generate an API key, retrieve your domain name, and verify your email
-- Python Integration: Use the Mailgun API with Python to send emails programmatically
-- Sending Attachments: Learn how to send emails with attachments using the Mailgun API
+# 🔁 Key takeaways
+- Mailgun setup: generate an API key, obtain your domain name, and verify your email
+- Python integration: use the Mailgun API and Python to programmatically send emails
+- Sending attachments: learn how to use the Mailgun API to send emails with attachments
 
 # 🔗 References
 - https://www.mailgun.com/blog/it-and-engineering/send-email-using-python/
