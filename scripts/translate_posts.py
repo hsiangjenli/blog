@@ -180,7 +180,16 @@ def main():
         print(f"Missing {root}", file=sys.stderr)
         sys.exit(1)
 
-    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"), base_url=os.environ.get("OPENAI_API_BASE", "https://api.openai.com/v1"))
+    api_key = (os.environ.get("OPENAI_API_KEY") or "").strip()
+    if not api_key:
+        print("Missing OPENAI_API_KEY. Please set it in GitHub Actions secrets or environment.", file=sys.stderr)
+        sys.exit(2)
+    base_url_raw = (os.environ.get("OPENAI_API_BASE") or "").strip()
+    if not base_url_raw:
+        base_url = "https://api.openai.com/v1"
+    else:
+        base_url = base_url_raw if base_url_raw.startswith("http://") or base_url_raw.startswith("https://") else ("https://" + base_url_raw)
+    client = OpenAI(api_key=api_key, base_url=base_url)
 
     posts = load_posts(root)
     # index by (key, lang)
