@@ -129,7 +129,6 @@ Source markdown body:
             {"role":"system","content": sys_prompt},
             {"role":"user","content": user_prompt}
         ],
-        temperature=0.2,
     )
     content = resp.choices[0].message.content
     try:
