@@ -4,11 +4,12 @@ date: '2025-05-13'
 lang: en
 updated: '2025-05-13'
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o'
-tags:
-# - python
+- Hsiang-Jen Li
+- ' & ChatGPT-4o'
+tags: null
 toc: true
+translation_key: note-oci-artifact
+slug: note-oci-artifact
 ---
 
 # 📌 What is an OCI Artifact?

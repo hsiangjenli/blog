@@ -2,13 +2,15 @@
 title: '[note] Fixing Git Installation Issues in apache/airflow:2.10.2 Docker Image'
 date: '2024-09-26'
 lang: en
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o Mini'
 tags:
 - docker
 toc: true
+translation_key: note-fixing-git-installation-issues-in-apache-airflow-2-10-2-docker-image
+slug: note-fixing-git-installation-issues-in-apache-airflow-2-10-2-docker-image
 ---
 
 # 📌 Introduction

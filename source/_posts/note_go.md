@@ -2,13 +2,15 @@
 title: '[note] Installation of Golang (PATH)'
 date: '2024-08-27'
 lang: en
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o Mini'
 tags:
 - go
 toc: true
+translation_key: note-installation-of-golang-path
+slug: note-installation-of-golang-path
 ---
 
 # 📌 Introduction

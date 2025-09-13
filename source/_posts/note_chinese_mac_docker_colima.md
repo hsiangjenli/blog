@@ -4,11 +4,13 @@ date: '2025-04-28'
 lang: zh-TW
 updated: '2025-04-28'
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o'
 tags:
-  - docker
+- docker
 toc: true
+translation_key: note-mac-docker-desktop-colima
+slug: note-mac-docker-desktop-colima
 ---
 
 # 📌 介紹

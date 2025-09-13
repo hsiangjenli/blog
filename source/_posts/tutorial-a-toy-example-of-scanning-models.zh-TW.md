@@ -1,7 +1,7 @@
 ---
-title: '[tutorial] A toy example of scanning models'
+title: '[教學] 掃描模型的簡單範例'
 date: '2025-06-14'
-lang: en
+lang: zh-TW
 updated: '2025-06-14'
 author:
 - Hsiang-Jen Li
@@ -11,23 +11,25 @@ tags:
 toc: true
 translation_key: tutorial-a-toy-example-of-scanning-models
 slug: tutorial-a-toy-example-of-scanning-models
+source_sha: c71699f8d0ad067977a553f06e68c9509578fe87abcefa4f28d09ea89fc263ae
+origin_lang: en
 ---
 
-# 📌 Introduction
+# 📌 介紹
 
-This article shows how to detect unsafe PyTorch models using a simple example and the `modelscan` tool.
+本文示範如何使用一個簡單範例與 `modelscan` 工具來偵測不安全的 PyTorch 模型。
 
 <!-- more -->
 
-# 🚀 Quick Start
+# 🚀 快速開始
 
-> Before start you need to install following packages
+> 開始之前你需要安裝下列套件
 
 ```shell
 pip install numpy torch modelscan
 ```
 
-## Prepare Safe Model
+## 準備安全模型
 
 ```python
 from torch import nn
@@ -49,9 +51,9 @@ if __name__ == "__main__":
     torch.save(model.state_dict(), "safe_model.pth")
 ```
 
-## Prepare Malicious Model
+## 準備惡意模型
 
-This is a malicious model that will generate an output when you load it.
+這是一個惡意模型，當你載入時會產生輸出。
 
 ```python
 from torch import nn
@@ -71,9 +73,9 @@ if __name__ == "__main__":
     torch.save(model, "malicious_model.pth")
 ```
 
-## Load model
+## 載入模型
 
-Torch already has basic protection, so we need to temporarily turn off the `weights_only` option. After you load the model, you will see a file called `malicious_output.txt`. This means the malicious behavior has already happened suddenly.
+Torch 已有基本保護，因此我們需要暫時關閉 `weights_only` 選項。當你載入該模型後，會看到一個名為 `malicious_output.txt` 的檔案。這表示惡意行為已經在載入時發生。
 
 ```python
 import torch
@@ -85,9 +87,9 @@ s_model = torch.load(safe_model_path)
 m_model = torch.load(malicious_model_path, weights_only=False)
 ```
 
-## Using `modelscan` to scan the model
+## 使用 `modelscan` 掃描模型
 
-### Safe Model
+### 安全模型
 
 ```shell
 modelscan -p safe_model.pth
@@ -105,7 +107,7 @@ Scanning /Users/hsiangjenli/Documents/github/mlops-survey/safe_model.pth:safe_mo
 Total skipped: 7 - run with --show-skipped to see the full list.
 ```
 
-### Malicious Model
+### 惡意模型
 
 ```shell
 modelscan -p malicious_model.pth
@@ -139,11 +141,11 @@ Unsafe operator found:
 Total skipped: 5 - run with --show-skipped to see the full list.
 ```
 
-# 🔁 Recap
+# 🔁 重點回顧
 
-1. Created a safe model and a malicious model (which generates output on load)
-1. Scanned both models using `modelscan`
+1. 建立了一個安全模型與一個惡意模型（在載入時會產生輸出）
+1. 使用 `modelscan` 掃描兩個模型
 
-# 🔗 References
+# 🔗 參考資料
 
 - https://github.com/protectai/modelscan

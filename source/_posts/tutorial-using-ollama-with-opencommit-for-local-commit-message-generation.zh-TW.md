@@ -1,7 +1,7 @@
 ---
-title: '[tutorial] Using Ollama with OpenCommit for Local Commit Message Generation'
+title: '[教學] 使用 Ollama 與 OpenCommit 進行本地提交訊息生成'
 date: '2024-08-29'
-lang: en
+lang: zh-TW
 updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
 - Hsiang-Jen Li
@@ -11,42 +11,44 @@ tags:
 toc: true
 translation_key: tutorial-using-ollama-with-opencommit-for-local-commit-message-generation
 slug: tutorial-using-ollama-with-opencommit-for-local-commit-message-generation
+source_sha: 7b5ad48eaf49f87b2f8799479740c20362eb6281e183bb6b64b1822bf79b5008
+origin_lang: en
 ---
 
-# 📌 Introduction
-This article covers using Ollama with OpenCommit for generating commit messages locally. It includes an overview of running Ollama in a Docker container, instructions for using the Ollama CLI, and how to combine Ollama with OpenCommit for generating commit messages.
+# 📌 介紹
+本文說明如何將 Ollama 與 OpenCommit 結合，用於在本地生成提交訊息。內容包括在 Docker 容器中運行 Ollama 的概述、使用 Ollama CLI 的指引，以及如何將 Ollama 與 OpenCommit 結合以生成提交訊息。
 <!-- more -->
 
-# 🚀 Quick Start
-### Start a container
+# 🚀 快速開始
+### 啟動容器
 ```shell
 docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama-commit ollama/ollama:0.3.6
 ```
 
-### Enter the Docker container
+### 進入 Docker 容器
 ```shell
 docker exec -it ollama-commit bash
 ```
 
-### Pull model
+### 拉取模型
 ```shell
 ollama run gemma2:2b
 ```
 
-### Start a chat
+### 開始對話
 ```shell
 >>> Send a message (/? for help)
 ```
 
-### Exit the chat
-Type `/bye` to exit the chat.
+### 退出對話
+輸入 `/bye` 退出對話。
 
-### Install opencommit
+### 安裝 opencommit
 ```shell
 npm install -g opencommit
 ```
 
-### Generate commit messages with local ollama server
+### 使用本地 Ollama 伺服器生成提交訊息
 ```shell
 OCO_AI_PROVIDER='ollama/gemma2:2b' opencommit
 ```
@@ -83,8 +85,7 @@ feat(README.md): add link to Ollama website and examples of model usage in READM
 ```
 
 
-
-## Error code 127
+## 錯誤代碼 127
 
 ```shell
 Error: llama runner process has terminated: exit status 127
@@ -101,15 +102,15 @@ Error: llama runner process has terminated: exit status 127
 [GIN] 2024/08/28 - 18:43:24 | 500 |  266.021797ms |       127.0.0.1 | POST     "/api/chat"
 ```
 
-The error code occurs when the Docker image version is greater than `0.3.6`. Therefore, you need to pull the ollama image with version `0.3.6` and run the container. Click [here](https://github.com/ollama/ollama/issues/6541) to view the discussion.
+當 Docker 映像版本大於 `0.3.6` 時會發生此錯誤代碼。因此，您需要拉取版本為 `0.3.6` 的 ollama 映像並執行該容器。點擊 [此處](https://github.com/ollama/ollama/issues/6541) 查看討論。
 
 
-# 🔁 Recap
-- Ollama allows for the generation of commit messages using AI models.
-- The article details setting up Ollama in a Docker environment.
-- OpenCommit is integrated to simplify the process of generating commit messages using an AI model.
-- Users can interact with the AI model through a chat interface.
+# 🔁 重點回顧
+- Ollama 允許使用 AI 模型生成提交訊息。
+- 本文詳細說明如何在 Docker 環境中設定 Ollama。
+- 已整合 OpenCommit，以簡化使用 AI 模型生成提交訊息的流程。
+- 使用者可以透過聊天介面與 AI 模型互動。
 
-# 🔗 References
+# 🔗 參考資料
 - https://ollama.com/models
 - https://github.com/ollama/ollama/issues/6541

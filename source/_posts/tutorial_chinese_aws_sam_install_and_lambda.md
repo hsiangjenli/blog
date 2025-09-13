@@ -4,11 +4,13 @@ date: '2025-06-20'
 lang: zh-TW
 updated: '2025-06-20'
 author:
-  - 'Hsiang-Jen Li'
+- Hsiang-Jen Li
 tags:
-  - aws
-  - lambda
+- aws
+- lambda
 toc: true
+translation_key: tutorial-aws-sam-lambda
+slug: tutorial-aws-sam-lambda
 ---
 
 # 📌 Introduction

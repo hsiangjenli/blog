@@ -4,13 +4,15 @@ date: '2025-04-06'
 lang: zh-TW
 updated: '2025-04-06'
 author:
-  - 'ChatGPT-4o'
-  - ' & Hsiang-Jen Li'
+- ChatGPT-4o
+- ' & Hsiang-Jen Li'
 tags:
-  - devops
-  - sa
-  - ea
+- devops
+- sa
+- ea
 toc: true
+translation_key: chatgpt-devops
+slug: chatgpt-devops
 ---
 
 # 📌 介紹

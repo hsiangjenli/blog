@@ -4,11 +4,13 @@ date: '2025-03-08'
 lang: en
 updated: '2025-03-08'
 author:
-  - 'Hsiang-Jen Li'
+- Hsiang-Jen Li
 tags:
-  - python
-  - mailgun
+- python
+- mailgun
 toc: true
+translation_key: tutorial-using-mailgun-python-to-send-email
+slug: tutorial-using-mailgun-python-to-send-email
 ---
 
 # 📌 Introduction

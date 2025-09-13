@@ -1,12 +1,14 @@
 ---
-title: "[note] Window 11 + Ubuntu 雙系統安裝紀錄"
+title: '[note] Window 11 + Ubuntu 雙系統安裝紀錄'
 date: 2025-01-17
 lang: zh-TW
 tags:
-    - ubuntu
-    - windows
-    - intel rst
+- ubuntu
+- windows
+- intel rst
 toc: true
+translation_key: note-window-11-ubuntu
+slug: note-window-11-ubuntu
 ---
 
 <!-- # 🤯 先從反省開始

@@ -4,10 +4,11 @@ date: '2025-06-07'
 lang: en
 updated: '2025-06-07'
 author:
-  - 'Hsiang-Jen Li'
-tags:
-# - python
+- Hsiang-Jen Li
+tags: null
 toc: true
+translation_key: reflection-first-experience-with-codex
+slug: reflection-first-experience-with-codex
 ---
 
 # 📌 Introduction

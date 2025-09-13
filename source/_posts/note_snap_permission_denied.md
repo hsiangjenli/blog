@@ -4,12 +4,14 @@ date: '2025-03-27'
 lang: en
 updated: '2025-03-31'
 author:
-  - 'ChatGPT-4o'
-  - ' & Hsiang-Jen Li'
+- ChatGPT-4o
+- ' & Hsiang-Jen Li'
 tags:
-  - snap
-  - permission denied
+- snap
+- permission denied
 toc: true
+translation_key: note-solving-fstatat-canonical-snap-directory-permission-denied
+slug: note-solving-fstatat-canonical-snap-directory-permission-denied
 ---
 
 # 📌 Introduction

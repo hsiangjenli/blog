@@ -4,10 +4,12 @@ date: '2025-07-22'
 lang: en
 updated: '2025-07-22'
 author:
-  - 'Hsiang-Jen Li'
+- Hsiang-Jen Li
 tags:
-  - ngrok
+- ngrok
 toc: true
+translation_key: note-ngrok-static-domain-for-free
+slug: note-ngrok-static-domain-for-free
 ---
 
 # 📌 Introduction

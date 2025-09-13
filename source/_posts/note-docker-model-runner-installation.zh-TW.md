@@ -1,7 +1,7 @@
 ---
-title: '[note] Docker Model Runner Installation'
+title: '[注意] Docker Model Runner 安裝'
 date: '2025-07-25'
-lang: en
+lang: zh-TW
 updated: '2025-08-19'
 author:
 - ChatGPT-5
@@ -12,18 +12,20 @@ tags:
 toc: true
 translation_key: note-docker-model-runner-installation
 slug: note-docker-model-runner-installation
+source_sha: 4baaff6e38f03d3da69fc6face5bf553fb13934c5597744ae76aa21a6a80b4d2
+origin_lang: en
 ---
 
-# 📌 Introduction
+# 📌 介紹
 
-While installing the Docker Model Plugin on Ubuntu 24.04, I ran into an issue where apt couldn’t locate the package. It turned out that the Docker repository was pointing to the wrong release (focal instead of noble).
+在 Ubuntu 24.04 上安裝 Docker Model Plugin 時，我遇到 apt 找不到該套件的問題。結果發現 Docker 的套件庫指向了錯誤的發行版本（指向 focal 而非 noble）。
 
-> **⭐ Note** 
-> This article was initially drafted with the help of ChatGPT based on a real issue I encountered. I verified the solution and revised the content to ensure accuracy and clarity for others facing similar problems.
+> **⭐ 注意** 
+> 這篇文章最初是由 ChatGPT 協助草擬，基於我實際遇到的問題。我已驗證解決方法並修訂內容，以確保其他遇到類似問題的人能夠準確且清楚地參考。
 
 <!-- more -->
 
-# 🚀 Quick Start
+# 🚀 快速開始
 
 ```shell
 sudo apt-get update
@@ -47,7 +49,7 @@ Reading state information... Done
 E: Unable to locate package docker-model-plugin
 ```
 
-When I following the tuorial from [How to Run Docker Model Runner on Ubuntu 24.04](https://mrcloudbook.com/how-to-run-docker-model-runner-on-ubuntu-24-04/). I found an issue that apt install cannot find docker-model-plugin. The solution is 
+當我按照 [How to Run Docker Model Runner on Ubuntu 24.04](https://mrcloudbook.com/how-to-run-docker-model-runner-on-ubuntu-24-04/) 的教學時，我發現 apt install 找不到 docker-model-plugin。解決方法是
 
 ```shell
 sudo apt-get update
@@ -65,12 +67,12 @@ echo \
 sudo apt-get update
 ```
 
-# 🔁 Recap
+# 🔁 回顧
 
-- The error occurred because the Docker APT repository was pointing to the wrong release (focal instead of noble)
-- Fixing the issue required adding the correct Docker GPG key and configuring the proper repository for Ubuntu 24.04
-- After updating the APT sources, the docker-model-plugin package became available for installation
+- 錯誤發生的原因是 Docker APT 套件庫指向了錯誤的發行版本（focal 而非 noble）
+- 修正此問題需要新增正確的 Docker GPG 金鑰並為 Ubuntu 24.04 設定正確的套件庫
+- 更新 APT 來源後，docker-model-plugin 套件即可安裝
 
-# 🔗 References
+# 🔗 參考資料
 
 - [How to Run Docker Model Runner on Ubuntu 24.04](https://mrcloudbook.com/how-to-run-docker-model-runner-on-ubuntu-24-04/)

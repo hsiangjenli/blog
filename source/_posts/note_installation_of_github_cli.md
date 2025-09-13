@@ -2,12 +2,14 @@
 title: '[note] Installing GitHub Copilot CLI and Usage Guide'
 date: '2023-07-10'
 lang: en
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o Mini'
 tags: []
 toc: true
+translation_key: note-installing-github-copilot-cli-and-usage-guide
+slug: note-installing-github-copilot-cli-and-usage-guide
 ---
 
 # 📌 Introduction
