@@ -129,6 +129,7 @@ Source markdown body:
             {"role":"system","content": sys_prompt},
             {"role":"user","content": user_prompt}
         ],
+        temperature=0.2,
     )
     content = resp.choices[0].message.content
     try:
@@ -137,6 +138,17 @@ Source markdown body:
     except Exception:
         # Fallback: treat whole as body
         return title, content
+
+def prepend_notice(body: str, src_lang: str, dst_lang: str, model: str) -> str:
+    # Add a locale-specific note that this article is AI translated.
+    if dst_lang == "zh-TW":
+        note = f"註記：此頁為由 AI（{model}）自動翻譯自英文原文，可能含有少量不準確之處。\n\n"
+    else:
+        # default to English
+        source_label = "Traditional Chinese" if src_lang == "zh-TW" else "English"
+        note = f"Note: This page is an AI-generated ({model}) translation from {source_label} and may contain minor inaccuracies.\n\n"
+    # Use Markdown blockquote style to make it visible but unobtrusive
+    return "> " + note.replace("\n", "\n> ") + body
 
 def load_posts(root: Path):
     posts = []
@@ -171,7 +183,7 @@ def main():
     ap.add_argument("--other-lang", default="zh-TW")
     ap.add_argument("--changed-file-list", default="")
     ap.add_argument("--scan-all", action="store_true")
-    ap.add_argument("--model", default="gpt-5-mini-2025-08-07")
+    ap.add_argument("--model", default="gpt-4o-mini")
     args = ap.parse_args()
 
     root = Path(args.src_root).resolve()
@@ -252,6 +264,7 @@ def main():
                 print(f"[create] {key} {src_lang} -> {dst_lang}")
                 title_src = str(it["fm"].get("title",""))
                 title_dst, body_dst = translate_text(client, args.model, it["body"], src_lang, dst_lang, title_src)
+                body_dst = prepend_notice(body_dst, src_lang, dst_lang, args.model)
 
                 fm_new = dict(it["fm"])  # copy
                 fm_new["title"] = title_dst or fm_new.get("title")
@@ -287,6 +300,7 @@ def main():
                 print(f"[update] {key} {src_lang} -> {dst_lang}")
                 title_src = str(it["fm"].get("title",""))
                 title_dst, body_dst = translate_text(client, args.model, it["body"], src_lang, dst_lang, title_src)
+                body_dst = prepend_notice(body_dst, src_lang, dst_lang, args.model)
 
                 new_fm = dict(counterpart_fm)
                 new_fm["title"] = title_dst or new_fm.get("title")

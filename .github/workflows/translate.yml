@@ -58,7 +58,7 @@ jobs:
 
       - name: Run translator (changed only)
         run: |
-          python scripts/translate_posts.py \
+          python .github/workflows/translate_posts.py \
             --src-root source/_posts \
             --default-lang en \
             --other-lang zh-TW \
@@ -104,7 +104,7 @@ jobs:
 
       - name: Run translator (backfill all)
         run: |
-          python scripts/translate_posts.py \
+          python .github/workflows/translate_posts.py \
             --src-root source/_posts \
             --default-lang en \
             --other-lang zh-TW \
