@@ -23,6 +23,10 @@ navbar:
         Archives: /archives
         Stragetic Thinking: note_strategic_thinking_models/
         Cheat sheets: https://hsiangjenli.github.io/cheat-sheet/
+    links:
+        Language:
+            url: /zh-TW/
+            icon: fas fa-globe
 
 article:
     highlight:

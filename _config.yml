@@ -3,7 +3,11 @@ subtitle: ''
 description: ''
 keywords: null
 author: Hsiang-Jen Li
-language: en
+language:
+  - en
+  - zh-TW
+## Put language code into subdirectories, e.g. /zh-TW/
+i18n_dir: :lang
 timezone: ''
 url: https://hsiangjenli.github.io/blog
 permalink: ':title/'
