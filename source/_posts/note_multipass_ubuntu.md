@@ -1,6 +1,7 @@
 ---
 title: '[note] Run Ubuntu VMs on Your Mac Using Multipass'
 date: '2023-10-23'
+lang: en
 updated: '2025-05-14'
 author:
   - 'Hsiang-Jen Li'

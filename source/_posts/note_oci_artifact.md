@@ -1,6 +1,7 @@
 ---
 title: '[note] OCI Artifact?'
 date: '2025-05-13'
+lang: en
 updated: '2025-05-13'
 author:
   - 'Hsiang-Jen Li'

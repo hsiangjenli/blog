@@ -1,6 +1,7 @@
 ---
 title: '[chatgpt] 企業架構師、解決方案架構師與 DevOps 角色比較與轉型路徑'
 date: '2025-04-06'
+lang: zh-TW
 updated: '2025-04-06'
 author:
   - 'ChatGPT-4o'
@@ -226,4 +227,3 @@ https://cloudmize.medium.com/how-to-seamlessly-transition-from-devops-to-cloud-a
 
 [^devops_architect_reddit]: How can I switch roles from DevOps to Architect?
 https://www.reddit.com/r/AWSCertifications/comments/1aorad5/how_can_i_switch_roles_from_devops_to_architect
-

@@ -1,6 +1,7 @@
 ---
 title: '[note] Want to install the latest version from a GitHub repo using pip'
 date: '2024-12-18'
+lang: en
 updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
 author:
   - 'Hsiang-Jen Li'

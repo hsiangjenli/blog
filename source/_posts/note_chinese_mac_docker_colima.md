@@ -1,6 +1,7 @@
 ---
 title: '[note] Mac 不裝 Docker Desktop，改用 Colima 常見問題整理'
 date: '2025-04-28'
+lang: zh-TW
 updated: '2025-04-28'
 author:
   - 'Hsiang-Jen Li'

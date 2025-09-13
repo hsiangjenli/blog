@@ -1,6 +1,7 @@
 ---
 title: '[note] ngrok - static domain for free'
 date: '2025-07-22'
+lang: en
 updated: '2025-07-22'
 author:
   - 'Hsiang-Jen Li'

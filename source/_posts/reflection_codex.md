@@ -1,6 +1,7 @@
 ---
 title: '[reflection] First Experience with Codex'
 date: '2025-06-07'
+lang: en
 updated: '2025-06-07'
 author:
   - 'Hsiang-Jen Li'
@@ -34,4 +35,3 @@ I don't know why, but Codex followed my instruction to rewrite the notes... Howe
 The quality of the rewritten content is also very bad.
 
 ![image](https://hackmd.io/_uploads/ryity9eXgg.png)
-

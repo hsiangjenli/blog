@@ -1,6 +1,7 @@
 ---
 title: '[tutorial] Using Mailgun + Python to send email'
 date: '2025-03-08'
+lang: en
 updated: '2025-03-08'
 author:
   - 'Hsiang-Jen Li'

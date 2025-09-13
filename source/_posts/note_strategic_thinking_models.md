@@ -1,6 +1,7 @@
 ---
 title: '[note] Strategic Thinking Models'
 date: '2025-02-09'
+lang: en
 updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
 author:
   - 'Hsiang-Jen Li'

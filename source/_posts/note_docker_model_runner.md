@@ -1,6 +1,7 @@
 ---
 title: '[note] Docker Model Runner Installation'
 date: '2025-07-25'
+lang: en
 updated: '2025-08-19'
 author:
   - 'ChatGPT-5'

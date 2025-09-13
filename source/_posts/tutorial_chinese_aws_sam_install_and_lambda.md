@@ -1,6 +1,7 @@
 ---
 title: '[tutorial] 使用 AWS SAM 建立與執行 Lambda 函數'
 date: '2025-06-20'
+lang: zh-TW
 updated: '2025-06-20'
 author:
   - 'Hsiang-Jen Li'

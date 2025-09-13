@@ -1,6 +1,7 @@
 ---
 title: '[tutorial] Build your own python package'
 date: '2024-01-15'
+lang: en
 updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
 author:
   - 'Hsiang-Jen Li'

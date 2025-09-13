@@ -1,6 +1,7 @@
 ---
 title: '[note] Solving fstatat canonical snap directory: Permission denied'
 date: '2025-03-27'
+lang: en
 updated: '2025-03-31'
 author:
   - 'ChatGPT-4o'

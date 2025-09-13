@@ -1,6 +1,7 @@
 ---
 title: '[tutorial] Setting up Miniconda on Ubuntu'
 date: '2023-02-13'
+lang: en
 updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
 author:
   - 'Hsiang-Jen Li'

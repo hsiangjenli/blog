@@ -1,6 +1,7 @@
 ---
 title: '[note] Fish?'
 date: '2024-12-17'
+lang: en
 updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
 author:
   - 'Hsiang-Jen Li'

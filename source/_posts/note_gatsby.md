@@ -1,6 +1,7 @@
 ---
 title: '[note] Gatsby Usage'
 date: '2022-09-02'
+lang: en
 updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
 author:
   - 'Hsiang-Jen Li'

@@ -1,6 +1,7 @@
 ---
 title: '[tutorial] A toy example of scanning models'
 date: '2025-06-14'
+lang: en
 updated: '2025-06-14'
 author:
   - 'Hsiang-Jen Li'

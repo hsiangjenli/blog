@@ -1,6 +1,7 @@
 ---
 title: '[note] MarkItDown: A tool for smoothly converting docx and pptx into markdown'
 date: '2024-12-13'
+lang: en
 updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
 author:
   - 'Hsiang-Jen Li'

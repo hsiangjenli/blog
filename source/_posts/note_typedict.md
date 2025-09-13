@@ -1,6 +1,7 @@
 ---
 title: '[note] Enhancing Code Clarity with TypedDict'
 date: '2024-09-07'
+lang: en
 updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
 author:
   - 'Hsiang-Jen Li'
