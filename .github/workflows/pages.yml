@@ -3,15 +3,52 @@ name: Pages
 on:
   push:
     branches:
-      - main  # default branch
+      - main
+    paths-ignore:
+      - 'source/_posts/**/*.md'
+  workflow_run:
+    workflows: ["Translate Posts"]
+    types: [completed]
 
 jobs:
+  verify:
+    # Run on push (non-post changes) OR after translation workflow succeeded on main
+    if: |
+      github.event_name == 'push' ||
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # When triggered by workflow_run, ensure we build latest main
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install verifier deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Verify all posts translated
+        run: |
+          python .github/workflows/verify_translations.py
+
   pages:
+    needs: verify
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
       # Hexo ----------------------
       - name: Use Node.js 17
         uses: actions/setup-node@v2
