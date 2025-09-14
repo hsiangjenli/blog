@@ -43,6 +43,14 @@ hexo.extend.filter.register('after_post_render', function(data) {
     if (target) targetUrl = getUrl(target.path);
   }
 
+  // Option C: fallback by same slug when translation_key is absent
+  if (!targetUrl && data.slug) {
+    const posts = hexo.locals.get('posts');
+    const siblings = posts.filter(p => p.slug === data.slug);
+    const target = siblings.find(p => (p.lang || p.language || defaultLang) === targetLang);
+    if (target) targetUrl = getUrl(target.path);
+  }
+
   if (!targetUrl) return data;
 
   const title = targetLang === 'zh-TW' ? '查看繁體中文版本' : 'View English version';
@@ -70,4 +78,3 @@ hexo.extend.filter.register('after_post_render', function(data) {
   data.content = `${style}${iconHtml}` + (data.content || '');
   return data;
 });
-
