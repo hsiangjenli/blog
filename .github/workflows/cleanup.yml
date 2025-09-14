@@ -1,0 +1,41 @@
+name: Cleanup AI Notice (Originals)
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    environment: PROD
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run cleanup
+        run: |
+          python .github/workflows/cleanup_notice.py
+
+      - name: Commit and push if changed
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git fetch origin
+            git pull --rebase origin main || true
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore(i18n): cleanup AI notice on originals"
+            git push || (git pull --rebase origin main && git push)
+          else
+            echo "No changes to commit."
+          fi
+

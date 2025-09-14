@@ -3,8 +3,12 @@ subtitle: ''
 description: ''
 keywords: null
 author: Hsiang-Jen Li
-language: en
-timezone: ''
+language:
+- en
+- zh-TW
+## Put language code into subdirectories, e.g. /zh-TW/
+i18n_dir: :lang
+timezone: Asia/Taipei
 url: https://hsiangjenli.github.io/blog
 permalink: ':title/'
 permalink_defaults: null
@@ -59,7 +63,8 @@ deploy:
   type: ''
 hexo_info_api:
   allowOrigin: "*" # Set to "*" to allow all origins (Access-Control-Allow-Origin)
-  enable: # enable what api u need
+  enable:
+  # enable what api u need
   - getInfo
   - getPostCount
   - getPosts
@@ -78,8 +83,8 @@ hexo_info_api:
 ## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
 markdown:
   plugins:
-    - markdown-it-abbr
-    - markdown-it-footnote
-    - markdown-it-ins
-    - markdown-it-sub
-    - markdown-it-sup
+  - markdown-it-abbr
+  - markdown-it-footnote
+  - markdown-it-ins
+  - markdown-it-sub
+  - markdown-it-sup
