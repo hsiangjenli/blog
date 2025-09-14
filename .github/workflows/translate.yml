@@ -80,6 +80,46 @@ jobs:
             echo "No changes to commit."
           fi
 
+      - name: Verify translation completeness
+        id: verify
+        continue-on-error: true
+        run: |
+          python - << 'PY'
+          import sys, subprocess
+          try:
+            out = subprocess.run(['python', '.github/workflows/verify_translations.py'], check=True)
+          except subprocess.CalledProcessError as e:
+            # propagate failure so outcome= failure, but do not fail job due to continue-on-error
+            sys.exit(e.returncode or 2)
+          PY
+
+      - name: Backfill missing translations (scan all)
+        if: ${{ steps.verify.outcome == 'failure' }}
+        run: |
+          echo "Completeness check failed; running backfill scan-all..."
+          python .github/workflows/translate_posts.py \
+            --src-root source/_posts \
+            --default-lang en \
+            --other-lang zh-TW \
+            --scan-all \
+            --model "${OPENAI_MODEL:-gpt-5-mini-2025-08-07}"
+
+      - name: Commit and push backfill results if changed
+        if: ${{ steps.verify.outcome == 'failure' }}
+        shell: bash
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git fetch origin
+            git pull --rebase origin main || true
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore(i18n): backfill translations (auto-triggered)"
+            git push || (git pull --rebase origin main && git push)
+          else
+            echo "No backfill changes to commit."
+          fi
+
   backfill:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' }}
     runs-on: ubuntu-latest

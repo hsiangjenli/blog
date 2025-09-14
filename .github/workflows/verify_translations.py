@@ -34,6 +34,23 @@ def normalize_lang(lang: str) -> str:
     return "en"
 
 
+def detect_lang_from_content(text: str) -> str:
+    # Simple heuristic: if there are many CJK characters, treat as zh-TW
+    cjk = sum(1 for ch in text if (
+        '\u4e00' <= ch <= '\u9fff' or  # CJK Unified Ideographs
+        '\u3400' <= ch <= '\u4dbf' or  # CJK Ext A
+        '\uf900' <= ch <= '\ufaff' or  # CJK Compatibility Ideographs
+        '\u3000' <= ch <= '\u303f'     # CJK punctuation
+    ))
+    letters = sum(1 for ch in text if ('a' <= ch.lower() <= 'z'))
+    # Thresholds to be tolerant of code blocks and URLs
+    if cjk >= 50 and cjk > letters * 0.5:
+        return 'zh-TW'
+    if letters >= 50 and letters > cjk * 0.5:
+        return 'en'
+    return ''
+
+
 def detect_lang_from_path(path: Path, fm_lang: str) -> str:
     if fm_lang:
         return normalize_lang(fm_lang)
@@ -80,14 +97,23 @@ def main():
     for p in root.rglob('*.md'):
         if p.is_dir():
             continue
-        fm, body = split_front_matter(read_text(p))
+        raw = read_text(p)
+        fm, body = split_front_matter(raw)
         if fm.get('draft', False):
             # Skip drafts from completeness requirement
             continue
-        lang = normalize_lang(fm.get('lang') or '') or detect_lang_from_path(p, fm.get('lang')) or 'en'
+        declared = normalize_lang(fm.get('lang') or '')
+        path_lang = detect_lang_from_path(p, fm.get('lang'))
+        content_lang = detect_lang_from_content(body)
+        # Prefer declared/path if consistent, otherwise fall back to content detection
+        candidates = [declared, path_lang, content_lang]
+        lang = next((x for x in candidates if x), '') or 'en'
         slug = infer_slug(fm, p)
         entry = pairs.setdefault(slug, set())
         entry.add(lang)
+        # Report suspicious mismatch between declared lang and content
+        if declared and content_lang and declared != content_lang:
+            print(f"WARN: Language mismatch in {p}: declared {declared}, content looks {content_lang}")
 
     for slug, langs in pairs.items():
         needed = {"en", "zh-TW"}
@@ -107,4 +133,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
