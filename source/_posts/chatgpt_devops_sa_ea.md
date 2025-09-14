@@ -11,7 +11,7 @@ tags:
 - ea
 toc: true
 slug: chatgpt-devops
-lang: en
+lang: zh-TW
 ---
 
 # 📌 介紹

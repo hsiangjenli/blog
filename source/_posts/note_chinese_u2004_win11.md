@@ -7,7 +7,7 @@ tags:
 - intel rst
 toc: true
 slug: note-window-11-ubuntu
-lang: en
+lang: zh-TW
 ---
 
 <!-- # 🤯 先從反省開始

@@ -9,7 +9,7 @@ tags:
 - docker
 toc: true
 slug: note-mac-docker-desktop-colima
-lang: en
+lang: zh-TW
 ---
 
 # 📌 介紹

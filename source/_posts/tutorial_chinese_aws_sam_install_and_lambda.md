@@ -9,7 +9,7 @@ tags:
 - lambda
 toc: true
 slug: tutorial-aws-sam-lambda
-lang: en
+lang: zh-TW
 ---
 
 # 📌 Introduction
