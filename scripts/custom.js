@@ -1,5 +1,5 @@
 hexo.extend.injector.register('head_begin', '<link rel="stylesheet" href="/blog/css/custom.css" />', 'default');
-hexo.extend.injector.register('head_end', '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9209299049234744" crossorigin="anonymous"></script>', 'default');
+// hexo.extend.injector.register('head_end', '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9209299049234744" crossorigin="anonymous"></script>', 'default');
 
 // Inject a tiny script to toggle the language globe link between EN and zh-TW.
 // If current page is a post with a specific translation target, set the navbar icon to that target.
