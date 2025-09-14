@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en"><head><!-- hexo injector head_begin start --><link rel="stylesheet" href="/blog/css/custom.css" /><!-- hexo injector head_begin end --><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="theme-color" content="#123456"><title>[note] Windows 11 + Ubuntu Dual-Boot Installation Record - Hsiang-Jen Li&#039;s Blog</title><link rel="manifest" href="/blog/manifest.json"><meta name="application-name" content="Hsiang-Jen Li&#039;s Blog"><meta name="msapplication-TileImage" content="https://hsiangjenli.github.io/static/image/ico.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hsiang-Jen Li&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.   🎒 Preparations 💻 Computer information  Model: VivoBook 14 X1405"><meta property="og:type" content="blog"><meta property="og:title" content="Hsiang-Jen Li&#039;s Blog"><meta property="og:url" content="https://hsiangjenli.github.io/blog/note-window-11-ubuntu.en/"><meta property="og:site_name" content="Hsiang-Jen Li&#039;s Blog"><meta property="og:description" content="Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.   🎒 Preparations 💻 Computer information  Model: VivoBook 14 X1405"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://img.shields.io/badge/Windows_11-0078d4?style=for-the-badge&amp;amp;logo=windows-11&amp;amp;logoColor=white"><meta property="og:image" content="https://img.shields.io/badge/Ubuntu%2020.04%20LTS-E95420?style=for-the-badge&amp;amp;logo=ubuntu&amp;amp;logoColor=white"><meta property="og:image" content="https://hackmd.io/_uploads/Bytew2Ovke.png"><meta property="og:image" content="https://hackmd.io/_uploads/SkOjV2_vkl.png"><meta property="og:image" content="https://hackmd.io/_uploads/H19EHbqDyl.png"><meta property="og:image" content="https://hackmd.io/_uploads/S1bSHZ9w1x.png"><meta property="og:image" content="https://hackmd.io/_uploads/ry4Er2_Dkx.png"><meta property="og:image" content="https://hackmd.io/_uploads/HyamMTuvyl.png"><meta property="og:image" content="https://hackmd.io/_uploads/r1qe9f5DJx.png"><meta property="og:image" content="https://hackmd.io/_uploads/rJstz95P1e.png"><meta property="og:image" content="https://hackmd.io/_uploads/SJfbN55PJe.png"><meta property="article:published_time" content="2025-01-16T16:00:00.000Z"><meta property="article:modified_time" content="2025-09-14T04:10:18.131Z"><meta property="article:author" content="Hsiang-Jen Li"><meta property="article:tag" content="ubuntu"><meta property="article:tag" content="windows"><meta property="article:tag" content="intel rst"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://img.shields.io/badge/Windows_11-0078d4?style=for-the-badge&amp;amp;logo=windows-11&amp;amp;logoColor=white"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hsiangjenli.github.io/blog/note-window-11-ubuntu.en/"},"headline":"[note] Windows 11 + Ubuntu Dual-Boot Installation Record","image":["https://hackmd.io/_uploads/Bytew2Ovke.png","https://hackmd.io/_uploads/SkOjV2_vkl.png","https://hackmd.io/_uploads/H19EHbqDyl.png","https://hackmd.io/_uploads/S1bSHZ9w1x.png","https://hackmd.io/_uploads/ry4Er2_Dkx.png","https://hackmd.io/_uploads/HyamMTuvyl.png","https://hackmd.io/_uploads/r1qe9f5DJx.png","https://hackmd.io/_uploads/rJstz95P1e.png","https://hackmd.io/_uploads/SJfbN55PJe.png"],"datePublished":"2025-01-16T16:00:00.000Z","dateModified":"2025-09-14T04:10:18.131Z","author":{"@type":"Person","name":"Hsiang-Jen Li"},"publisher":{"@type":"Organization","name":"Hsiang-Jen Li's Blog","logo":{"@type":"ImageObject","url":"https://hsiangjenli.github.io/static/image/ico.svg"}},"description":"Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.   🎒 Preparations 💻 Computer information  Model: VivoBook 14 X1405"}</script><link rel="canonical" href="https://hsiangjenli.github.io/blog/note-window-11-ubuntu.en/"><link rel="icon" href="https://hsiangjenli.github.io/static/image/ico.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/blog/css/default.css"><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><script src="https://www.googletagmanager.com/gtag/js?id=G-RMY40RWC3B" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-RMY40RWC3B');</script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="https://hsiangjenli.github.io/static/image/ico.svg" alt="Hsiang-Jen Li&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/blog/">Home</a><a class="navbar-item" href="http://hsiangjenli.github.io/">About me</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="/blog/note_strategic_thinking_models/">Stragetic Thinking</a><a class="navbar-item" href="https://hsiangjenli.github.io/cheat-sheet/">Cheat sheets</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Language" href="/blog/zh-TW/"><i class="fas fa-globe"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2025-01-16T16:00:00.000Z" title="1/16/2025, 4:00:00 PM">2025-01-17</time></span></div></div><h1 class="title is-3 is-size-4-mobile">[note] Windows 11 + Ubuntu Dual-Boot Installation Record</h1><div class="content"><blockquote>
+<p>Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.</p>
+</blockquote>
+<!-- # 🤯 Start with some reflection
+
+> Finally understand why most people who need to use Ubuntu either use a virtual machine or install WSL, and why Windows remains necessary.
+
+This time I went in with the attitude of "even if the computer system dies, at worst I'll just spend a few thousand to buy a Windows 11 license and pay someone at Guanghua to reinstall" and wanted to document the entire installation process :)
+
+-->
+<h1>🎒 Preparations</h1>
+<h2 id="💻-Computer-information">💻 Computer information</h2>
+<ul>
+<li><strong>Model</strong>: VivoBook 14 X1405VA-0041K</li>
+<li><strong>OS</strong>: Windows 11</li>
+<li><strong>CPU</strong>: i5-13500H</li>
+<li><strong>SSD</strong>: NVMe SAMSUNG MZVL4512HBLU-00BTW</li>
+<li><strong>BIOS access key</strong>: <kbd>F2</kbd></li>
+<li><strong>Boot device selection key</strong>: <kbd>F12</kbd></li>
+</ul>
+<span id="more"></span>
+<h2 id="🎯-Goal">🎯 Goal</h2>
+<p>The current SSD already has Win 11 installed. The goal is to partition the 1 TB SSD and install Ubuntu 20.04 LTS</p>
+<ul>
+<li><img src="https://img.shields.io/badge/Windows_11-0078d4?style=for-the-badge&amp;logo=windows-11&amp;logoColor=white" alt=""> - 350 GB</li>
+<li><img src="https://img.shields.io/badge/Ubuntu%2020.04%20LTS-E95420?style=for-the-badge&amp;logo=ubuntu&amp;logoColor=white" alt="Ubuntu"> - 650 GB</li>
+</ul>
+<!-- - BIOS up to date
+- Secure Boot disabled
+- Fast Boot disabled
+- CSM disabled
+- Using UEFI
+- In BIOS SATA Configuration confirm AHCI -->
+<h1>💻 Procedure</h1>
+<h2 id="🚨-Notes">🚨 Notes</h2>
+<blockquote>
+<ul>
+<li>According to online tutorials, most changes are made in the BIOS menu</li>
+<li>However, some manufacturers disable these options (to prevent users from damaging the computer)</li>
+<li>That also makes changes troublesome, and in the end you may need to reset Windows, so back up your computer</li>
+</ul>
+</blockquote>
+<ol>
+<li>Turn off BitLocker</li>
+<li>Ensure BIOS is updated to the latest version
+<ul>
+<li>The latest BIOS typically includes bug fixes and improved hardware compatibility, which helps avoid unnecessary issues during installation</li>
+</ul>
+</li>
+<li>Set the BIOS Boot Mode to UEFI
+<ul>
+<li>UEFI is the modern standard boot mode, offering better disk partition support, faster startup, and security features. Both Ubuntu and Windows are recommended to use UEFI rather than legacy BIOS (CSM)</li>
+</ul>
+</li>
+<li>Disable Secure Boot
+<ul>
+<li>Secure Boot prevents unauthorized operating systems from booting, but some Ubuntu releases or custom drivers may not pass verification, causing installation failures</li>
+<li>Find the Secure Boot setting in BIOS and set it to Disabled</li>
+</ul>
+</li>
+<li>Disable Fast Boot (BIOS &amp; Windows Control Panel)
+<ul>
+<li>Fast Boot skips some hardware initialization and may cause the USB boot drive to not be detected, affecting Ubuntu installation</li>
+<li>In BIOS, find Fast Boot and set it to Disabled</li>
+<li>In Windows Control Panel under Hardware and Sound -&gt; Power Options, turn off Fast Startup</li>
+</ul>
+</li>
+<li>Confirm SATA Configuration is set to AHCI mode (this is the most likely place to encounter issues; some BIOSes don’t expose these options)
+<ul>
+<li>It must not be RAID</li>
+</ul>
+</li>
+<li>Disable CSM (Compatibility Support Module)
+<ul>
+<li>CSM provides compatibility for legacy BIOS; disabling it makes the system focus on UEFI booting and reduces potential compatibility problems</li>
+<li>In BIOS, find CSM and set it to Disabled</li>
+</ul>
+</li>
+</ol>
+<h2 id="Step-1-Partition-the-disk">Step 1 Partition the disk</h2>
+<ul>
+<li>First, partition the disk in Windows into Windows and Ubuntu systems</li>
+<li>Search on the computer for <strong><code>Create and format hard disk partitions</code></strong></li>
+</ul>
+<p><img src="https://hackmd.io/_uploads/Bytew2Ovke.png" alt="image"></p>
+<h2 id="Step-2-Turn-off-fast-startup">Step 2 Turn off fast startup</h2>
+<ol>
+<li>Windows - Fast Startup</li>
+<li>BIOS - Fast Boot</li>
+</ol>
+<h3 id="Windows">Windows</h3>
+<ul>
+<li>In Windows Control Panel, find the power management options and turn off fast startup</li>
+</ul>
+<p><img src="https://hackmd.io/_uploads/SkOjV2_vkl.png" alt="image"></p>
+<p><img src="https://hackmd.io/_uploads/H19EHbqDyl.png" alt="image"></p>
+<p><img src="https://hackmd.io/_uploads/S1bSHZ9w1x.png" alt="image"></p>
+<p><img src="https://hackmd.io/_uploads/ry4Er2_Dkx.png" alt="image"></p>
+<h2 id="Step-3-Remove-drivers-related-to-Intel-RST">Step 3 Remove drivers related to Intel RST <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h2>
+<blockquote>
+<ul>
+<li>This step will cause the computer to fail to boot afterward and will require resetting the entire computer (you need a strong heart 💔💔💔…)</li>
+<li>But only after resetting can you successfully turn off RST (change the disk from RAID to AHCI); otherwise Ubuntu cannot detect the SSD during installation</li>
+</ul>
+</blockquote>
+<h3 id="Press-kbd-Win-kbd-kbd-X-kbd-and-open-Device-Manager">Press <kbd>Win</kbd> + <kbd>X</kbd> and open Device Manager</h3>
+<ul>
+<li>Inside, find Storage Controllers, where you will see the Intel RST driver<br>
+<img src="https://hackmd.io/_uploads/HyamMTuvyl.png" alt="image"></li>
+<li>This is the main culprit that causes the SSD to not be detected during the Ubuntu installation!!!</li>
+<li>Please follow the steps in <a target="_blank" rel="noopener" href="https://help.ubuntu.com/rst/">Ubuntu Documentation - RST &amp; Ubuntu installation</a> to uninstall the Intel RST driver step by step</li>
+</ul>
+<h3 id="Press-kbd-Win-kbd-kbd-R-kbd-search-regedit">Press <kbd>Win</kbd> + <kbd>R</kbd>, search <code>regedit</code></h3>
+<ol>
+<li><code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iaStorV\</code>
+<ul>
+<li>Find the <strong>Start</strong> entry and change its value to 0</li>
+<li>Find <strong>StartOverride</strong> and change its value to 0</li>
+</ul>
+</li>
+<li><code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\storahci\</code>
+<ul>
+<li>Find the <strong>Start</strong> entry and change its value to 0</li>
+<li>Find <strong>StartOverride</strong> and change its value to 0</li>
+</ul>
+</li>
+</ol>
+<h3 id="Uninstall-the-Intel-RST-driver">Uninstall the Intel RST driver</h3>
+<ul>
+<li>Completely uninstall the Intel RST driver, then reboot</li>
+<li>During reboot you will get a blue screen showing <code>INACCESSIBLE_BOOT_DEVICE</code>; the solution is to reset the entire computer</li>
+</ul>
+<h3 id="After-resetting">After resetting</h3>
+<ul>
+<li>
+<p>Again press <kbd>Win</kbd> + <kbd>X</kbd> to open Device Manager and check Storage Controllers to confirm whether Intel RST is still present</p>
+<p><img src="https://hackmd.io/_uploads/r1qe9f5DJx.png" alt="image"></p>
+</li>
+</ul>
+<h2 id="Step-4-Install-Ubuntu">Step 4 Install Ubuntu</h2>
+<h3 id="Install-Ubuntu-using-a-USB-drive">Install Ubuntu using a USB drive</h3>
+<ul>
+<li>Press <kbd>F12</kbd> to select the USB drive as the boot device</li>
+<li>Since partitions were pre-created, choose Installation Type -&gt; Something else<br>
+<img src="https://hackmd.io/_uploads/rJstz95P1e.png" alt="image"></li>
+<li>Keep confirming through the prompts; the subsequent installation should not have many problems</li>
+</ul>
+<h3 id="Driver-issues">Driver issues</h3>
+<ul>
+<li>In the past, installing on a desktop and my old laptop I didn’t encounter Wi-Fi driver issues</li>
+<li>But this Vivobook had issues; the quickest fix was to buy a Linux-compatible USB wireless adapter</li>
+<li>TP-Link TL-WN725N22<br>
+<img src="https://hackmd.io/_uploads/SJfbN55PJe.png" alt="image"></li>
+</ul>
+<h2 id="Glossary">Glossary</h2>
+<ul>
+<li>CSM - Compatibility Support Module</li>
+<li>Intel RST - Intel Rapid Storage Technology</li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Ubuntu Documentation - RST &amp; Ubuntu installation<br>
+<a target="_blank" rel="noopener" href="https://help.ubuntu.com/rst/">https://help.ubuntu.com/rst/</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</div><div class="article-licensing box"><div class="licensing-title"><p>[note] Windows 11 + Ubuntu Dual-Boot Installation Record</p><p><a href="https://hsiangjenli.github.io/blog/note-window-11-ubuntu.en/">https://hsiangjenli.github.io/blog/note-window-11-ubuntu.en/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Hsiang-Jen Li</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2025-01-17</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2025-09-14</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/blog/tags/ubuntu/">ubuntu</a><a class="link-muted mr-2" rel="tag" href="/blog/tags/windows/">windows</a><a class="link-muted mr-2" rel="tag" href="/blog/tags/intel-rst/">intel rst</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/blog/tutorial_github_picgo_vscode/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">[tutorial] GitHub + PicGo + VSCode Extension</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/blog/note_chinese_u2004_win11/"><span class="level-item">[note] Window 11 + Ubuntu 雙系統安裝紀錄</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#"><span class="level-left"><span class="level-item">1</span><span class="level-item">🎒 Preparations</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#💻-Computer-information"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">💻 Computer information</span></span></a></li><li><a class="level is-mobile" href="#🎯-Goal"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">🎯 Goal</span></span></a></li></ul></li><li><a class="level is-mobile" href="#"><span class="level-left"><span class="level-item">2</span><span class="level-item">💻 Procedure</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#🚨-Notes"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">🚨 Notes</span></span></a></li><li><a class="level is-mobile" href="#Step-1-Partition-the-disk"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">Step 1 Partition the disk</span></span></a></li><li><a class="level is-mobile" href="#Step-2-Turn-off-fast-startup"><span class="level-left"><span class="level-item">2.3</span><span class="level-item">Step 2 Turn off fast startup</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Windows"><span class="level-left"><span class="level-item">2.3.1</span><span class="level-item">Windows</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Step-3-Remove-drivers-related-to-Intel-RST"><span class="level-left"><span class="level-item">2.4</span><span class="level-item">Step 3 Remove drivers related to Intel RST [1]</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Press-kbd-Win-kbd-kbd-X-kbd-and-open-Device-Manager"><span class="level-left"><span class="level-item">2.4.1</span><span class="level-item">Press Win + X and open Device Manager</span></span></a></li><li><a class="level is-mobile" href="#Press-kbd-Win-kbd-kbd-R-kbd-search-regedit"><span class="level-left"><span class="level-item">2.4.2</span><span class="level-item">Press Win + R, search regedit</span></span></a></li><li><a class="level is-mobile" href="#Uninstall-the-Intel-RST-driver"><span class="level-left"><span class="level-item">2.4.3</span><span class="level-item">Uninstall the Intel RST driver</span></span></a></li><li><a class="level is-mobile" href="#After-resetting"><span class="level-left"><span class="level-item">2.4.4</span><span class="level-item">After resetting</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Step-4-Install-Ubuntu"><span class="level-left"><span class="level-item">2.5</span><span class="level-item">Step 4 Install Ubuntu</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Install-Ubuntu-using-a-USB-drive"><span class="level-left"><span class="level-item">2.5.1</span><span class="level-item">Install Ubuntu using a USB drive</span></span></a></li><li><a class="level is-mobile" href="#Driver-issues"><span class="level-left"><span class="level-item">2.5.2</span><span class="level-item">Driver issues</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Glossary"><span class="level-left"><span class="level-item">2.6</span><span class="level-item">Glossary</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/blog/js/toc.js" defer></script></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/blog/archives/2025/07/"><span class="level-start"><span class="level-item">July 2025</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/06/"><span class="level-start"><span class="level-item">June 2025</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/05/"><span class="level-start"><span class="level-item">May 2025</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/04/"><span class="level-start"><span class="level-item">April 2025</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/03/"><span class="level-start"><span class="level-item">March 2025</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/02/"><span class="level-start"><span class="level-item">February 2025</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/01/"><span class="level-start"><span class="level-item">January 2025</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2024/12/"><span class="level-start"><span class="level-item">December 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2024/09/"><span class="level-start"><span class="level-item">September 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2024/08/"><span class="level-start"><span class="level-item">August 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2024/01/"><span class="level-start"><span class="level-item">January 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2023/10/"><span class="level-start"><span class="level-item">October 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2023/07/"><span class="level-start"><span class="level-item">July 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2023/03/"><span class="level-start"><span class="level-item">March 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2023/02/"><span class="level-start"><span class="level-item">February 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2022/09/"><span class="level-start"><span class="level-item">September 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-24T16:00:00.000Z">2025-07-25</time></p><p class="title"><a href="/blog/note-docker-model-runner-installation.zh-TW/">[注意] Docker Model Runner 安裝</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-24T16:00:00.000Z">2025-07-25</time></p><p class="title"><a href="/blog/note_docker_model_runner/">[note] Docker Model Runner Installation</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-21T16:00:00.000Z">2025-07-22</time></p><p class="title"><a href="/blog/note-ngrok-static-domain-for-free.zh-TW/">[note] ngrok - 免費靜態網域</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-07-21T16:00:00.000Z">2025-07-22</time></p><p class="title"><a href="/blog/note_ngrok_free_static_domain/">[note] ngrok - static domain for free</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-06-19T16:00:00.000Z">2025-06-20</time></p><p class="title"><a href="/blog/tutorial-aws-sam-lambda.en/">[tutorial] Using AWS SAM to Create and Run Lambda Functions</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/blog/"><img src="https://hsiangjenli.github.io/static/image/ico.svg" alt="Hsiang-Jen Li&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2025 Hsiang-Jen Li</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/blog/js/column.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/mhchem.min.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><script src="/blog/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/blog/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/blog/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><!-- hexo injector body_end start -->
+<script>
+(function(){
+  function basePath() {
+    var p = window.location.pathname; // e.g. /blog/zh-TW/...
+    var segs = p.split('/').filter(Boolean);
+    // If first segment is 'blog', treat '/blog/' as base; otherwise '/'
+    return (segs[0] === 'blog') ? '/blog/' : '/';
+  }
+  function toggleLangHref(){
+    var a = document.querySelector('.navbar .navbar-end a.navbar-item[title="Language"]');
+    if(!a) return;
+    // If page-level translation switch exists, use its target
+    var postSwitch = document.querySelector('.post-lang-switch');
+    if (postSwitch && postSwitch.getAttribute('href')) {
+      a.setAttribute('href', postSwitch.getAttribute('href'));
+    } else {
+      var p = window.location.pathname;
+      var base = basePath();
+      var segs = p.split('/').filter(Boolean);
+      var idx = (base === '/blog/') ? 1 : 0;
+      var inZh = (segs[idx] === 'zh-TW');
+      var href = inZh ? base : base + 'zh-TW/';
+      a.setAttribute('href', href);
+    }
+    // open in same tab
+    a.removeAttribute('target');
+    a.removeAttribute('rel');
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', toggleLangHref);
+  } else {
+    toggleLangHref();
+  }
+})();
+</script>
+<!-- hexo injector body_end end --></body></html>
