@@ -1,13 +1,15 @@
 ---
 title: '[tutorial] GitHub + PicGo + VSCode Extension'
 date: '2025-01-29'
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o Mini'
 tags:
 - picgo
 toc: true
+slug: tutorial-github-picgo-vscode-extension
+lang: en
 ---
 
 # 📌 Introduction

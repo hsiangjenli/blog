@@ -1,5 +1,5 @@
 ---
-title: '[note] Window 11 + Ubuntu 雙系統安裝紀錄'
+title: '[note] Windows 11 + Ubuntu 雙系統安裝紀錄'
 date: 2025-01-17
 tags:
 - ubuntu
@@ -7,15 +7,18 @@ tags:
 - intel rst
 toc: true
 slug: note-window-11-ubuntu
-lang: en
+lang: zh-TW
+source_sha: 40503ee224d8c3d9be87999dc3ac804987d73021292b590b606ed23082325869
+origin_lang: en
 ---
+
+> 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。
 
 <!-- # 🤯 先從反省開始
 
 > 終於理解為什麼大部分的人若是有使用 Ubuntu 的需求，都是使用虛擬機或是安裝 WSL，以及 Windows 存在的必要性。
 
 這次是抱著「***就算電腦系統掛掉，大不了就在花個幾千重買 Windows 11 授權，去光華請人重灌***」的決心，也要順出整個安裝的流程 ：） -->
-
 
 # 🎒 預先準備
 
@@ -64,7 +67,7 @@ lang: en
 4. 關閉 Fast Boot（BIOS & Windows Control Panel）
    - Fast Boot 會跳過部分硬體初始化過程，可能導致 USB 開機盤無法被檢測到，從而影響 Ubuntu 的安裝
    - 進入 BIOS，找到 Fast Boot 設定，將其設為 Disabled
-   - 在 Windows 中的 Control Panel 找到 Hardware and Sound 底下的 Power Option，把 Fast Starup 關閉 
+   - 在 Windows 的控制面板（Control Panel）中的 Hardware and Sound 底下的 Power Options，把快速啟動（Fast Startup）關閉 
 5. 確認 SATA Configuration 設定為 AHCI 模式（這邊最有可能出現問題，BIOS 有些會沒有這些選項可以更改）
    - 不能是 Raid
 6. 關閉 CSM（Compatibility Support Module）
@@ -73,7 +76,7 @@ lang: en
 
 ## Step 1 磁碟分割
 
-- 首先會在 windows 上做磁碟分割，分成 windows 跟 ubuntu 兩個系統
+- 首先會在 Windows 上做磁碟分割，分成 Windows 跟 Ubuntu 兩個系統
 - 在電腦上搜尋 **`Create and format hard disk partitions`**
 
 ![image](https://hackmd.io/_uploads/Bytew2Ovke.png)
@@ -85,7 +88,7 @@ lang: en
 
 ### Windows
 
-- 在 windows 中 的 control panel 找到管理電源的選項，把 fast startup 關掉
+- 在 Windows 的控制面板中找到管理電源的選項，把快速啟動（Fast Startup）關掉
 
 ![image](https://hackmd.io/_uploads/SkOjV2_vkl.png)
 
@@ -95,17 +98,17 @@ lang: en
 
 ![image](https://hackmd.io/_uploads/ry4Er2_Dkx.png)
 
-## Step 3 跟 Intel RST 有關的 driver 刪除 [^ubuntu_rst]
+## Step 3 跟 Intel RST 有關的驅動程式刪除 [^ubuntu_rst]
 
 > - 這個步驟會讓之後電腦開機的時候失敗，會需要整台電腦重設（需要有一顆強壯的心臟 💔💔💔...）
-> - 但是重設完之後才可以順利把 RST 關掉（把硬碟從 Raid 改成 AHCI），否則 ubuntu 在安裝的時候會讀取不到這個 SSD
+> - 但是重設完之後才可以順利把 RST 關掉（把硬碟從 Raid 改成 AHCI），否則 Ubuntu 在安裝的時候會讀取不到這個 SSD
 
-### 按 <kbd>Win</kbd> + <kbd>X</kbd> 快捷鍵後找到 Device Manager 
+### 按 <kbd>Win</kbd> + <kbd>X</kbd> 快捷鍵後找到 裝置管理員（Device Manager） 
 
-- 進去裡面找到 Storage Controllers，在裡面會看到 Intel RST 的 driver
+- 進去裡面找到 Storage Controllers（儲存控制器），在裡面會看到 Intel RST 的驅動程式
    ![image](https://hackmd.io/_uploads/HyamMTuvyl.png)
-- 這個就是安裝 ubuntu 過程中導致無法偵測到 SSD 的罪魁禍首！！！！
-- 請按照 [Ubuntu Documentation - RST & Ubuntu installation](https://help.ubuntu.com/rst/) 裡面的步驟一步一步的卸載 Intel RST driver
+- 這個就是安裝 Ubuntu 過程中導致無法偵測到 SSD 的罪魁禍首！！！！
+- 請按照 [Ubuntu Documentation - RST & Ubuntu installation](https://help.ubuntu.com/rst/) 裡面的步驟一步一步的卸載 Intel RST 驅動程式
 
 
 ### 按 <kbd>Win</kbd> + <kbd>R</kbd>，搜尋 `regedit`
@@ -117,14 +120,14 @@ lang: en
    - 找到 **Start** 選項，把值改成 0
    - 找到 **StartOverride** 把值改成 0
 
-### 把 Intel RST driver 卸載
+### 把 Intel RST 驅動程式移除
 
-- 把 Intel RST driver 完全 uninstall，然後重新開機
-- 重新開機的過程會藍屏，上面是顯示 `INACCESSIBLE_BOOT_DEVICE`，解決方式就是重新設定整台電腦
+- 把 Intel RST 驅動程式完全移除，然後重新開機
+- 重新開機的過程可能會藍屏，顯示 `INACCESSIBLE_BOOT_DEVICE`，解決方式就是重新設定整台電腦
 
 ### 重設完之後
 
-- 一樣按 <kbd>Win</kbd> + <kbd>X</kbd> 進入 Device Manager 看 Storage Controllers 裡面確認 Intel RST 是否還在
+- 一樣按 <kbd>Win</kbd> + <kbd>X</kbd> 進入 裝置管理員（Device Manager），在 Storage Controllers（儲存控制器）裡面確認 Intel RST 是否還在
 
     ![image](https://hackmd.io/_uploads/r1qe9f5DJx.png)
 
@@ -133,14 +136,14 @@ lang: en
 ### 使用隨身碟安裝 Ubuntu
 
 - 按 <kbd>F12</kbd> 選擇隨身碟當作開機碟
-- 因為已經預先切好磁碟區，Installation Type 就選 Something else
+- 因為已經預先切好磁碟區，安裝類型（Installation Type）就選 "其他選項 (Something else)"
     ![image](https://hackmd.io/_uploads/rJstz95P1e.png)
 - 一路按確認即可，後續安裝不太會有問題
 
 ### 驅動問題
 
-- 過往安裝桌機跟自己舊筆電的時候都沒遇到 wifi 驅動問題
-- 但是這台 vivobook 遇到了，最快的解法是直接買一個支援 linux 的無線連接器 
+- 過往安裝桌機跟自己舊筆電的時候都沒遇到 Wi‑Fi 驅動問題
+- 但是這台 VivoBook 遇到了，最快的解法是直接買一個支援 Linux 的無線網路接收器
 - TP-Link TL-WN725N22  
 ![image](https://hackmd.io/_uploads/SJfbN55PJe.png)
 
@@ -149,5 +152,5 @@ lang: en
 - CSM - Compatibility Support Module
 - Intel RST - Intel Rapid Storage Technology
 
-[^ubuntu_rst]: Ubuntu Documentation - RST & Ubuntu installation
+[^ubuntu_rst]: Ubuntu 文件 - RST 與 Ubuntu 安裝
 https://help.ubuntu.com/rst/

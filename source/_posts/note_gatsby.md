@@ -1,14 +1,16 @@
 ---
 title: '[note] Gatsby Usage'
 date: '2022-09-02'
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o Mini'
 tags:
 - static-site
 - gatsby
 toc: false
+slug: note-gatsby-usage
+lang: en
 ---
 
 # 📌 Introduction

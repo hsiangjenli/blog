@@ -1,15 +1,17 @@
 ---
 title: '[note] Want to install the latest version from a GitHub repo using pip'
 date: '2024-12-18'
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o Mini'
 tags:
 - python
 - git
 - pip
 toc: true
+slug: note-want-to-install-the-latest-version-from-a-github-repo-using-pip
+lang: en
 ---
 
 # 📌 Introduction

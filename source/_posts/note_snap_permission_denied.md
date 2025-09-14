@@ -3,12 +3,14 @@ title: '[note] Solving fstatat canonical snap directory: Permission denied'
 date: '2025-03-27'
 updated: '2025-03-31'
 author:
-  - 'ChatGPT-4o'
-  - ' & Hsiang-Jen Li'
+- ChatGPT-4o
+- ' & Hsiang-Jen Li'
 tags:
-  - snap
-  - permission denied
+- snap
+- permission denied
 toc: true
+slug: note-solving-fstatat-canonical-snap-directory-permission-denied
+lang: en
 ---
 
 # 📌 Introduction

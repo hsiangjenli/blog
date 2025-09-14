@@ -1,14 +1,16 @@
 ---
 title: '[note] Efficient Mind Mapping with Markmap: A Markdown-Based VScode Extension'
 date: '2023-03-05'
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o Mini'
 tags:
 - vs-code
 - note
 toc: true
+slug: note-efficient-mind-mapping-with-markmap-a-markdown-based-vscode-extension
+lang: en
 ---
 
 # 📌 Introduction

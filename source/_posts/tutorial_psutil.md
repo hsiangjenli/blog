@@ -1,13 +1,15 @@
 ---
 title: '[tutorial] How to use psutil to monitor CPU and memory usage in python'
 date: '2024-01-26'
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o Mini'
 tags:
 - python
 toc: true
+slug: tutorial-how-to-use-psutil-to-monitor-cpu-and-memory-usage-in-python
+lang: en
 ---
 
 # 📌 Introduction

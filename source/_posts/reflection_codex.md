@@ -3,10 +3,11 @@ title: '[reflection] First Experience with Codex'
 date: '2025-06-07'
 updated: '2025-06-07'
 author:
-  - 'Hsiang-Jen Li'
-tags:
-# - python
+- Hsiang-Jen Li
+tags: null
 toc: true
+slug: reflection-first-experience-with-codex
+lang: en
 ---
 
 # 📌 Introduction
@@ -34,4 +35,3 @@ I don't know why, but Codex followed my instruction to rewrite the notes... Howe
 The quality of the rewritten content is also very bad.
 
 ![image](https://hackmd.io/_uploads/ryity9eXgg.png)
-
