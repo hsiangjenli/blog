@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   translate:
-    if: ${{ github.actor != 'github-actions[bot]' }}
+    if: ${{ github.event_name == 'push' && github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     environment: PROD
     env:
@@ -69,11 +69,13 @@ jobs:
         shell: bash
         run: |
           if [ -n "$(git status --porcelain)" ]; then
+            git fetch origin
+            git pull --rebase origin main || true
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add -A
             git commit -m "chore(i18n): auto-translate posts"
-            git push
+            git push || (git pull --rebase origin main && git push)
           else
             echo "No changes to commit."
           fi
@@ -115,11 +117,13 @@ jobs:
         shell: bash
         run: |
           if [ -n "$(git status --porcelain)" ]; then
+            git fetch origin
+            git pull --rebase origin main || true
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add -A
             git commit -m "chore(i18n): backfill translations"
-            git push
+            git push || (git pull --rebase origin main && git push)
           else
             echo "No changes to commit."
           fi
