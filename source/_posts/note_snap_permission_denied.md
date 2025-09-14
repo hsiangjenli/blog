@@ -10,17 +10,10 @@ tags:
 - snap
 - permission denied
 toc: true
-translation_key: note-solving-fstatat-canonical-snap-directory-permission-denied
 slug: note-solving-fstatat-canonical-snap-directory-permission-denied
-source_sha: cb220fd9a116bf9af2b1f53a7eaab047c7731f1726041c6a6252ac00acd6bb42
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated by AI (gpt-5-mini-2025-08-07) from the original English, and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
+# 📌 Introduction
 
 When using Snap applications on Ubuntu, you may encounter a confusing permission error related to fstatat. This note records a real issue, explores possible causes, and shares a simple, practical fix that worked.
 

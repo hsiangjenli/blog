@@ -7,17 +7,10 @@ author:
 - Hsiang-Jen Li
 tags: null
 toc: true
-translation_key: reflection-first-experience-with-codex
 slug: reflection-first-experience-with-codex
-source_sha: a39168e5c5305503fb6f1f910d68c1dc49a63c302f16c5b7c81ad45b12fb2659
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by an AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
->
-> # 📌 Introduction
+# 📌 Introduction
 
 In short, Codex's performance was far from ideal.
 

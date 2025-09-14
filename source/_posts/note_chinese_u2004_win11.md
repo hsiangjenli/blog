@@ -7,22 +7,8 @@ tags:
 - windows
 - intel rst
 toc: true
-translation_key: note-window-11-ubuntu
 slug: note-window-11-ubuntu
-source_sha: 0a39397aca847caf4a58bc91228f4e57e1385d6c68cda099bd87bd48b185e679
-origin_lang: en
 ---
-
-> 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。
-> 
-> > 注意：此頁面為 AI 生成（gpt-5-mini-2025-08-07）之繁體中文翻譯，可能包含些微錯誤。
->
-> <!-- # 🤯 從一些反思開始
->
-> > 終於理解為何大多數需要 Ubuntu 的人要麼使用虛擬機，要麼安裝 WSL，以及為何仍然需要 Windows。
->
-> 這次的心態是「即便電腦系統壞掉，我也可以花幾千塊買個 Windows 11 授權，然後請光華的某人幫我重灌」，並將整個安裝流程記錄下來。 :)
-> -->
 
 # 🎒 準備工作
 

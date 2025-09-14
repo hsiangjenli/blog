@@ -10,17 +10,11 @@ tags:
 - ubuntu
 - python
 toc: true
-translation_key: tutorial-setting-up-miniconda-on-ubuntu
 slug: tutorial-setting-up-miniconda-on-ubuntu
-source_sha: 6699c747e01ec6fdb2a928b32c2f1ed598e88ac5011638b75027d9a567244a22
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
+# 📌 Introduction
+
 This article details the steps required to install Miniconda on Ubuntu, including downloading the installer and setting up the initial environment.
 <!-- more -->
 

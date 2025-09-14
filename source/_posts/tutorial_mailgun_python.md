@@ -9,17 +9,11 @@ tags:
 - python
 - mailgun
 toc: true
-translation_key: tutorial-using-mailgun-python-to-send-email
 slug: tutorial-using-mailgun-python-to-send-email
-source_sha: a39c3eb3395e321f58ce6a9c123cd7e9b58ec053205a4540405cbd2b88885981
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
+# 📌 Introduction
+
 This tutorial explains how to send emails using Mailgun and Python. You will learn how to set up Mailgun, generate an API key, and write Python code to send emails with or without attachments.
 
 <!-- more -->

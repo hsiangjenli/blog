@@ -9,17 +9,11 @@ author:
 tags:
 - linux
 toc: true
-translation_key: note-fish
 slug: note-fish
-source_sha: f540a86a2da7623bc22300253e6eacba4f92762471f72f478c57bbe9853c82d3
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
+# 📌 Introduction
+
 This article introduces the FISH shell, a user-friendly interactive shell designed to improve the command line experience. It highlights its installation on MacOS and basic usage.
 <!-- more -->
 

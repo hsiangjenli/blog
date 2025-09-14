@@ -11,17 +11,10 @@ tags:
 - sa
 - ea
 toc: true
-translation_key: chatgpt-devops
 slug: chatgpt-devops
-source_sha: 8730d27723a339619ac5c5b6a0b24a65ffbe872fe526a497fb4dd43a1c37513a
-origin_lang: en
 ---
 
-> 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。
-> 
-> > 注意：本頁面為 AI 生成（gpt-5-mini-2025-08-07）之繁體中文翻譯，可能包含些微不準確之處。
-> 
-> # 📌 介紹
+# 📌 介紹
 
 > **⭐ 注意**
 > 本文由 ChatGPT 生成並經人工審核後發布，內容僅供參考。主要說明 DevOps、SA 與 EA 角色之間的關係，以及 DevOps 如何轉型為 SA 或 EA。

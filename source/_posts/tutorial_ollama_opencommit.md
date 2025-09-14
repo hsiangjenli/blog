@@ -9,17 +9,11 @@ author:
 tags:
 - ollama
 toc: true
-translation_key: tutorial-using-ollama-with-opencommit-for-local-commit-message-generation
 slug: tutorial-using-ollama-with-opencommit-for-local-commit-message-generation
-source_sha: f45c165f314e3150a97a86837764b04794c4b06eef58106fb6705b7cb77b30f5
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
+# 📌 Introduction
+
 This article explains how to combine Ollama and OpenCommit to generate commit messages locally. It includes an overview of running Ollama in a Docker container, instructions for using the Ollama CLI, and how to integrate Ollama with OpenCommit to generate commit messages.
 <!-- more -->
 

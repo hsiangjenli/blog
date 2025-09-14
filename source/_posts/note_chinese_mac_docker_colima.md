@@ -9,17 +9,10 @@ author:
 tags:
 - docker
 toc: true
-translation_key: note-mac-docker-desktop-colima
 slug: note-mac-docker-desktop-colima
-source_sha: 1a33a82bafd194034fc1478b0dc0a86adf29f60116ed879444569151a0c56e76
-origin_lang: en
 ---
 
-> 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。
-> 
-> > 注意：本頁面為由 AI 生成的翻譯（gpt-5-mini-2025-08-07），自繁體中文翻譯而來，可能包含些許不準確之處。
-> 
-> # 📌 介紹
+# 📌 介紹
 
 在 Mac 上，使用 Docker 並不必安裝官方的 Docker Desktop；可以使用像 Colima 這種更輕量的替代方案。不過，如果你先前安裝過 Docker Desktop，之後又透過 Homebrew 安裝 Docker CLI，卻沒有完全清除舊的設定，就可能會遇到一些錯誤。
 

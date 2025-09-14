@@ -8,17 +8,10 @@ author:
 - ' & ChatGPT-4o'
 tags: null
 toc: true
-translation_key: note-oci-artifact
 slug: note-oci-artifact
-source_sha: 94abfe8913c31ecbb82f4acd0b50186fef86014e91b547b15b1631403b47f3cb
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 What is an OCI Artifact?
+# 📌 What is an OCI Artifact?
 
 "**OCI Artifact**" stands for "**Open Container Initiative Artifact**." It is a unified format that can be used to store anything — whether Docker images, Helm charts, WASM modules, machine learning models, SBOMs, policies, or scan reports.
 

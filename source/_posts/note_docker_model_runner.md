@@ -10,17 +10,10 @@ tags:
 - llm
 - docker
 toc: true
-translation_key: note-docker-model-runner-installation
 slug: note-docker-model-runner-installation
-source_sha: 7cc496b70fe2349caa0e90a01090d581b7ba25420fe2cd719aec8d487644e943
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
+# 📌 Introduction
 
 On Ubuntu 24.04 while installing the Docker Model Plugin, I encountered an issue where apt could not find the package. It turned out the Docker repository was pointing to the wrong release (pointing to focal instead of noble).
 

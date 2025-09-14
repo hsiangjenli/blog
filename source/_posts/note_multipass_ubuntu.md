@@ -7,17 +7,10 @@ author:
 - Hsiang-Jen Li
 tags: null
 toc: true
-translation_key: note-run-ubuntu-vms-on-your-mac-using-multipass
 slug: note-run-ubuntu-vms-on-your-mac-using-multipass
-source_sha: fccaa86a1d0192083a342c8066ef9b67eee55b0209eb82b419a263345b6b425d
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
+# 📌 Introduction
 
 Multipass is a simple tool provided by Canonical for easily running Ubuntu virtual machines.
 

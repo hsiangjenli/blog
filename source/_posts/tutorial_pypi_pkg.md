@@ -9,17 +9,11 @@ author:
 tags:
 - python
 toc: true
-translation_key: tutorial-build-your-own-python-package
 slug: tutorial-build-your-own-python-package
-source_sha: 26f844ffb12a23ae7816a79472fdcc7d5a68491f480a4f9afb873ebd0f1cc321
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
->
-> # 📌 Introduction
+# 📌 Introduction
+
 Creating your own Python package helps maintain large projects because it organizes code that was previously scattered across directories.
 <!-- more -->
 

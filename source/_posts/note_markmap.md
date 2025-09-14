@@ -11,15 +11,8 @@ tags:
 - vs-code
 - note
 toc: true
-translation_key: note-efficient-mind-mapping-with-markmap-a-markdown-based-vscode-extension
 slug: note-efficient-mind-mapping-with-markmap-a-markdown-based-vscode-extension
-source_sha: d91d8c309afec95fa17b58b16706ab57c7a0c73e4439fd44ca87e91b0fcb6ca8
-origin_lang: zh-TW
 ---
-
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
 
 # 📌 Introduction
 This article explains how to use Visual Studio Code's Markmap extension to convert Markdown syntax into mind maps, facilitating effective organization and visualization of ideas and information.

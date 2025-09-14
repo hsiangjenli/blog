@@ -9,17 +9,10 @@ author:
 tags:
 - mlsecops
 toc: true
-translation_key: tutorial-a-toy-example-of-scanning-models
 slug: tutorial-a-toy-example-of-scanning-models
-source_sha: ea7e80fae82eab972b7b46e4a141f5840a24092630c76fdd05087141e800e373
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
+# 📌 Introduction
 
 This article demonstrates how to use a simple example and the `modelscan` tool to detect unsafe PyTorch models.
 

@@ -11,18 +11,11 @@ tags:
 - git
 - pip
 toc: true
-translation_key: note-want-to-install-the-latest-version-from-a-github-repo-using-pip
 slug: note-want-to-install-the-latest-version-from-a-github-repo-using-pip
-source_sha: 61bbe045fcdd037cb641bc49570cc094391d112ce2f79d5afec429db1732c8f4
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
-> This document explains how to use pip to install a specific branch of a GitHub repository, with a focus on the 'devel' branch, which is typically used for development rather than stable releases.
+# 📌 Introduction
+
 <!-- more -->
 
 # 🚀 Quick Start

@@ -10,17 +10,11 @@ tags:
 - static-site
 - gatsby
 toc: false
-translation_key: note-gatsby-usage
 slug: note-gatsby-usage
-source_sha: f6dcef86ea7da8af922ffb3705223e07b2fc0bd72a3e94139236995226990bdf
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by an AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
+# 📌 Introduction
+
 This article provides a guide on how to install Gatsby and create a new Gatsby site using starter themes. It covers installation steps, commands to create a Gatsby site, and links for troubleshooting common errors.
 <!-- more -->
 

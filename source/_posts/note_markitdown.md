@@ -10,16 +10,9 @@ tags:
 - python
 - markdown
 toc: true
-translation_key: note-markitdown-a-tool-for-smoothly-converting-docx-and-pptx-into-markdown
 slug: note-markitdown-a-tool-for-smoothly-converting-docx-and-pptx-into-markdown
-source_sha: c72181e2a98594382a679778f9ffe1bf4bb53da1d3ab4c0e7693923e5a523f85
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
->
 # 📌 Introduction
 This article discusses MarkItDown, a tool specifically designed to convert docx and pptx files into Markdown format with ease. The article introduces various Python packages used in this conversion workflow, enabling users to effectively handle documents and multimedia content.
 <!-- more -->

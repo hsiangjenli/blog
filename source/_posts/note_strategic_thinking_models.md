@@ -8,16 +8,9 @@ author:
 - ' & ChatGPT-4o Mini'
 tags: null
 toc: true
-translation_key: note-strategic-thinking-models
 slug: note-strategic-thinking-models
-source_sha: 75aa11394c1b7f3fd5996da277188cb4299b74fb9e2e034414b7cce75715a357
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
 # 📌 Introduction
 "Open the mind, build thinking"
 

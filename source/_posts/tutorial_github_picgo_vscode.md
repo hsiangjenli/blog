@@ -9,16 +9,9 @@ author:
 tags:
 - picgo
 toc: true
-translation_key: tutorial-github-picgo-vscode-extension
 slug: tutorial-github-picgo-vscode-extension
-source_sha: 22cf90991752465758d33f5aff62141f584c34d1b478656d546ae8f35d539f7c
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
->
 # 📌 Introduction
 This article provides a tutorial for setting up GitHub, PicGo, and the VSCode extension to easily upload images to a GitHub repository. It explains the necessary prerequisites, the process to generate a GitHub token, and key points for configuring the PicGo extension in VSCode.
 <!-- more -->

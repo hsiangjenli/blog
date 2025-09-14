@@ -8,17 +8,10 @@ author:
 tags:
 - ngrok
 toc: true
-translation_key: note-ngrok-static-domain-for-free
 slug: note-ngrok-static-domain-for-free
-source_sha: 51b05bd4ae9294707a546d0a9907855893020f641012f3eee6b29b3977f6010d
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
+# 📌 Introduction
 
 ngrok offers users free static domains!
 

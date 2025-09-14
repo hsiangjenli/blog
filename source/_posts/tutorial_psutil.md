@@ -9,17 +9,11 @@ author:
 tags:
 - python
 toc: true
-translation_key: tutorial-how-to-use-psutil-to-monitor-cpu-and-memory-usage-in-python
 slug: tutorial-how-to-use-psutil-to-monitor-cpu-and-memory-usage-in-python
-source_sha: 1e350db776c57cb086bb34bc8298aeb53ae71a40da947b76d77400d5be1b36d1
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
+# 📌 Introduction
+
 This article introduces psutil, an open-source Python package that provides system information such as CPU, memory, disk, and network. It covers installing psutil, handy functions for monitoring CPU and memory usage, and how to use a decorator to integrate it into Python code.
 <!-- more -->
 

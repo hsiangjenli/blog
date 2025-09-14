@@ -9,18 +9,11 @@ author:
 tags:
 - go
 toc: true
-translation_key: note-installation-of-golang-path
 slug: note-installation-of-golang-path
-source_sha: 4ac8890ddd25d5c5224bb7163e3a4e3864189786b96ed4fc8b80fb6590917648
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by an AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
-> This article provides a step-by-step guide to installing Go on macOS and configuring the system PATH variable to include Go executables.
+# 📌 Introduction
+
 <!-- more -->
 
 # 🚀 Quick Start

@@ -9,17 +9,10 @@ tags:
 - aws
 - lambda
 toc: true
-translation_key: tutorial-aws-sam-lambda
 slug: tutorial-aws-sam-lambda
-source_sha: 8fc8b9b7b4bcc881d2cb5e361e51d46798a7998523d9f52e7e938f9bb8e288db
-origin_lang: en
 ---
 
-> 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。
-> 
-> > 注意：此頁面為 AI 生成（gpt-5-mini-2025-08-07）的繁體中文翻譯，可能包含些微不準確之處。
-> 
-> # 📌 介紹
+# 📌 介紹
 
 本指南介紹如何使用 AWS SAM 建立與執行 Lambda 函數，包含基本安裝、專案結構說明，以及在本機執行 Lambda 的流程。
 

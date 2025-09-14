@@ -10,17 +10,11 @@ author:
 tags:
 - ollama
 toc: true
-translation_key: tutorial-enhancing-commit-messages-with-commitollama-a-guide-for-vscode-and-local-llm-integration
 slug: tutorial-enhancing-commit-messages-with-commitollama-a-guide-for-vscode-and-local-llm-integration
-source_sha: 616ece52a38bfab5290866615254fa5fa7a5c7405c2edbab3f4b49006bd04ff8
-origin_lang: zh-TW
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
-> 
-> > Note: This page was automatically translated from the original English by AI (gpt-5-mini-2025-08-07) and may contain minor inaccuracies.
-> 
-> # 📌 Introduction
+# 📌 Introduction
+
 This article introduces commitollama, a local-LLM-based alternative for generating commit messages, suitable for situations where project privacy must be protected. It explains the process of installing the commitollama extension in VSCode and the necessary setup before getting started.
 <!-- more -->
 
