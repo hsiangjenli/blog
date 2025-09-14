@@ -5,6 +5,10 @@ on:
     branches:
       - main  # default branch
 
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   pages:
     runs-on: ubuntu-latest

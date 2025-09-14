@@ -141,13 +141,13 @@ Source markdown body:
 def prepend_notice(body: str, src_lang: str, dst_lang: str, model: str) -> str:
     # Add a locale-specific note that this article is AI translated.
     if dst_lang == "zh-TW":
-        note = f"註記：此頁為由 AI（{model}）自動翻譯自英文原文，可能含有少量不準確之處。\n\n"
+        note = f"註記：此頁為由 AI（{model}）自動翻譯自英文原文，可能含有少量不準確之處。"
     else:
         # default to English
         source_label = "Traditional Chinese" if src_lang == "zh-TW" else "English"
-        note = f"Note: This page is an AI-generated ({model}) translation from {source_label} and may contain minor inaccuracies.\n\n"
-    # Use Markdown blockquote style to make it visible but unobtrusive
-    return "> " + note.replace("\n", "\n> ") + body
+        note = f"Note: This page is an AI-generated ({model}) translation from {source_label} and may contain minor inaccuracies."
+    # Use a single-line blockquote, then leave a plain blank line to terminate the quote.
+    return f"> {note}\n\n{body.lstrip()}"
 
 def load_posts(root: Path):
     posts = []
@@ -202,11 +202,11 @@ def main():
     client = OpenAI(api_key=api_key, base_url=base_url)
 
     posts = load_posts(root)
-    # index by (key, lang)
-    by_key_lang = {}
+    # index by (slug, lang)
+    by_slug_lang = {}
     by_path = {}
     for it in posts:
-        by_key_lang[(it["key"], it["lang"])] = it
+        by_slug_lang[(it["slug"], it["lang"])] = it
         by_path[str(it["path"])] = it
 
     # Determine work set
@@ -235,15 +235,17 @@ def main():
         if not do_all and it["path"] not in changed:
             continue
 
-        key = it["key"]
+        # Only treat files WITHOUT 'source_sha' as human-authored sources.
+        # Prevent "both directions" updates that could overwrite originals.
+        if "source_sha" in it["fm"]:
+            # This file is a generated translation; do not use it as a source to update others.
+            continue
+
         slug = it["slug"]
         src_lang = it["lang"]
 
-        # Backfill source front-matter with translation_key/slug/lang if missing
+        # Backfill source front-matter with slug/lang if missing (do NOT enforce translation_key)
         src_fm_new = None
-        if str(it["fm"].get("translation_key") or "") != key:
-            src_fm_new = dict(it["fm"]) if src_fm_new is None else src_fm_new
-            src_fm_new["translation_key"] = key
         if not it["fm"].get("slug"):
             src_fm_new = dict(it["fm"]) if src_fm_new is None else src_fm_new
             src_fm_new["slug"] = slug
@@ -255,12 +257,12 @@ def main():
             write_text(it["path"], join_front_matter(src_fm_new, it["body"]))
             it["fm"] = src_fm_new
         for dst_lang in targets - {src_lang}:
-            counterpart = by_key_lang.get((key, dst_lang))
+            counterpart = by_slug_lang.get((slug, dst_lang))
             source_body_sha = it["content_sha"]
 
             # Case 1: counterpart missing -> create translation
             if counterpart is None:
-                print(f"[create] {key} {src_lang} -> {dst_lang}")
+                print(f"[create] {slug} {src_lang} -> {dst_lang}")
                 title_src = str(it["fm"].get("title",""))
                 title_dst, body_dst = translate_text(client, args.model, it["body"], src_lang, dst_lang, title_src)
                 body_dst = prepend_notice(body_dst, src_lang, dst_lang, args.model)
@@ -268,7 +270,6 @@ def main():
                 fm_new = dict(it["fm"])  # copy
                 fm_new["title"] = title_dst or fm_new.get("title")
                 fm_new["lang"] = dst_lang
-                fm_new["translation_key"] = key
                 fm_new["slug"] = slug  # keep same slug across languages
                 fm_new["date"] = it["fm"].get("date") or it["date"]
                 fm_new["source_sha"] = source_body_sha
@@ -279,10 +280,10 @@ def main():
                 # update in-memory indices for subsequent loops
                 new_item = {
                     "path": dst_path, "fm": fm_new, "body": body_dst, "lang": dst_lang,
-                    "key": key, "slug": slug, "date": fm_new["date"],
+                    "key": it["key"], "slug": slug, "date": fm_new["date"],
                     "content_sha": sha256(body_dst),
                 }
-                by_key_lang[(key, dst_lang)] = new_item
+                by_slug_lang[(slug, dst_lang)] = new_item
                 by_path[str(dst_path)] = new_item
                 updates += 1
                 continue
@@ -296,7 +297,7 @@ def main():
                 should_update = (cp_source_sha != source_body_sha) and (it["path"] in changed)
 
             if should_update:
-                print(f"[update] {key} {src_lang} -> {dst_lang}")
+                print(f"[update] {slug} {src_lang} -> {dst_lang}")
                 title_src = str(it["fm"].get("title",""))
                 title_dst, body_dst = translate_text(client, args.model, it["body"], src_lang, dst_lang, title_src)
                 body_dst = prepend_notice(body_dst, src_lang, dst_lang, args.model)
@@ -304,7 +305,6 @@ def main():
                 new_fm = dict(counterpart_fm)
                 new_fm["title"] = title_dst or new_fm.get("title")
                 new_fm["lang"] = dst_lang
-                new_fm["translation_key"] = key
                 new_fm["slug"] = slug
                 new_fm["date"] = counterpart_fm.get("date") or it["fm"].get("date") or it["date"]
                 new_fm["source_sha"] = source_body_sha
