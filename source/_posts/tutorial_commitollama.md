@@ -2,13 +2,15 @@
 title: '[tutorial] Enhancing Commit Messages with commitollama: A Guide for VSCode
   and Local LLM Integration'
 date: '2024-09-04'
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o Mini'
 tags:
 - ollama
 toc: true
+slug: tutorial-enhancing-commit-messages-with-commitollama-a-guide-for-vscode-and-local-llm-integration
+lang: en
 ---
 
 # 📌 Introduction

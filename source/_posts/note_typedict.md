@@ -1,13 +1,15 @@
 ---
 title: '[note] Enhancing Code Clarity with TypedDict'
 date: '2024-09-07'
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o Mini'
 tags:
 - python
 toc: true
+slug: note-enhancing-code-clarity-with-typeddict
+lang: en
 ---
 
 # 📌 Introduction

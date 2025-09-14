@@ -1,13 +1,15 @@
 ---
 title: '[note] Fish?'
 date: '2024-12-17'
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o Mini'
 tags:
 - linux
 toc: true
+slug: note-fish
+lang: en
 ---
 
 # 📌 Introduction

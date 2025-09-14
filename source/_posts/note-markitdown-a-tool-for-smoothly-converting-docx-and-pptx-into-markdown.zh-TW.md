@@ -1,5 +1,5 @@
 ---
-title: '[note] MarkItDown: A tool for smoothly converting docx and pptx into markdown'
+title: '[note] MarkItDown：一個可順利將 docx 與 pptx 轉換為 markdown 的工具'
 date: '2024-12-13'
 updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
@@ -10,17 +10,21 @@ tags:
 - markdown
 toc: true
 slug: note-markitdown-a-tool-for-smoothly-converting-docx-and-pptx-into-markdown
-lang: en
+lang: zh-TW
+source_sha: 397aa5750799648f289e395e4f5dca8443ea015721442d7493885bc0b35dcbb8
+origin_lang: en
 ---
 
-# 📌 Introduction
-This article discusses MarkItDown, a tool specifically designed to effortlessly convert docx and pptx files into markdown format. It highlights various Python libraries that serve as dependencies for this conversion process, enabling users to handle documents and multimedia content effectively.
+> 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。
+
+# 📌 介紹
+這篇文章討論 MarkItDown，一個專為輕鬆將 docx 和 pptx 檔案轉換成 markdown 格式而設計的工具。它說明了在此轉換流程中會用到的各種 Python 函式庫，幫助使用者有效處理文件與多媒體內容。
 <!-- more -->
 
-# 🚀 Quick Start
+# 🚀 快速開始
 
-## How MarkItDown works?
-Down below are the module use for MarkItDown
+## MarkItDown 如何運作？
+以下列出 MarkItDown 使用的模組
 
 ```python
 dependencies = [
@@ -43,43 +47,43 @@ dependencies = [
 
 ## mammoth
 - https://pypi.org/project/mammoth/
-Mammoth is a tool designed for converting documents like MS Word, Google Docs, and LibreOffice files into HTML
+Mammoth 是一個用於將 MS Word、Google 文件、LibreOffice 等文件轉換成 HTML 的工具
 
 ## python-pptx
 - https://github.com/scanny/python-pptx
-  A Python library that can create/read/update `.pptx` file
+  一個可以建立/讀取/更新 `.pptx` 檔案的 Python 函式庫
   
 ## openpyxl
 - https://openpyxl.readthedocs.io/en/stable/
-  A Python library to read/write Excel 2010 `xlsx` `xlsm` `xltx` `xltm` file
+  一個用於讀寫 Excel 2010 `xlsx`、`xlsm`、`xltx`、`xltm` 檔案的 Python 函式庫
 
 ## pdfminer
 - https://github.com/pdfminer/pdfminer.six
-Pdfminer.six is a community-maintained version that was forked from original PDFMiner. This module helps users extract information from PDF files.
+Pdfminer.six 是從原始 PDFMiner 分岔出來，由社群維護的版本。此模組可協助使用者從 PDF 檔案擷取資訊。
 
 ## pydub
 - https://github.com/jiaaro/pydub
-  Make it easy for you to manipulate audio in a simple way
+  讓你以簡單的方式操作音訊
 
 ## youtube-transcript-api
 - https://github.com/jdepoix/youtube-transcript-api
-  A Python API allows you to get the transcript for a given YouTube video
+  一個 Python API，可取得指定 YouTube 影片的逐字稿
 
 ## SpeechRecognition
 - https://github.com/Uberi/speech_recognition/tree/master
-  Support for speech-to-text engines like Google Cloud Speech API, Wit.ai, Whisper, etc
+  支援像 Google Cloud Speech API、Wit.ai、Whisper 等語音轉文字引擎
 
 ## markdownify
 - https://github.com/matthewwithanm/python-markdownify
-  Convert HTML file into Markdown
+  將 HTML 轉換成 Markdown
 
 ## pathvalidate
 - https://github.com/thombashi/pathvalidate
-  A Python library to sanitize and validate strings such as filenames, file paths, etc
+  一個用於清理與驗證字串（如檔名、檔案路徑等）的 Python 函式庫
 
 ## puremagic
 - https://github.com/cdgriffith/puremagic/tree/master
-- Puremagic is a **file type detection tool** that can identify the type of an input file without relying on its extension. Since file extensions can be easily changed, using them alone to identify file type can be risky. This module defines a set of rules to read the file content and determine its type.
+- Puremagic 是一個 **檔案類型偵測工具**，它能在不依賴副檔名的情況下識別輸入檔案的類型。由於副檔名可以輕易更改，僅靠副檔名來辨識檔案類型可能有風險。此模組定義一組規則來讀取檔案內容並判定其類型。
 
 ```python
 # puremagic/magic_data.json
@@ -99,12 +103,12 @@ Pdfminer.six is a community-maintained version that was forked from original PDF
 ...
 ```
 
-# 🔁 Recap
-- MarkItDown allows smooth conversion of docx and pptx files to markdown format.
-- A variety of dependencies are required for this conversion, including libraries for handling documents, audio, and data.
-- Each library mentioned has its own specific functionality, such as converting Word documents to HTML or reading Excel files.
+# 🔁 重點回顧
+- MarkItDown 可順利將 docx 與 pptx 檔案轉換為 markdown 格式。
+- 此轉換需要多種依賴項，包括處理文件、音訊與資料的函式庫。
+- 每個提到的函式庫都有其特定功能，例如將 Word 文件轉為 HTML 或讀取 Excel 檔案。
 
-# 🔗 References
+# 🔗 參考資料
 - https://pypi.org/project/mammoth/
 - https://github.com/scanny/python-pptx
 - https://openpyxl.readthedocs.io/en/stable/

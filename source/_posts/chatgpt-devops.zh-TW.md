@@ -11,8 +11,12 @@ tags:
 - ea
 toc: true
 slug: chatgpt-devops
-lang: en
+lang: zh-TW
+source_sha: b33e10b5a93609ce7a14b90419d543dffafa318ed47c66c4bdb8796bc39ee566
+origin_lang: en
 ---
+
+> 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。
 
 # 📌 介紹
 

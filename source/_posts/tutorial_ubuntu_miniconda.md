@@ -1,14 +1,16 @@
 ---
 title: '[tutorial] Setting up Miniconda on Ubuntu'
 date: '2023-02-13'
-updated: '2025-02-28 (Refactored by ChatGPT-4o Mini)'
+updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
 author:
-  - 'Hsiang-Jen Li'
-  - ' & ChatGPT-4o Mini'
+- Hsiang-Jen Li
+- ' & ChatGPT-4o Mini'
 tags:
 - ubuntu
 - python
 toc: true
+slug: tutorial-setting-up-miniconda-on-ubuntu
+lang: en
 ---
 
 # 📌 Introduction
