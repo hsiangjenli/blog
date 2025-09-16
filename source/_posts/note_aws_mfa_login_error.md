@@ -3,11 +3,12 @@ title: '[note] AWS 遇到 InvalidToken 或是 InvalidClientTokenId'
 date: '2025-07-11'
 updated: '2025-09-16'
 author:
-  - 'Hsiang-Jen Li'
+- Hsiang-Jen Li
 tags:
-  - aws
+- aws
 toc: true
 lang: zh-TW
+slug: note-aws-invalidtoken-invalidclienttokenid
 ---
 
 # 📌 Introduction

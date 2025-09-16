@@ -1,14 +1,1 @@
-.github/workflows/translate.yml
-.github/workflows/verify_translations.py
-Makefile
-package-lock.json
-package.json
-source/_posts/chatgpt-devops.zh-TW.md
-source/_posts/chatgpt_devops_sa_ea.md
-source/_posts/note-mac-docker-desktop-colima.zh-TW.md
-source/_posts/note-window-11-ubuntu.zh-TW.md
-source/_posts/note_chinese_mac_docker_colima.md
-source/_posts/note_chinese_u2004_win11.md
-source/_posts/tutorial-aws-sam-lambda.zh-TW.md
-source/_posts/tutorial_chinese_aws_sam_install_and_lambda.md
-yarn.lock
+source/_posts/note_aws_mfa_login_error.md
