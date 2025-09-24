@@ -3,13 +3,14 @@ title: '[note] Higgs-Audio 常用 token 彙整'
 date: '2025-09-24'
 updated: '2025-09-24'
 author:
-- 'Hsiang-Jen Li'
+- Hsiang-Jen Li
 - ' & ChatGPT-5'
 tags:
 - higgs-audio
 - audiollm
 toc: true
 lang: zh-TW
+slug: note-higgs-audio-token
 ---
 
 # 📌 簡介
