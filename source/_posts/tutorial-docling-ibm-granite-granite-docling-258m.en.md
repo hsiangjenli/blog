@@ -8,56 +8,60 @@ tags:
 - vlm
 - python
 toc: true
-lang: zh-TW
+lang: en
 slug: tutorial-docling-ibm-granite-granite-docling-258m
+source_sha: b2fa4b93f76d5f7df384c8790f7d9f96416b8cb670bc554b5fb55fd26146b996
+origin_lang: zh-TW
 ---
 
-# 📌 簡介
+> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
 
-示範如何使用 Docling 文件轉換工具與 IBM 最新推出的 `ibm-granite/granite-docling-258M` VLM，將 PDF、Image 等檔案轉換成結構化的 Markdown 或 HTML 格式，方便後續搭配 LLM 使用
+# 📌 Introduction
+
+This demonstrates how to use the Docling document conversion tool with IBM's newly released VLM `ibm-granite/granite-docling-258M` to convert PDFs, images, and other files into structured Markdown or HTML formats for easier downstream use with LLMs.
 
 <!-- more -->
 
-# 🚀 介紹文件轉換工具 + 視覺語言模型
+# 🚀 Introducing the document conversion tool + Vision Language Model
 
 ## Docling
 
 ![](https://docling-project.github.io/docling/assets/docling_processing.png)
 
-- 輸入：PDF、DOCX、PPTX、XLSX、HTML、WAV、MP3、VTT、images（PNG, TIFF, JPEG, ...）
-- 輸出：統一的 [DoclingDocument](https://docling-project.github.io/docling/concepts/docling_document/)
-- 目的：提供一個統一且簡單的工具，把各種文件轉換成結構化格式（LLM-Ready Format）
+- Input: PDF, DOCX, PPTX, XLSX, HTML, WAV, MP3, VTT, images (PNG, TIFF, JPEG, ...)
+- Output: a unified [DoclingDocument](https://docling-project.github.io/docling/concepts/docling_document/)
+- Purpose: provide a unified and simple tool to convert various documents into a structured (LLM-Ready) format
 
-## 視覺語言模型（Vision Language Model, VLM）
+## Vision Language Model (VLM)
 
-本次實測 IBM 最新推出的 VLM 模型 `ibm-granite/granite-docling-258M`，相較於舊版的 `ds4sd/SmolDocling-256M-preview`，兩者參數量幾乎一樣的情況下，模型體積從 3.55 GB 降到 530 MB
+This test uses IBM's newly released VLM model `ibm-granite/granite-docling-258M`. Compared to the older `ds4sd/SmolDocling-256M-preview`, with nearly the same number of parameters, the model size was reduced from 3.55 GB to 530 MB.
 
-### 舊版 Docling 使用的 VLM
+### VLM used by the older Docling
 ![image](https://hackmd.io/_uploads/rk4ayQ-hlx.png)
 
-### 新版 Docling 使用的 VLM
+### VLM used by the new Docling
 ![image](https://hackmd.io/_uploads/HJU0JQb2xg.png)
 
-## 實際操作 
+## Practical steps
 
 - Docling + `ibm-granite/granite-docling-258M`
 
 ```shell
 uv add docling 
-uv add mlx-vlm # 筆者使用 Mac，要使用 M 系列晶片加速才需要裝
+uv add mlx-vlm # I use a Mac; install only if you need acceleration with M-series chips
 ```
 
-### 支援的 VLM 模型
+### Supported VLM models
 
-- 舊版：`vlm_model_specs.SMOLDOCLING_MLX`
-- 新版：`vlm_model_specs.GRANITEDOCLING_MLX`
+- Old: `vlm_model_specs.SMOLDOCLING_MLX`
+- New: `vlm_model_specs.GRANITEDOCLING_MLX`
 
-### 模組介紹
+### Module overview
 
-- `VlmPipelineOptions`：使用 VLM 進行文件轉換的設定檔（例如：模型名稱、保存圖片等等...）
-- `DocumentConverter`：設定不同 Input Format 的處理方式
+- `VlmPipelineOptions`: configuration for using a VLM for document conversion (e.g., model name, saving images, etc.)
+- `DocumentConverter`: configures processing methods for different input formats
 
-### 圖片處理方式
+### Image handling modes
 
 ```python
 class ImageRefMode(str, Enum):
@@ -68,11 +72,11 @@ class ImageRefMode(str, Enum):
     REFERENCED = "referenced"  # reference the image via uri
 ```
 
-- `PLACEHOLDER`：使用 `<!-- IMAGE -->` 來代表圖片（不保存圖片的意思）
-- `EMBEDDED`：把圖片轉換成 base64，直接保存在轉換後的文件內 
-- `REFERENCED`：使用 URI 引用圖片
+- `PLACEHOLDER`: use `<!-- IMAGE -->` to represent images (does not save the image)
+- `EMBEDDED`: convert the image to base64 and store it directly in the converted document
+- `REFERENCED`: reference the image via a URI
 
-### 完整程式碼
+### Full code
 
 ```python
 from pathlib import Path
@@ -133,13 +137,13 @@ for file_path in FILE_PATHS:
         )
 ```
 
-# 🔁 重點回顧
+# 🔁 Key takeaways
 
-- 安裝 docling 以及使用最新的模型 `ibm-granite/granite-docling-258M` 進行辨識
-- 使用 Mac 的 M 系列晶片可額外安裝 `mlx-vlm`，並挑選可以加速的模型
-- 兩種輸出模式（直接匯出成 Markdown 或是 HTML）
+- Install docling and use the latest model `ibm-granite/granite-docling-258M` for recognition
+- On Macs with M-series chips you can additionally install `mlx-vlm` and choose models that support acceleration
+- Two output modes: export directly to Markdown or HTML
 
-# 🔗 參考資料
+# 🔗 References
 
 - [Docling/Vision models](https://docling-project.github.io/docling/usage/vision_models/)
 - [Docling/Usage/Basic-usage](https://docling-project.github.io/docling/usage/)
