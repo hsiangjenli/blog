@@ -3,12 +3,12 @@ title: '[note] 介紹簡易需求結構方法（Easy Approach to Requirements Sy
 date: '2025-09-19'
 updated: '2025-09-19'
 author:
-- 'Hsiang-Jen Li'
+- Hsiang-Jen Li
 - ' & ChatGPT-5'
-tags:
-# - python
+tags: null
 toc: true
 lang: zh-TW
+slug: note-easy-approach-to-requirements-syntax-ears
 ---
 
 # 📌 簡介
