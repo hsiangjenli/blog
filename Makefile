@@ -11,4 +11,8 @@ push:
 	docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:latest
 
 serve:
-	docker run --rm -it -v ${PWD}/source:/app/source -v ${PWD}/scripts:/app/scripts -w /app -p 4000:4000 ${DOCKER_USERNAME}/${APPLICATION_NAME}:latest
+	docker run --rm -it \
+	-v ${PWD}/source:/app/source \
+	-v ${PWD}/scripts:/app/scripts -w /app \
+	-v ${PWD}/_config.yml:/app/_config.yml \
+	-p 4000:4000 ${DOCKER_USERNAME}/${APPLICATION_NAME}:latest
