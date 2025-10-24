@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import argparse
 import os
 import re
@@ -111,7 +110,9 @@ def translate_text(client: OpenAI, model: str, text: str, src_lang: str, dst_lan
         "Translate Markdown from {src} to {dst}. "
         "Preserve Markdown structure, code fences, links, and inline formatting. "
         "Do not hallucinate or add content. Keep list/heading levels. "
-        "Return a compact JSON with keys: title, body."
+        "If the content contains any names, places, or technical terms, keep them unchanged. "
+        "Return a compact JSON with keys: title, body. "
+        "If the content contains comments in the format <!-- Terms: [Original Term] = [Translated Term] -->, use those mappings to translate the specified terms."
     ).format(src=("Traditional Chinese" if src_lang=="zh-TW" else "English"),
              dst=("Traditional Chinese" if dst_lang=="zh-TW" else "English"))
 
