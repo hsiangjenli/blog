@@ -21,6 +21,10 @@ lang: en
 
 ## 🗓️ 2025
 
+### 10/30 - Cathay Open Source Meetup #3
+
+![20251102195106](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20251102195106.png)
+
 ### 10/20 - Cathay Open Source Meetup #2 
 
 > CNCF CTO Chris Aniszczyk
