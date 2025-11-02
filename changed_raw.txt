@@ -1,1 +1,6 @@
-source/_posts/note_ears_gwt.md
+.github/workflows/translate_posts.py
+Makefile
+scripts/custom.js
+scripts/i18n-locale-fix.js
+source/_posts/job_cathay.md
+source/css/custom.css
