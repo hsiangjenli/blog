@@ -1,5 +1,5 @@
 ---
-title: '[職務] 工作紀錄 @ 國泰金控 - 開源創新發展小組'
+title: '[job] 工作紀錄 @ 國泰金控 - 開源創新發展小組'
 date: '2025-10-24'
 updated: '2025-10-24'
 author:
@@ -9,7 +9,7 @@ tags:
 toc: true
 lang: zh-TW
 slug: job-job-records-cathay-financial-holdings-osi
-source_sha: 2da0c676bc34aa586ae97b17440d1af5b0ac64c0934df030876a66f8d4fec294
+source_sha: b061055a04659ce5115eaec5097ea34d0cf7c9382ad2224620d0dad08873d36a
 origin_lang: en
 ---
 
@@ -21,13 +21,17 @@ origin_lang: en
 
 ## 🗓️ 2025
 
-### 10/20 - Cathay 開源聚會 #2 
+### 10/30 - Cathay Open Source Meetup #3
 
-> CNCF 的 CTO Chris Aniszczyk
+![20251102195106](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20251102195106.png)
+
+### 10/20 - Cathay Open Source Meetup #2 
+
+> CNCF CTO Chris Aniszczyk
 
 ![](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20251024194601.png)
 
-### 08/14 - Cathay 開源聚會 #1
+### 08/14 - Cathay Open Source Meetup #1
 
 ![](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20251024194735.png)
 
