@@ -1,5 +1,5 @@
 ---
-title: '[note] 介紹 Antropic 的自動化 AI 安全審計框架 petri'
+title: '[note] 介紹自動化 AI 安全審計框架 petri'
 date: '2025-11-04'
 updated: '2025-11-04'
 author:
@@ -10,7 +10,6 @@ tags:
 - security
 toc: true
 lang: zh-TW
-slug: note-antropic-ai-petri
 ---
 
 # 📌 簡介
