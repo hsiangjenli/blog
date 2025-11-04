@@ -35,7 +35,22 @@ def normalize_lang(lang: str) -> str:
 
 
 def detect_lang_from_content(text: str) -> str:
-    # Simple heuristic: if there are many CJK characters, treat as zh-TW
+    # Improved heuristic:
+    # - Remove fenced code blocks, inline code, markdown links/images and URLs before counting
+    # - Count CJK characters and ASCII letters, then decide based on ratio and minimum total
+    import re
+
+    # remove fenced code blocks ```...``` (multiline)
+    text = re.sub(r'```[\s\S]*?```', ' ', text)
+    # remove inline code `...`
+    text = re.sub(r'`[^`]*`', ' ', text)
+    # remove markdown links/images [alt](url) and ![alt](url)
+    text = re.sub(r'!?\[[^\]]*\]\([^\)]*\)', ' ', text)
+    # remove HTML tags
+    text = re.sub(r'<[^>]+>', ' ', text)
+    # remove URLs
+    text = re.sub(r'https?://\S+', ' ', text)
+
     cjk = sum(1 for ch in text if (
         '\u4e00' <= ch <= '\u9fff' or  # CJK Unified Ideographs
         '\u3400' <= ch <= '\u4dbf' or  # CJK Ext A
@@ -43,10 +58,17 @@ def detect_lang_from_content(text: str) -> str:
         '\u3000' <= ch <= '\u303f'     # CJK punctuation
     ))
     letters = sum(1 for ch in text if ('a' <= ch.lower() <= 'z'))
-    # Thresholds to be tolerant of code blocks and URLs
-    if cjk >= 50 and cjk > letters * 0.5:
+
+    total = cjk + letters
+    # require a minimum amount of text to decide
+    if total < 50:
+        return ''
+
+    # compute CJK ratio
+    ratio = cjk / total if total > 0 else 0.0
+    if ratio >= 0.6:
         return 'zh-TW'
-    if letters >= 50 and letters > cjk * 0.5:
+    if ratio <= 0.4:
         return 'en'
     return ''
 
