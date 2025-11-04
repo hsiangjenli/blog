@@ -1,16 +1,15 @@
 ---
-title: '[note] 介紹 Antropic 的自動化 AI 安全審計框架 `safety-research/petri`'
+title: '[note] 介紹 Antropic 的自動化 AI 安全審計框架 petri'
 date: '2025-11-04'
 updated: '2025-11-04'
 author:
-- Hsiang-Jen Li
+- 'Hsiang-Jen Li' 
 - ' & DeepWiki'
 tags:
 - llm
 - security
 toc: true
 lang: zh-TW
-slug: note-antropic-ai-safety-research-petri
 ---
 
 # 📌 簡介
