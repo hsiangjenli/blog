@@ -12,6 +12,9 @@ slug: note-installation-of-golang-path
 lang: zh-TW
 source_sha: 9d3c141b7370a556c233b0c443c662d12ebe171694cfbb684859a502273b15a6
 origin_lang: en
+permalink: zh-TW/note-installation-of-golang-path/
+translations:
+  en: /note-installation-of-golang-path.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

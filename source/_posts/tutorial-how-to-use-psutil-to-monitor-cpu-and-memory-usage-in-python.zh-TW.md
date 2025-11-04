@@ -12,6 +12,9 @@ slug: tutorial-how-to-use-psutil-to-monitor-cpu-and-memory-usage-in-python
 lang: zh-TW
 source_sha: a52e60395798375f85fdbcb36e583fc0fc48cfc6263e2fe8a73e4303ac150ae5
 origin_lang: en
+permalink: zh-TW/tutorial-how-to-use-psutil-to-monitor-cpu-and-memory-usage-in-python/
+translations:
+  en: /tutorial-how-to-use-psutil-to-monitor-cpu-and-memory-usage-in-python.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

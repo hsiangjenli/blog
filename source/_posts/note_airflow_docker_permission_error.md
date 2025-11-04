@@ -10,6 +10,9 @@ tags:
 toc: true
 slug: note-fixing-git-installation-issues-in-apache-airflow-2-10-2-docker-image
 lang: en
+permalink: note-fixing-git-installation-issues-in-apache-airflow-2-10-2-docker-image.en/
+translations:
+  zh-TW: /zh-TW/note-fixing-git-installation-issues-in-apache-airflow-2-10-2-docker-image/
 ---
 
 # 📌 Introduction

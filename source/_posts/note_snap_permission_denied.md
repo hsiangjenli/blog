@@ -11,6 +11,9 @@ tags:
 toc: true
 slug: note-solving-fstatat-canonical-snap-directory-permission-denied
 lang: en
+permalink: note-solving-fstatat-canonical-snap-directory-permission-denied.en/
+translations:
+  zh-TW: /zh-TW/note-solving-fstatat-canonical-snap-directory-permission-denied/
 ---
 
 # 📌 Introduction

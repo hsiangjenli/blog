@@ -12,6 +12,9 @@ slug: tutorial-a-toy-example-of-scanning-models
 lang: zh-TW
 source_sha: c71699f8d0ad067977a553f06e68c9509578fe87abcefa4f28d09ea89fc263ae
 origin_lang: en
+permalink: zh-TW/tutorial-a-toy-example-of-scanning-models/
+translations:
+  en: /tutorial-a-toy-example-of-scanning-models.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

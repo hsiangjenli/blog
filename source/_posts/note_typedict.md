@@ -10,6 +10,9 @@ tags:
 toc: true
 slug: note-enhancing-code-clarity-with-typeddict
 lang: en
+permalink: note-enhancing-code-clarity-with-typeddict.en/
+translations:
+  zh-TW: /zh-TW/note-enhancing-code-clarity-with-typeddict/
 ---
 
 # 📌 Introduction

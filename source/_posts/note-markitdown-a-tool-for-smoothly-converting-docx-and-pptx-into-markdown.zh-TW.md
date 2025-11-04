@@ -13,6 +13,9 @@ slug: note-markitdown-a-tool-for-smoothly-converting-docx-and-pptx-into-markdown
 lang: zh-TW
 source_sha: 397aa5750799648f289e395e4f5dca8443ea015721442d7493885bc0b35dcbb8
 origin_lang: en
+permalink: zh-TW/note-markitdown-a-tool-for-smoothly-converting-docx-and-pptx-into-markdown/
+translations:
+  en: /note-markitdown-a-tool-for-smoothly-converting-docx-and-pptx-into-markdown.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

@@ -11,6 +11,9 @@ tags:
 toc: true
 slug: tutorial-setting-up-miniconda-on-ubuntu
 lang: en
+permalink: tutorial-setting-up-miniconda-on-ubuntu.en/
+translations:
+  zh-TW: /zh-TW/tutorial-setting-up-miniconda-on-ubuntu/
 ---
 
 # 📌 Introduction

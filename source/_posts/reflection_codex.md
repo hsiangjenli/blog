@@ -8,6 +8,9 @@ tags: null
 toc: true
 slug: reflection-first-experience-with-codex
 lang: en
+permalink: reflection-first-experience-with-codex.en/
+translations:
+  zh-TW: /zh-TW/reflection-first-experience-with-codex/
 ---
 
 # 📌 Introduction

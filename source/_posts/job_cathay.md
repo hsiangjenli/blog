@@ -9,6 +9,9 @@ tags:
 toc: true
 lang: en
 slug: job-job-records-cathay-financial-holdings-osi
+permalink: job-job-records-cathay-financial-holdings-osi.en/
+translations:
+  zh-TW: /zh-TW/job-job-records-cathay-financial-holdings-osi/
 ---
 
 # 💼 Cathay Financial Holdings - OSI

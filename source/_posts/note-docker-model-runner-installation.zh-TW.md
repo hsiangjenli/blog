@@ -13,6 +13,9 @@ slug: note-docker-model-runner-installation
 lang: zh-TW
 source_sha: 4baaff6e38f03d3da69fc6face5bf553fb13934c5597744ae76aa21a6a80b4d2
 origin_lang: en
+permalink: zh-TW/note-docker-model-runner-installation/
+translations:
+  en: /note-docker-model-runner-installation.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

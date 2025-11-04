@@ -9,6 +9,9 @@ tags: null
 toc: true
 slug: note-oci-artifact
 lang: en
+permalink: note-oci-artifact.en/
+translations:
+  zh-TW: /zh-TW/note-oci-artifact/
 ---
 
 # 📌 What is an OCI Artifact?

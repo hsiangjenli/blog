@@ -10,6 +10,9 @@ tags:
 toc: true
 slug: note-mac-docker-desktop-colima
 lang: zh-TW
+permalink: zh-TW/note-mac-docker-desktop-colima/
+translations:
+  en: /note-mac-docker-desktop-colima.en/
 ---
 
 # 📌 介紹

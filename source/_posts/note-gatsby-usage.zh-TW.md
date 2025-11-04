@@ -13,6 +13,9 @@ slug: note-gatsby-usage
 lang: zh-TW
 source_sha: 64e4d8c57e0f1fb316670e085c653d27f5c7a6c41cac8c5f798761b3f368fbb4
 origin_lang: en
+permalink: zh-TW/note-gatsby-usage/
+translations:
+  en: /note-gatsby-usage.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

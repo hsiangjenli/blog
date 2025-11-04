@@ -11,6 +11,9 @@ lang: en
 slug: note-aws-invalidtoken-invalidclienttokenid
 source_sha: 58323dc76cfca29dd7dbdb4c49f1d34778130ce6394d9ccd27ebd4bd4225bf9e
 origin_lang: zh-TW
+permalink: note-aws-invalidtoken-invalidclienttokenid.en/
+translations:
+  zh-TW: /zh-TW/note-aws-invalidtoken-invalidclienttokenid/
 ---
 
 > Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.

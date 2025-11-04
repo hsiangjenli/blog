@@ -10,6 +10,9 @@ slug: note-window-11-ubuntu
 lang: en
 source_sha: 40503ee224d8c3d9be87999dc3ac804987d73021292b590b606ed23082325869
 origin_lang: zh-TW
+permalink: note-window-11-ubuntu.en/
+translations:
+  zh-TW: /zh-TW/note-window-11-ubuntu/
 ---
 
 > Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.

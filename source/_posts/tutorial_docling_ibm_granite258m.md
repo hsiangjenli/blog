@@ -10,6 +10,9 @@ tags:
 toc: true
 lang: zh-TW
 slug: tutorial-docling-ibm-granite-granite-docling-258m
+permalink: zh-TW/tutorial-docling-ibm-granite-granite-docling-258m/
+translations:
+  en: /tutorial-docling-ibm-granite-granite-docling-258m.en/
 ---
 
 # 📌 簡介

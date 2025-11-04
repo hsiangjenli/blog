@@ -11,6 +11,9 @@ tags:
 toc: false
 slug: note-gatsby-usage
 lang: en
+permalink: note-gatsby-usage.en/
+translations:
+  zh-TW: /zh-TW/note-gatsby-usage/
 ---
 
 # 📌 Introduction

@@ -11,6 +11,9 @@ tags:
 toc: true
 slug: note-markitdown-a-tool-for-smoothly-converting-docx-and-pptx-into-markdown
 lang: en
+permalink: note-markitdown-a-tool-for-smoothly-converting-docx-and-pptx-into-markdown.en/
+translations:
+  zh-TW: /zh-TW/note-markitdown-a-tool-for-smoothly-converting-docx-and-pptx-into-markdown/
 ---
 
 # 📌 Introduction

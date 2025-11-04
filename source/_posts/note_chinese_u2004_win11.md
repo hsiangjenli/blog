@@ -8,6 +8,9 @@ tags:
 toc: true
 slug: note-window-11-ubuntu
 lang: zh-TW
+permalink: zh-TW/note-window-11-ubuntu/
+translations:
+  en: /note-window-11-ubuntu.en/
 ---
 
 <!-- # 🤯 先從反省開始

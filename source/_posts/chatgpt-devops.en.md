@@ -15,6 +15,9 @@ slug: chatgpt-devops
 lang: en
 source_sha: 5106b5ddf84107c10adc7fb90f66f695af9bddd9050155853aa5813a53ebb09a
 origin_lang: zh-TW
+permalink: chatgpt-devops.en/
+translations:
+  zh-TW: /zh-TW/chatgpt-devops/
 ---
 
 > Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.

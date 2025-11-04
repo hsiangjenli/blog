@@ -12,6 +12,9 @@ slug: note-fixing-git-installation-issues-in-apache-airflow-2-10-2-docker-image
 lang: zh-TW
 source_sha: 04c124bbd477d9e39cd8a1822c7760fc13c1c79f3be0e94917c89378d07bf84a
 origin_lang: en
+permalink: zh-TW/note-fixing-git-installation-issues-in-apache-airflow-2-10-2-docker-image/
+translations:
+  en: /note-fixing-git-installation-issues-in-apache-airflow-2-10-2-docker-image.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

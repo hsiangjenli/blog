@@ -12,6 +12,9 @@ slug: tutorial-aws-sam-lambda
 lang: en
 source_sha: d2ef9bc3013711be7c831a3d1f7cf31e394ba009c28e7c3697a4759e2bf308e7
 origin_lang: zh-TW
+permalink: tutorial-aws-sam-lambda.en/
+translations:
+  zh-TW: /zh-TW/tutorial-aws-sam-lambda/
 ---
 
 > Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.

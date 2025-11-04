@@ -12,6 +12,9 @@ slug: tutorial-build-your-own-python-package
 lang: zh-TW
 source_sha: 325081210978c69e6bb37a726d02a95c3743b20ede58ea0cae5a4f1cfc8a696d
 origin_lang: en
+permalink: zh-TW/tutorial-build-your-own-python-package/
+translations:
+  en: /tutorial-build-your-own-python-package.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

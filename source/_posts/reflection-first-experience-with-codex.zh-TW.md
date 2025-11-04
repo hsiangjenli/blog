@@ -10,6 +10,9 @@ slug: reflection-first-experience-with-codex
 lang: zh-TW
 source_sha: 9617741812a2a4679d8224b7b7e1d90b0f3ad24d831c1bd3299f0ad87cf74088
 origin_lang: en
+permalink: zh-TW/reflection-first-experience-with-codex/
+translations:
+  en: /reflection-first-experience-with-codex.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

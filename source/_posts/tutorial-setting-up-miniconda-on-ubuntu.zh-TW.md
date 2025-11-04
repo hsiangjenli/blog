@@ -13,6 +13,9 @@ slug: tutorial-setting-up-miniconda-on-ubuntu
 lang: zh-TW
 source_sha: a5ff16c87656c99fc6dda7dda8e5b38ed6101997e1daeeecffed6541516fb9ee
 origin_lang: en
+permalink: zh-TW/tutorial-setting-up-miniconda-on-ubuntu/
+translations:
+  en: /tutorial-setting-up-miniconda-on-ubuntu.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

@@ -11,6 +11,9 @@ tags:
 toc: true
 lang: zh-TW
 slug: note-ai-petri
+permalink: zh-TW/note-ai-petri/
+translations:
+    en: /note-ai-petri.en/
 ---
 
 # 📌 簡介

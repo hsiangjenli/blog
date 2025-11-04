@@ -9,6 +9,9 @@ tags: []
 toc: true
 slug: note-installing-github-copilot-cli-and-usage-guide
 lang: en
+permalink: note-installing-github-copilot-cli-and-usage-guide.en/
+translations:
+  zh-TW: /zh-TW/note-installing-github-copilot-cli-and-usage-guide/
 ---
 
 # 📌 Introduction

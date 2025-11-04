@@ -9,6 +9,9 @@ tags:
 toc: true
 lang: zh-TW
 slug: note-aws-invalidtoken-invalidclienttokenid
+permalink: zh-TW/note-aws-invalidtoken-invalidclienttokenid/
+translations:
+  en: /note-aws-invalidtoken-invalidclienttokenid.en/
 ---
 
 # 📌 Introduction

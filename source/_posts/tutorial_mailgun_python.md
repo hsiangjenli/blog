@@ -10,6 +10,9 @@ tags:
 toc: true
 slug: tutorial-using-mailgun-python-to-send-email
 lang: en
+permalink: tutorial-using-mailgun-python-to-send-email.en/
+translations:
+  zh-TW: /zh-TW/tutorial-using-mailgun-python-to-send-email/
 ---
 
 # 📌 Introduction

@@ -10,6 +10,9 @@ tags:
 toc: true
 slug: tutorial-github-picgo-vscode-extension
 lang: en
+permalink: tutorial-github-picgo-vscode-extension.en/
+translations:
+  zh-TW: /zh-TW/tutorial-github-picgo-vscode-extension/
 ---
 
 # 📌 Introduction

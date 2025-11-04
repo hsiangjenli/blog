@@ -11,6 +11,9 @@ slug: note-strategic-thinking-models
 lang: zh-TW
 source_sha: dd11bf7361ee232bff113369dfe413b65e97034e34f6eee78296b8b0c07deec8
 origin_lang: en
+permalink: zh-TW/note-strategic-thinking-models/
+translations:
+  en: /note-strategic-thinking-models.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

@@ -13,6 +13,9 @@ lang: en
 slug: note-higgs-audio-token
 source_sha: 4fefd9a05ba88a84c5046a38523c4a3dde90f7737e12bd94d3f77d090b43bd3c
 origin_lang: zh-TW
+permalink: note-higgs-audio-token.en/
+translations:
+  zh-TW: /zh-TW/note-higgs-audio-token/
 ---
 
 > Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.

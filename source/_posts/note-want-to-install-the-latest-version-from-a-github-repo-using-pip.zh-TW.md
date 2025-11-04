@@ -14,6 +14,9 @@ slug: note-want-to-install-the-latest-version-from-a-github-repo-using-pip
 lang: zh-TW
 source_sha: a3da3844eeb21038c7894882c100679346cc65d47883df69c011296cbaedfe7e
 origin_lang: en
+permalink: zh-TW/note-want-to-install-the-latest-version-from-a-github-repo-using-pip/
+translations:
+  en: /note-want-to-install-the-latest-version-from-a-github-repo-using-pip.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

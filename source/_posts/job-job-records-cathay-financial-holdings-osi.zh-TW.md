@@ -11,6 +11,9 @@ lang: zh-TW
 slug: job-job-records-cathay-financial-holdings-osi
 source_sha: b061055a04659ce5115eaec5097ea34d0cf7c9382ad2224620d0dad08873d36a
 origin_lang: en
+permalink: zh-TW/job-job-records-cathay-financial-holdings-osi/
+translations:
+  en: /job-job-records-cathay-financial-holdings-osi.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

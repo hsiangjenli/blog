@@ -11,6 +11,9 @@ slug: note-ngrok-static-domain-for-free
 lang: zh-TW
 source_sha: e6e099a928463dd6a030d1b9a556f125c7865d623bd5683db6b460351a5e12b5
 origin_lang: en
+permalink: zh-TW/note-ngrok-static-domain-for-free/
+translations:
+  en: /note-ngrok-static-domain-for-free.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

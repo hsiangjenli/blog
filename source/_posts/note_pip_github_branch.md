@@ -12,6 +12,9 @@ tags:
 toc: true
 slug: note-want-to-install-the-latest-version-from-a-github-repo-using-pip
 lang: en
+permalink: note-want-to-install-the-latest-version-from-a-github-repo-using-pip.en/
+translations:
+  zh-TW: /zh-TW/note-want-to-install-the-latest-version-from-a-github-repo-using-pip/
 ---
 
 # 📌 Introduction

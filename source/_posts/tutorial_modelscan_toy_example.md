@@ -10,6 +10,9 @@ tags:
 toc: true
 slug: tutorial-a-toy-example-of-scanning-models
 lang: en
+permalink: tutorial-a-toy-example-of-scanning-models.en/
+translations:
+  zh-TW: /zh-TW/tutorial-a-toy-example-of-scanning-models/
 ---
 
 # 📌 Introduction

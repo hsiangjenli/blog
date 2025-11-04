@@ -11,6 +11,9 @@ lang: en
 slug: note-easy-approach-to-requirements-syntax-ears
 source_sha: a55227dcc8cdbedd593e06f0db720d5b88da79ae3624f1981ddcda411418f397
 origin_lang: zh-TW
+permalink: note-easy-approach-to-requirements-syntax-ears.en/
+translations:
+  zh-TW: /zh-TW/note-easy-approach-to-requirements-syntax-ears/
 ---
 
 > Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.

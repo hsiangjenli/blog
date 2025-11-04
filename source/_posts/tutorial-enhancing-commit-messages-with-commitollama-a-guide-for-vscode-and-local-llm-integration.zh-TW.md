@@ -12,6 +12,9 @@ slug: tutorial-enhancing-commit-messages-with-commitollama-a-guide-for-vscode-an
 lang: zh-TW
 source_sha: a9a1d22cbcf7ab9a8998bdd34a355a4d4adb1113753395fa376f5f7debb904a0
 origin_lang: en
+permalink: zh-TW/tutorial-enhancing-commit-messages-with-commitollama-a-guide-for-vscode-and-local-llm-integration/
+translations:
+  en: /tutorial-enhancing-commit-messages-with-commitollama-a-guide-for-vscode-and-local-llm-integration.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

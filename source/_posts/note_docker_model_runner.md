@@ -11,6 +11,9 @@ tags:
 toc: true
 slug: note-docker-model-runner-installation
 lang: en
+permalink: note-docker-model-runner-installation.en/
+translations:
+  zh-TW: /zh-TW/note-docker-model-runner-installation/
 ---
 
 # 📌 Introduction

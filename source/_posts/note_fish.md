@@ -10,6 +10,9 @@ tags:
 toc: true
 slug: note-fish
 lang: en
+permalink: note-fish.en/
+translations:
+  zh-TW: /zh-TW/note-fish/
 ---
 
 # 📌 Introduction

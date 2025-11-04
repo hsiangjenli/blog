@@ -9,6 +9,9 @@ tags: null
 toc: true
 slug: note-strategic-thinking-models
 lang: en
+permalink: note-strategic-thinking-models.en/
+translations:
+  zh-TW: /zh-TW/note-strategic-thinking-models/
 ---
 
 # 📌 Introduction

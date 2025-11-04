@@ -10,6 +10,9 @@ tags:
 toc: true
 slug: note-installation-of-golang-path
 lang: en
+permalink: note-installation-of-golang-path.en/
+translations:
+  zh-TW: /zh-TW/note-installation-of-golang-path/
 ---
 
 # 📌 Introduction

@@ -12,6 +12,9 @@ lang: en
 slug: tutorial-docling-ibm-granite-granite-docling-258m
 source_sha: b2fa4b93f76d5f7df384c8790f7d9f96416b8cb670bc554b5fb55fd26146b996
 origin_lang: zh-TW
+permalink: tutorial-docling-ibm-granite-granite-docling-258m.en/
+translations:
+  zh-TW: /zh-TW/tutorial-docling-ibm-granite-granite-docling-258m/
 ---
 
 > Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.

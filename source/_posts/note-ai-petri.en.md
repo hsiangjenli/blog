@@ -13,6 +13,9 @@ lang: en
 slug: note-ai-petri
 source_sha: 499226b7627f2b42f2267e8abb6167d51efba89c29238b5b7d6504dd7be55135
 origin_lang: zh-TW
+translations:
+  zh-TW: /zh-TW/note-ai-petri/
+permalink: note-ai-petri.en/
 ---
 
 > Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.

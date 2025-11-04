@@ -10,6 +10,9 @@ slug: note-run-ubuntu-vms-on-your-mac-using-multipass
 lang: zh-TW
 source_sha: 55f33c5d185f25f426762cbb0063396d7172b23dd14f834fc5a1124ccf492788
 origin_lang: en
+permalink: zh-TW/note-run-ubuntu-vms-on-your-mac-using-multipass/
+translations:
+  en: /note-run-ubuntu-vms-on-your-mac-using-multipass.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

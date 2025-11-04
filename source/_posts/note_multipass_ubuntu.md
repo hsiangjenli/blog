@@ -8,6 +8,9 @@ tags: null
 toc: true
 slug: note-run-ubuntu-vms-on-your-mac-using-multipass
 lang: en
+permalink: note-run-ubuntu-vms-on-your-mac-using-multipass.en/
+translations:
+  zh-TW: /zh-TW/note-run-ubuntu-vms-on-your-mac-using-multipass/
 ---
 
 # 📌 Introduction

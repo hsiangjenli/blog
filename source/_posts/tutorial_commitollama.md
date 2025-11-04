@@ -11,6 +11,9 @@ tags:
 toc: true
 slug: tutorial-enhancing-commit-messages-with-commitollama-a-guide-for-vscode-and-local-llm-integration
 lang: en
+permalink: tutorial-enhancing-commit-messages-with-commitollama-a-guide-for-vscode-and-local-llm-integration.en/
+translations:
+  zh-TW: /zh-TW/tutorial-enhancing-commit-messages-with-commitollama-a-guide-for-vscode-and-local-llm-integration/
 ---
 
 # 📌 Introduction

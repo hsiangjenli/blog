@@ -12,6 +12,9 @@ tags:
 toc: true
 slug: chatgpt-devops
 lang: zh-TW
+permalink: zh-TW/chatgpt-devops/
+translations:
+  en: /chatgpt-devops.en/
 ---
 
 # 📌 介紹

@@ -12,6 +12,9 @@ slug: tutorial-github-picgo-vscode-extension
 lang: zh-TW
 source_sha: edc5a93bc6a74c5fe14587131bd69e9c9614876d7be1cda97841a832af453a59
 origin_lang: en
+permalink: zh-TW/tutorial-github-picgo-vscode-extension/
+translations:
+  en: /tutorial-github-picgo-vscode-extension.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

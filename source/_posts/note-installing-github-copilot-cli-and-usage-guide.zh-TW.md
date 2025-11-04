@@ -11,6 +11,9 @@ slug: note-installing-github-copilot-cli-and-usage-guide
 lang: zh-TW
 source_sha: 563d3557713146fb79e6f7abd3555a948b129c94781c4974095ef2e1fe5b7ff8
 origin_lang: en
+permalink: zh-TW/note-installing-github-copilot-cli-and-usage-guide/
+translations:
+  en: /note-installing-github-copilot-cli-and-usage-guide.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

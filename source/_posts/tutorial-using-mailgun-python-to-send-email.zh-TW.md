@@ -12,6 +12,9 @@ slug: tutorial-using-mailgun-python-to-send-email
 lang: zh-TW
 source_sha: 75ff5ddac1d08195c10e921707badf0fc4a21d5e521cadacceb8b9227666d6e1
 origin_lang: en
+permalink: zh-TW/tutorial-using-mailgun-python-to-send-email/
+translations:
+  en: /tutorial-using-mailgun-python-to-send-email.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

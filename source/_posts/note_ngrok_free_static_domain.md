@@ -9,6 +9,9 @@ tags:
 toc: true
 slug: note-ngrok-static-domain-for-free
 lang: en
+permalink: note-ngrok-static-domain-for-free.en/
+translations:
+  zh-TW: /zh-TW/note-ngrok-static-domain-for-free/
 ---
 
 # 📌 Introduction

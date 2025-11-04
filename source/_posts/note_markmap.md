@@ -11,6 +11,9 @@ tags:
 toc: true
 slug: note-efficient-mind-mapping-with-markmap-a-markdown-based-vscode-extension
 lang: en
+permalink: note-efficient-mind-mapping-with-markmap-a-markdown-based-vscode-extension.en/
+translations:
+  zh-TW: /zh-TW/note-efficient-mind-mapping-with-markmap-a-markdown-based-vscode-extension/
 ---
 
 # 📌 Introduction

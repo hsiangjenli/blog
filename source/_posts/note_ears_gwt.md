@@ -9,6 +9,9 @@ tags: null
 toc: true
 lang: zh-TW
 slug: note-easy-approach-to-requirements-syntax-ears
+permalink: zh-TW/note-easy-approach-to-requirements-syntax-ears/
+translations:
+  en: /note-easy-approach-to-requirements-syntax-ears.en/
 ---
 
 # 📌 簡介

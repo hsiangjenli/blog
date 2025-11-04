@@ -12,6 +12,9 @@ slug: note-enhancing-code-clarity-with-typeddict
 lang: zh-TW
 source_sha: 69edd560d944b8aecff8b0c8ca7b61f5061734b5f3113814fb9b4ef3bcf42686
 origin_lang: en
+permalink: zh-TW/note-enhancing-code-clarity-with-typeddict/
+translations:
+  en: /note-enhancing-code-clarity-with-typeddict.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

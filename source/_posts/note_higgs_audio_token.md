@@ -11,6 +11,9 @@ tags:
 toc: true
 lang: zh-TW
 slug: note-higgs-audio-token
+permalink: zh-TW/note-higgs-audio-token/
+translations:
+  en: /note-higgs-audio-token.en/
 ---
 
 # 📌 簡介

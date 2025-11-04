@@ -10,6 +10,9 @@ tags:
 toc: true
 slug: tutorial-using-ollama-with-opencommit-for-local-commit-message-generation
 lang: en
+permalink: tutorial-using-ollama-with-opencommit-for-local-commit-message-generation.en/
+translations:
+  zh-TW: /zh-TW/tutorial-using-ollama-with-opencommit-for-local-commit-message-generation/
 ---
 
 # 📌 Introduction

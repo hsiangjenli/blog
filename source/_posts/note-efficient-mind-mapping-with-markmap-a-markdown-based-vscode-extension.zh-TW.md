@@ -13,6 +13,9 @@ slug: note-efficient-mind-mapping-with-markmap-a-markdown-based-vscode-extension
 lang: zh-TW
 source_sha: 3e1fc9a95069dbd5d18e9aef48f08dab10fe331c5da6b76c32aba91322516cf6
 origin_lang: en
+permalink: zh-TW/note-efficient-mind-mapping-with-markmap-a-markdown-based-vscode-extension/
+translations:
+  en: /note-efficient-mind-mapping-with-markmap-a-markdown-based-vscode-extension.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

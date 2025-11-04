@@ -12,6 +12,9 @@ slug: note-fish
 lang: zh-TW
 source_sha: 240564b0c1ec74aaf6eb48430a0d9f0a89cbd7ea63ab02b16d73a250641a80dd
 origin_lang: en
+permalink: zh-TW/note-fish/
+translations:
+  en: /note-fish.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

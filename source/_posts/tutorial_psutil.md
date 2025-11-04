@@ -10,6 +10,9 @@ tags:
 toc: true
 slug: tutorial-how-to-use-psutil-to-monitor-cpu-and-memory-usage-in-python
 lang: en
+permalink: tutorial-how-to-use-psutil-to-monitor-cpu-and-memory-usage-in-python.en/
+translations:
+  zh-TW: /zh-TW/tutorial-how-to-use-psutil-to-monitor-cpu-and-memory-usage-in-python/
 ---
 
 # 📌 Introduction

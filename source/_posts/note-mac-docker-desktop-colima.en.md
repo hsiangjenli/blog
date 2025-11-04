@@ -12,6 +12,9 @@ slug: note-mac-docker-desktop-colima
 lang: en
 source_sha: 45ea7578fa0b317eae3876ad81bba7b7dea3ee23cac359f58b963ff2af4078c9
 origin_lang: zh-TW
+permalink: note-mac-docker-desktop-colima.en/
+translations:
+  zh-TW: /zh-TW/note-mac-docker-desktop-colima/
 ---
 
 > Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.

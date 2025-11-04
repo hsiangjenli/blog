@@ -10,6 +10,9 @@ tags:
 toc: true
 slug: tutorial-aws-sam-lambda
 lang: zh-TW
+permalink: zh-TW/tutorial-aws-sam-lambda/
+translations:
+  en: /tutorial-aws-sam-lambda.en/
 ---
 
 # 📌 Introduction

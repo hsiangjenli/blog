@@ -13,6 +13,9 @@ slug: note-solving-fstatat-canonical-snap-directory-permission-denied
 lang: zh-TW
 source_sha: 72ef3016c3bfd2ef96662235006426b66d7e4a12aa03cdca64aa2f9c22892a02
 origin_lang: en
+permalink: zh-TW/note-solving-fstatat-canonical-snap-directory-permission-denied/
+translations:
+  en: /note-solving-fstatat-canonical-snap-directory-permission-denied.en/
 ---
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。

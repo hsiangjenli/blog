@@ -10,6 +10,9 @@ tags:
 toc: true
 slug: tutorial-build-your-own-python-package
 lang: en
+permalink: tutorial-build-your-own-python-package.en/
+translations:
+  zh-TW: /zh-TW/tutorial-build-your-own-python-package/
 ---
 
 # 📌 Introduction
