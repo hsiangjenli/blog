@@ -20,65 +20,167 @@ hexo.extend.filter.register('template_locals', function(locals) {
 
 // Inject a smart language switcher that handles all page types (archives, tags, categories, etc.)
 hexo.extend.helper.register('smart_lang_switch', function() {
-  const config = this.config;
-  const page = this.page;
-  const currentUrl = this.url;
-  
-  // Get language list
-  const langs = Array.isArray(config.language) ? config.language : [config.language || 'en'];
+  const config = this.config || {};
+  const page = this.page || {};
+  const site = this.site || {};
+  const urlFor = this.url_for ? this.url_for.bind(this) : (path => path);
+
+  const langsRaw = Array.isArray(config.language) ? config.language : [config.language || 'en'];
+  const langs = langsRaw.filter(Boolean);
   const defaultLang = langs[0] || 'en';
-  
-  // Determine current language from page or URL
+
   let currentLang = page.lang || page.language || defaultLang;
-  
-  // If current path starts with a language code, extract it
-  const pathLangMatch = currentUrl.match(/^\/([^\/]+)\//);
-  if (pathLangMatch && langs.includes(pathLangMatch[1])) {
-    currentLang = pathLangMatch[1];
-  } else if (!currentUrl.startsWith('/' + currentLang + '/') && currentLang !== defaultLang) {
-    // Path doesn't start with current lang, assume default
-    currentLang = defaultLang;
-  }
-  
-  // Determine target language (toggle between en and zh-TW)
-  const targetLang = currentLang === 'zh-TW' ? 'en' : 'zh-TW';
-  
-  // Build target URL
-  let targetUrl;
-  
-  if (currentLang === defaultLang) {
-    // Currently on default language (no prefix), add target language prefix
-    targetUrl = '/' + targetLang + currentUrl;
-  } else {
-    // Currently on non-default language, need to remove or replace prefix
-    const langPrefix = '/' + currentLang + '/';
-    if (currentUrl.startsWith(langPrefix)) {
-      const pathWithoutLang = currentUrl.substring(langPrefix.length - 1); // keep leading /
-      
-      if (targetLang === defaultLang) {
-        // Going to default language, remove prefix
-        targetUrl = pathWithoutLang;
-      } else {
-        // Going to another non-default language, replace prefix
-        targetUrl = '/' + targetLang + pathWithoutLang;
+  if (!langs.includes(currentLang)) currentLang = defaultLang;
+
+  const targetLang = (langs.find(l => l !== currentLang) || defaultLang) || 'en';
+
+  const root = config.root || '/';
+
+  const ensureLeadingSlash = str => {
+    if (!str) return '/';
+    return str.startsWith('/') ? str : '/' + str;
+  };
+
+  const stripIndex = str => str ? str.replace(/index\.html?$/i, '') : str;
+
+  const stripLangSuffix = segment => {
+    if (!segment) return segment;
+    let value = segment.replace(/([._-])(zh\-tw|en)$/i, '');
+    value = value.replace(/\.(zh\-tw|en)$/i, '');
+    return value;
+  };
+
+  const currentUrl = page.path ? ensureLeadingSlash(stripIndex(urlFor(page.path)))
+    : typeof this.url === 'string' ? ensureLeadingSlash(this.url)
+    : root;
+
+  const toArray = collection => {
+    if (!collection) return [];
+    if (Array.isArray(collection)) return collection;
+    if (typeof collection.toArray === 'function') return collection.toArray();
+    if (collection.data) return collection.data;
+    return [];
+  };
+
+  const postsCollection = site.posts || (hexo.locals && typeof hexo.locals.get === 'function' ? hexo.locals.get('posts') : null);
+  const posts = toArray(postsCollection);
+  const normalizeKey = value => {
+    if (!value) return '';
+    const base = String(value).toLowerCase();
+    const withoutExt = base.replace(/\.[^/.]+$/, '');
+    const withoutLocale = withoutExt.replace(/([._-])?(zh\-tw|en)$/, '');
+    return withoutLocale.replace(/[^a-z0-9]+/g, '');
+  };
+
+  const currentKey = normalizeKey(
+    page.translation_key ||
+    page.slug ||
+    (page.source ? page.source.split('/').pop() : page.path)
+  );
+
+  const ensureUrl = path => {
+    if (!path) return null;
+    if (/^https?:\/\//.test(path)) return path;
+    return ensureLeadingSlash(stripIndex(urlFor(path)));
+  };
+
+  const getLang = post => post && (post.lang || post.language || defaultLang);
+
+  let preferredUrl = null;
+
+  if (page.layout === 'post') {
+    if (page.translations && page.translations[targetLang]) {
+      preferredUrl = ensureUrl(page.translations[targetLang]);
+    }
+
+    if (!preferredUrl && page.translation_key) {
+      const normalizedKey = normalizeKey(page.translation_key);
+      if (normalizedKey) {
+        const sibling = posts.find(p => {
+          if (!p || p.path === page.path) return false;
+          if (getLang(p) !== targetLang) return false;
+          return normalizeKey(p.translation_key) === normalizedKey;
+        });
+        if (sibling) preferredUrl = ensureUrl(sibling.path || sibling.permalink);
       }
-    } else {
-      // Fallback: just add target language prefix
-      targetUrl = '/' + targetLang + currentUrl;
+    }
+
+    if (!preferredUrl && currentKey) {
+      const sibling = posts.find(p => {
+        if (!p || p.path === page.path) return false;
+        if (getLang(p) !== targetLang) return false;
+        const key = normalizeKey(
+          p.translation_key ||
+          p.slug ||
+          (p.source ? p.source.split('/').pop() : p.path)
+        );
+        return key && key === currentKey;
+      });
+      if (sibling) preferredUrl = ensureUrl(sibling.path || sibling.permalink);
     }
   }
-  
-  // Normalize URL (remove double slashes, ensure proper format)
-  targetUrl = targetUrl.replace(/\/+/g, '/');
-  
-  // Add base URL if configured
-  const root = config.root || '/';
-  if (root !== '/' && !targetUrl.startsWith(root)) {
-    targetUrl = root.replace(/\/$/, '') + targetUrl;
+
+  const stripRoot = url => {
+    if (!url) return '';
+    let value = url;
+    const trimmedRoot = root !== '/' ? root.replace(/\/$/, '') : '';
+    if (trimmedRoot && value.startsWith(trimmedRoot + '/')) {
+      value = value.slice(trimmedRoot.length + 1);
+    } else if (trimmedRoot && value === trimmedRoot) {
+      value = '';
+    }
+    value = value.replace(/^\/+/, '').replace(/\/+$/, '');
+    return value;
+  };
+
+  const relativePath = stripRoot(stripIndex(currentUrl));
+  const segments = relativePath ? relativePath.split('/') : [];
+  const hasLangPrefix = segments.length > 0 && langs.includes(segments[0]);
+  const restSegments = hasLangPrefix ? segments.slice(1) : segments;
+
+  const computeContentSegments = () => {
+    const fromRest = restSegments.slice();
+    if (fromRest.length) {
+      const lastIdx = fromRest.length - 1;
+      fromRest[lastIdx] = stripLangSuffix(fromRest[lastIdx]);
+      if (!fromRest[lastIdx]) fromRest.pop();
+    }
+    if (fromRest.length) return fromRest;
+
+    const slugCandidate = (page.slug || '').trim();
+    if (slugCandidate) return [stripLangSuffix(slugCandidate)];
+
+    if (page.source) {
+      const baseName = page.source.split('/').pop().replace(/\.[^/.]+$/, '');
+      if (baseName) return [stripLangSuffix(baseName)];
+    }
+
+    return [];
+  };
+
+  const contentSegments = computeContentSegments();
+
+  let fallbackSegments;
+  if (targetLang === defaultLang) {
+    fallbackSegments = contentSegments.slice();
+  } else {
+    fallbackSegments = [targetLang, ...contentSegments];
   }
-  
+
+  const fallbackPath = fallbackSegments.join('/');
+  let fallbackUrl;
+  if (fallbackPath) {
+    fallbackUrl = ensureUrl(fallbackPath + '/');
+  } else {
+    fallbackUrl = targetLang === defaultLang ? ensureUrl('') : ensureUrl(targetLang + '/');
+  }
+
+  const finalUrl = preferredUrl || fallbackUrl || ensureUrl('');
+
   const title = targetLang === 'zh-TW' ? '切換到繁體中文' : 'Switch to English';
-  
-  return `<a href="${targetUrl}" title="${title}" aria-label="${title}"><i class="fas fa-globe"></i> ${targetLang === 'zh-TW' ? '中文' : 'EN'}</a>`;
+  const label = targetLang === 'zh-TW' ? '中文' : 'EN';
+  const dataAttr = preferredUrl ? ` data-lang-switch-href="${preferredUrl}"` : '';
+
+  return `<a href="${finalUrl}" title="${title}" aria-label="${title}"${dataAttr}><i class="fas fa-globe"></i> ${label}</a>`;
 });
 

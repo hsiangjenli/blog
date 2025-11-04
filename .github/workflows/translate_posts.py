@@ -3,6 +3,7 @@ import os
 import re
 import sys
 import hashlib
+from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 import yaml
@@ -103,6 +104,22 @@ def target_filename(src_path: Path, target_lang: str, key_slug: str) -> Path:
 def ensure_slug(key: str) -> str:
     s = re.sub(r'[^a-zA-Z0-9]+', '-', str(key)).strip('-').lower()
     return s or str(key)
+
+def build_permalink(lang: str, slug: str, default_lang: str) -> str:
+    if not slug:
+        return ''
+    normalized_lang = normalize_lang(lang) or lang
+    if normalized_lang == default_lang:
+        path = f"{slug}.{normalized_lang}"
+    else:
+        path = f"{normalized_lang}/{slug}"
+    return path if path.endswith('/') else path + '/'
+
+def format_translation_url(path: str) -> str:
+    if not path:
+        return ''
+    value = '/' + path.lstrip('/')
+    return value if value.endswith('/') else value + '/'
 
 def translate_text(client: OpenAI, model: str, text: str, src_lang: str, dst_lang: str, title: str):
     sys_prompt = (
@@ -206,9 +223,11 @@ def main():
     # index by (slug, lang)
     by_slug_lang = {}
     by_path = {}
+    slug_index = defaultdict(dict)
     for it in posts:
         by_slug_lang[(it["slug"], it["lang"])] = it
         by_path[str(it["path"])] = it
+        slug_index[it["slug"]][it["lang"]] = it
 
     # Determine work set
     changed = set()
@@ -225,6 +244,73 @@ def main():
     default_lang = normalize_lang(args.default_lang) or "en"
     other_lang = normalize_lang(args.other_lang) or "zh-TW"
     targets = {default_lang, other_lang}
+
+    language_order = []
+    for lang in [default_lang, other_lang]:
+        if lang and lang not in language_order:
+            language_order.append(lang)
+
+    slugs_to_sync = set()
+
+    def save_item(item, fm, body_override=None):
+        body_value = body_override if body_override is not None else item["body"]
+        write_text(item["path"], join_front_matter(fm, body_value))
+        item["fm"] = fm
+        if body_override is not None:
+            item["body"] = body_override
+            item["content_sha"] = sha256(body_override)
+
+    def sync_slug(slug_value):
+        entries = slug_index.get(slug_value)
+        if not entries or len(entries) < 2:
+            return
+
+        for lang_key, item_obj in entries.items():
+            fm_current = dict(item_obj["fm"])
+            desired_permalink = build_permalink(lang_key, slug_value, default_lang)
+            if desired_permalink and not fm_current.get("permalink"):
+                fm_current["permalink"] = desired_permalink
+            if fm_current != item_obj["fm"]:
+                save_item(item_obj, fm_current)
+
+        path_map = {}
+        for lang_key, item_obj in entries.items():
+            fm_current = item_obj["fm"]
+            permalink_value = fm_current.get("permalink") or build_permalink(lang_key, slug_value, default_lang)
+            if not permalink_value:
+                continue
+            path_map[lang_key] = format_translation_url(permalink_value)
+
+        if not path_map:
+            return
+
+        for lang_key, item_obj in entries.items():
+            fm_current = dict(item_obj["fm"])
+            translations_map = {}
+
+            for ordered_lang in language_order:
+                if ordered_lang == lang_key:
+                    continue
+                url = path_map.get(ordered_lang)
+                if url:
+                    translations_map[ordered_lang] = url
+
+            for other_lang_key in sorted(path_map.keys()):
+                if other_lang_key == lang_key or other_lang_key in translations_map:
+                    continue
+                translations_map[other_lang_key] = path_map[other_lang_key]
+
+            if translations_map:
+                if fm_current.get("translations") != translations_map:
+                    fm_current["translations"] = translations_map
+            else:
+                if "translations" in fm_current:
+                    del fm_current["translations"]
+                else:
+                    continue
+
+            if fm_current != item_obj["fm"]:
+                save_item(item_obj, fm_current)
 
     updates = 0
     for it in posts:
@@ -255,11 +341,13 @@ def main():
             src_fm_new = dict(it["fm"]) if src_fm_new is None else src_fm_new
             src_fm_new["lang"] = src_lang
         if src_fm_new is not None:
-            write_text(it["path"], join_front_matter(src_fm_new, it["body"]))
-            it["fm"] = src_fm_new
+            save_item(it, src_fm_new)
         for dst_lang in targets - {src_lang}:
             counterpart = by_slug_lang.get((slug, dst_lang))
             source_body_sha = it["content_sha"]
+
+            if counterpart is not None:
+                slugs_to_sync.add(slug)
 
             # Case 1: counterpart missing -> create translation
             if counterpart is None:
@@ -275,6 +363,8 @@ def main():
                 fm_new["date"] = it["fm"].get("date") or it["date"]
                 fm_new["source_sha"] = source_body_sha
                 fm_new["origin_lang"] = src_lang
+                fm_new["permalink"] = build_permalink(dst_lang, slug, default_lang)
+                fm_new.pop("translations", None)
 
                 dst_path = target_filename(it["path"], dst_lang, slug)
                 write_text(dst_path, join_front_matter(fm_new, body_dst))
@@ -286,6 +376,8 @@ def main():
                 }
                 by_slug_lang[(slug, dst_lang)] = new_item
                 by_path[str(dst_path)] = new_item
+                slug_index[slug][dst_lang] = new_item
+                slugs_to_sync.add(slug)
                 updates += 1
                 continue
 
@@ -310,12 +402,22 @@ def main():
                 new_fm["date"] = counterpart_fm.get("date") or it["fm"].get("date") or it["date"]
                 new_fm["source_sha"] = source_body_sha
                 new_fm["origin_lang"] = src_lang
+                if not new_fm.get("permalink"):
+                    new_fm["permalink"] = build_permalink(dst_lang, slug, default_lang)
+                new_fm.pop("translations", None)
 
-                write_text(counterpart["path"], join_front_matter(new_fm, body_dst))
-                counterpart["fm"] = new_fm
-                counterpart["body"] = body_dst
-                counterpart["content_sha"] = sha256(body_dst)
+                save_item(counterpart, new_fm, body_dst)
+                slug_index[slug][dst_lang] = counterpart
+                slugs_to_sync.add(slug)
                 updates += 1
+
+    if do_all:
+        slugs_pending = {slug for slug, entries in slug_index.items() if len(entries) >= 2}
+    else:
+        slugs_pending = slugs_to_sync
+
+    for slug_value in sorted(slugs_pending):
+        sync_slug(slug_value)
 
     print(f"Done. Updated/created: {updates}")
     # exit 0 always; git diff step decides whether to commit

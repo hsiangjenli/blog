@@ -17,10 +17,24 @@ hexo.extend.injector.register('body_end', `
     var a = document.querySelector('.navbar .navbar-end a.navbar-item[title="Language"]');
     if(!a) return;
     
+    function setHref(url){
+      if (!url) return;
+      a.setAttribute('href', url);
+      a.removeAttribute('target');
+      a.removeAttribute('rel');
+    }
+
+    var explicit = a.getAttribute('data-lang-switch-href');
+    if (explicit) {
+      setHref(explicit);
+      return;
+    }
+
     // If page-level translation switch exists (for posts), use its target
     var postSwitch = document.querySelector('.post-lang-switch');
     if (postSwitch && postSwitch.getAttribute('href')) {
-      a.setAttribute('href', postSwitch.getAttribute('href'));
+      setHref(postSwitch.getAttribute('href'));
+      return;
     } else {
       // Smart path switching for archives, tags, categories, and other pages
       var p = window.location.pathname;
@@ -47,13 +61,9 @@ hexo.extend.injector.register('body_end', `
         if (pathSegs.length > 0) targetUrl += '/';
         else targetUrl = base + 'zh-TW/'; // Just the language root
       }
-      
-      a.setAttribute('href', targetUrl);
+
+      setHref(targetUrl);
     }
-    
-    // Open in same tab
-    a.removeAttribute('target');
-    a.removeAttribute('rel');
   }
   
   if (document.readyState === 'loading') {
