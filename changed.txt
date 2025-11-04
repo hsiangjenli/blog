@@ -1,1 +1,3 @@
+source/_posts/note-antropic-ai-petri.en.md
+source/_posts/note-antropic-ai-safety-research-petri.en.md
 source/_posts/note_petri.md
