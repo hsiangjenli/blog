@@ -19,7 +19,7 @@ origin_lang: zh-TW
 
 # 📌 Introduction
 
-Petri is a red-team tool for AI safety testing that simulates realistic interactive scenarios to detect potential model risks. Through collaboration between the Auditor (審計模型), Target (目標模型), and Judge (裁判模型), it performs various tasks such as general audits, multi-model comparisons, and whistleblowing tests to check whether models leak information, exhibit bias, or show other issues, improving AI safety and reliability in complex scenarios.
+Petri is a red-team tool for AI safety testing that simulates realistic interactive scenarios to detect potential model risks. Through collaboration between the Auditor, Target, and Judge, it performs various tasks such as general audits, multi-model comparisons, and whistleblowing tests to check whether models leak information, exhibit bias, or show other issues, improving AI safety and reliability in complex scenarios.
 
 <!-- more -->
 
@@ -29,8 +29,8 @@ Petri is a red-team tool for AI safety testing that simulates realistic interact
 
 | As is                                                              | To Be                                                                      |
 |:------------------------------------------------------------------ |:-------------------------------------------------------------------------- |
-| 紅隊測試                                                           | `safety-research/petri`                                                    |
-| 使用題庫進行測試（單輪、固定題型）的離線測試，適合做回歸與快速對比 | 模擬更貼近真實的互動，讓產生的題庫可以有動態、多輪、可分支、可控環境的工具 |
+| Red team testing                                                   | `safety-research/petri`                                                    |
+| Offline testing with question banks (single-turn, fixed question types), suitable for regression and quick comparison | Simulates more realistic interactions with tools that provide dynamic, multi-turn, branching, and controllable environment scenarios |
 
 - **Insufficient interaction and scenario simulation**: static datasets cannot simulate multi-turn interaction and changing contexts, and cannot guide and respond step-by-step like in reality — e.g., chain-of-thought prompting (refusal → rephrasing → role-play → request framed as benevolent). Single prompts rarely cover these steps and turns.
 - **Cannot explore branches**: each question in a dataset has only one path and cannot probe model behavior under different replies; risks may appear at the Nth turn or in specific branches.
@@ -49,17 +49,17 @@ sequenceDiagram
     participant J as Judge
     participant O as Output
 
-    A->>T: 發送測試訊息（依規格/工具格式）
-    T-->>A: 回覆
-    A->>T: 追加誘導/情境轉換（多輪）
-    T-->>A: 回覆
-    A->>J: 提交完整對話紀錄
-    J->>O: 多維度評分（欺瞞/有害/偏見…）
+    A->>T: Send test messages (based on spec/tool format)
+    T-->>A: Reply
+    A->>T: Add guidance/context switching (multi-turn)
+    T-->>A: Reply
+    A->>J: Submit complete conversation record
+    J->>O: Multi-dimensional scoring (deception/harmful/bias...)
 ```
 
-1. **審計模型（Auditor）**: the active testing model (generates prompts). It uses specific formats and tools, designs new prompts and runs tests, attempting to elicit potentially problematic behaviors.
-2. **目標模型（Target）**: the model under test.
-3. **裁判模型（Judge）**: a model that evaluates the dialogue transcripts and assigns scores across dimensions (e.g., deception, harmful content, bias).
+1. **Auditor**: the active testing model (generates prompts). It uses specific formats and tools, designs new prompts and runs tests, attempting to elicit potentially problematic behaviors.
+2. **Target**: the model under test.
+3. **Judge**: a model that evaluates the dialogue transcripts and assigns scores across dimensions (e.g., deception, harmful content, bias).
 
 <!-- ### 審計模型
 
@@ -105,8 +105,8 @@ AUDITOR_INSTRUCTIONS: list[str] = [
 
 ```python
 # https://github.com/safety-research/petri/blob/4d6a163be5c868eeedcfe064629de40e1224545d/evals/target_model_comparison.py#L16-L42
-# 使用與 src/petri/tasks/petri.py 相同的題目 `AUDITOR_INSTRUCTIONS`
-# 一個 Auditor 以及多個 Judge
+# Uses the same questions from `AUDITOR_INSTRUCTIONS` in src/petri/tasks/petri.py
+# One Auditor and multiple Judges
 
 @task
 def alignment_audit(
@@ -139,7 +139,7 @@ def alignment_audit(
 
 ```python
 # https://github.com/safety-research/petri/blob/4d6a163be5c868eeedcfe064629de40e1224545d/evals/target_model_comparison.py#L209-L250
-# 建立測試的 Tasks
+# Create testing Tasks
 
 # Create the matrix of tasks (target models x auditor models)
 tasks = []
@@ -442,7 +442,7 @@ Event = Annotated[Union[TranscriptEvent, ToolCreationEvent, InfoEvent, DecisionE
 # 🔁 Key takeaways
 
 - Understand the differences between traditional Red Teaming and Petri, and the pain points Petri aims to solve.
-- Petri has 3 roles in its modules: Auditor (審計模型), Target (目標模型), and Judge (裁判模型).
+- Petri has 3 roles in its modules: Auditor, Target, and Judge.
 - Introduced 3 task types: Default, multi-model comparison, and whistleblowing tasks.
 - How to install and use Petri, set API keys, and run Default and whistleblowing tasks.
 - Parsed the transcript output field formats.
