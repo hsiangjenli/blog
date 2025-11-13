@@ -3,7 +3,7 @@ title: '[note] 如何用 GitHub Issue 搞定 AI Agent 的 BDD + SDD + TDD 開發
 date: '2025-11-12'
 updated: '2025-11-12'
 author:
-- 'Hsiang-Jen Li'
+- Hsiang-Jen Li
 - ' & GitHub Copilot'
 tags:
 - ai
@@ -12,6 +12,10 @@ tags:
 - tdd
 toc: true
 lang: zh-TW
+slug: note-github-issue-ai-agent-bdd-sdd-tdd
+permalink: zh-TW/note-github-issue-ai-agent-bdd-sdd-tdd/
+translations:
+  en: /note-github-issue-ai-agent-bdd-sdd-tdd.en/
 ---
 
 # 📌 簡介

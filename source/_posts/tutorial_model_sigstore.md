@@ -3,13 +3,17 @@ title: '[tutorial] 介紹 sigstore 的模型簽章工具'
 date: '2025-11-06'
 updated: '2025-11-06'
 author:
-- 'Hsiang-Jen Li'
+- Hsiang-Jen Li
 - ' & DeepWiki'
 tags:
 - ai
 - security
 toc: true
 lang: zh-TW
+slug: tutorial-sigstore
+permalink: zh-TW/tutorial-sigstore/
+translations:
+  en: /tutorial-sigstore.en/
 ---
 
 # 📌 簡介
