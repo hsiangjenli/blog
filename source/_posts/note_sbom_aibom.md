@@ -3,7 +3,7 @@ title: '[note] 介紹 SBOM、AIBOM 及其工具'
 date: '2025-11-05'
 updated: '2025-11-05'
 author:
-- 'Hsiang-Jen Li'
+- Hsiang-Jen Li
 - ' & DeepWiki'
 - ' & GPT-5 Search'
 tags:
@@ -11,6 +11,10 @@ tags:
 - security
 toc: true
 lang: zh-TW
+slug: note-sbom-aibom
+permalink: zh-TW/note-sbom-aibom/
+translations:
+  en: /note-sbom-aibom.en/
 ---
 
 # 📌 簡介
