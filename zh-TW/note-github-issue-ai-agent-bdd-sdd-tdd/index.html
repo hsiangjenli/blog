@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="zh"><head><!-- hexo injector head_begin start --><link rel="stylesheet" href="/blog/css/custom.css" /><!-- hexo injector head_begin end --><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="theme-color" content="#123456"><title>[note] 如何用 GitHub Issue 搞定 AI Agent 的 BDD + SDD + TDD 開發流程 - Hsiang-Jen Li&#039;s Blog</title><link rel="manifest" href="/blog/manifest.json"><meta name="application-name" content="Hsiang-Jen Li&#039;s Blog"><meta name="msapplication-TileImage" content="https://hsiangjenli.github.io/static/image/ico.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hsiang-Jen Li&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="📌 簡介 在當前的 AI 開發流程中，不同的方法論如雨後春筍般地快速增長（例如 coleam00&amp;#x2F;context-engineering-intro、bmad-code-org&amp;#x2F;BMAD-METHOD、automazeio&amp;#x2F;ccpm 和 classmethod&amp;#x2F;tsumiki），這些方法論目的是用來協助 AI Agent 在程式開發前進行規劃。然而，這些工具通常會將規劃產生的「大量文件」直接存放"><meta property="og:type" content="blog"><meta property="og:title" content="Hsiang-Jen Li&#039;s Blog"><meta property="og:url" content="https://hsiangjenli.github.io/blog/zh-TW/note-github-issue-ai-agent-bdd-sdd-tdd/"><meta property="og:site_name" content="Hsiang-Jen Li&#039;s Blog"><meta property="og:description" content="📌 簡介 在當前的 AI 開發流程中，不同的方法論如雨後春筍般地快速增長（例如 coleam00&amp;#x2F;context-engineering-intro、bmad-code-org&amp;#x2F;BMAD-METHOD、automazeio&amp;#x2F;ccpm 和 classmethod&amp;#x2F;tsumiki），這些方法論目的是用來協助 AI Agent 在程式開發前進行規劃。然而，這些工具通常會將規劃產生的「大量文件」直接存放"><meta property="og:locale" content="zh_TW"><meta property="og:image" content="https://hsiangjenli.github.io/blog/img/og_image.png"><meta property="article:published_time" content="2025-11-11T16:00:00.000Z"><meta property="article:modified_time" content="2025-11-11T16:00:00.000Z"><meta property="article:author"><meta property="article:tag" content="ai"><meta property="article:tag" content="bdd"><meta property="article:tag" content="sdd"><meta property="article:tag" content="tdd"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://hsiangjenli.github.io/blog/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hsiangjenli.github.io/blog/zh-TW/note-github-issue-ai-agent-bdd-sdd-tdd/"},"headline":"[note] 如何用 GitHub Issue 搞定 AI Agent 的 BDD + SDD + TDD 開發流程","image":["https://hsiangjenli.github.io/blog/img/og_image.png"],"datePublished":"2025-11-11T16:00:00.000Z","dateModified":"2025-11-11T16:00:00.000Z","author":{"@type":"Person","name":["Hsiang-Jen Li"," & GitHub Copilot"]},"publisher":{"@type":"Organization","name":"Hsiang-Jen Li's Blog","logo":{"@type":"ImageObject","url":"https://hsiangjenli.github.io/static/image/ico.svg"}},"description":"📌 簡介 在當前的 AI 開發流程中，不同的方法論如雨後春筍般地快速增長（例如 coleam00&#x2F;context-engineering-intro、bmad-code-org&#x2F;BMAD-METHOD、automazeio&#x2F;ccpm 和 classmethod&#x2F;tsumiki），這些方法論目的是用來協助 AI Agent 在程式開發前進行規劃。然而，這些工具通常會將規劃產生的「大量文件」直接存放"}</script><link rel="canonical" href="https://hsiangjenli.github.io/blog/zh-TW/note-github-issue-ai-agent-bdd-sdd-tdd/"><link rel="icon" href="https://hsiangjenli.github.io/static/image/ico.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/blog/css/default.css"><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><script src="https://www.googletagmanager.com/gtag/js?id=G-RMY40RWC3B" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-RMY40RWC3B');</script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="https://hsiangjenli.github.io/static/image/ico.svg" alt="Hsiang-Jen Li&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/blog/">Home</a><a class="navbar-item" href="http://hsiangjenli.github.io/">About me</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="/blog/note_strategic_thinking_models/">Stragetic Thinking</a><a class="navbar-item" href="https://hsiangjenli.github.io/cheat-sheet/">Cheat sheets</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Language" href="/blog/zh-TW/"><i class="fas fa-globe"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="文章目錄" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜尋" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-11-11T16:00:00.000Z" title="11/11/2025, 4:00:00 PM">2025-11-12</time>發表</span><span class="level-item"> Hsiang-Jen Li &amp; GitHub Copilot </span></div></div><h1 class="title is-3 is-size-4-mobile">[note] 如何用 GitHub Issue 搞定 AI Agent 的 BDD + SDD + TDD 開發流程</h1><div class="content">
+    <style>
+    .post-lang-switch{
+      position: absolute;
+      top: .75rem;
+      right: .75rem;
+      z-index: 2;
+      color: var(--link, #3273dc);
+    }
+    .post-lang-switch:hover{opacity:.8}
+    </style>
+  
+    <a class="post-lang-switch" href="/blog/note-github-issue-ai-agent-bdd-sdd-tdd.en/" title="View English version" aria-label="View English version">
+      <i class="fas fa-language"></i>
+    </a>
+  <h1>📌 簡介</h1>
+<p>在當前的 AI 開發流程中，不同的方法論如雨後春筍般地快速增長（例如 <code>coleam00/context-engineering-intro</code>、<code>bmad-code-org/BMAD-METHOD</code>、<code>automazeio/ccpm</code> 和 <code>classmethod/tsumiki</code>），這些方法論目的是用來協助 AI Agent 在程式開發前進行規劃。然而，這些工具通常會將規劃產生的「大量文件」直接存放在專案的 Repo 中。看起來很詳細，但實際上在需求不斷變動的情況下，這些文件反而成為了負擔。當需求發生變更時，很難確認 AI Agent 是否已正確讀取並更新相關文件，也難以進行審核與追蹤，特別是在多人協作或需要維護舊專案時。</p>
+<span id="more"></span>
+<h1>🚀 初步想法</h1>
+<p>目前還在測試階段，相關程式碼可以至 <a target="_blank" rel="noopener" href="https://github.com/hsiangjenli/prompts/tree/v1.0.0"><code>hsiangjenli/prompts</code></a> 查看。這篇文章僅用來紀錄預想中的開發流程邏輯。其主要內容著重在「管理」Issue，測試 Issue 的格式是否有按照 <code>ISSUE_TEMPLATE</code> 內的模板撰寫、是否有正確關聯到相關 Issue 等等…</p>
+<h2 id="欲解決的-3-大痛點">欲解決的 3 大痛點</h2>
+<blockquote>
+<p>需求蒐集階段、文件管理不易、文件關係混亂</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>As Is</th>
+<th>To Be</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>需求蒐集階段</strong></td>
+<td>多數開發工具專注於程式開發階段（如 SDD、TDD），卻忽略了最前端的「需求」部分。需求本身就是最難的部分，因為開發者往往不明確自己到底要什麼，而且需求在開發過程中會持續改變</td>
+<td>在開始任何程式開發前，我們會使用一個問答式的方式，讓使用者描述需求。AI Agent 會逐步釐清使用者的需求，並將其以 GWT（Given-When-Then） 格式化為 User Story，確保每個需求都描述得清晰且易於理解。這樣不僅有助於明確需求，也為未來的測試提供了直接可用的測試情境</td>
+</tr>
+<tr>
+<td><strong>文件管理不易</strong></td>
+<td>許多工具會將 AI Agent 產生的規劃文件直接存在 Repository 中。當專案需求不斷變動時，這些文件會變得非常混亂。每次 AI Agent 產生一大堆文件，開發者很難確認它是否已讀到最新的需求，或者是否不小心改寫了已有的文件。此外，這些文件也很難進行審核與追蹤，特別是在多人協作</td>
+<td>將所有需求相關的文件（如 PRD、使用者故事等）都存放在 GitHub Issue 中，讓每個需求都有明確的記錄，並可以與後續的程式碼開發關聯。當開發完成後，也可以透過 PR 來連結回原始的需求 Issue 號碼</td>
+</tr>
+<tr>
+<td><strong>文件關係混亂</strong></td>
+<td>需求文件有許多種類，例如使用者故事（BDD）、系統需求描述（SDD）、單元測試（TDD）等。將這些文件都存在 GitHub Issue 中時，很容易變得一團亂。改個其中一個文件，卻忘記修與其關聯的文件檔</td>
+<td>GitHub 新增的「sub-issue」功能，可以讓我們在一個主要的需求 Issue 下，建立相關的 sub-issue，例如系統需求描述或單元測試等。這樣不僅可以讓所有需求之間有清晰的層級關係，還可以方便地追蹤每個部分的進度。當需求發生變更時，AI Agent 可以透過 GitHub 的 MCP 工具，一起讀取並修改相關的問題與文件，並統一記錄在 GitHub 上，確保所有改動都可以被追蹤和審核</td>
+</tr>
+</tbody>
+</table>
+<h2 id="開發流程設計">開發流程設計</h2>
+<h3 id="流程圖">流程圖</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[&quot;需求收集&quot;] --&gt; B[&quot;BDD Issue 建立/更新&quot;]</span><br><span class="line">    B --&gt; C&#123;&quot;BDD 核准?&quot;&#125;</span><br><span class="line">    C --&gt;|否| B</span><br><span class="line">    C --&gt;|是| D[&quot;SDD 提問與建立&lt;br/&gt;Sub-Issue 形式&quot;]</span><br><span class="line">    D --&gt; E[&quot;TDD 提問與建立&lt;br/&gt;Sub-Issue 形式&quot;]</span><br><span class="line">    E --&gt; TDD[&quot;TDD 迴圈&quot;]</span><br><span class="line">    </span><br><span class="line">    subgraph TDD[&quot;TDD 迴圈&quot;]</span><br><span class="line">        F[&quot;Red&lt;br/&gt;撰寫失敗測試&quot;]</span><br><span class="line">        G[&quot;Green&lt;br/&gt;實作程式碼&quot;]</span><br><span class="line">        H&#123;&quot;Refactor?&quot;&#125;</span><br><span class="line">        I[&quot;Refactor&lt;br/&gt;優化程式碼&quot;]</span><br><span class="line">        F --&gt; G --&gt; H</span><br><span class="line">        H --&gt;|是| I</span><br><span class="line">        I --&gt; F</span><br><span class="line">        H --&gt;|否| J[&quot;完成&quot;]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    TDD --&gt; K[&quot;提交 PR&quot;]</span><br></pre></td></tr></table></figure>
+<h3 id="Prompt-列表">Prompt 列表</h3>
+<table>
+<thead>
+<tr>
+<th>Prompt 檔名</th>
+<th>觸發條件</th>
+<th>主要任務</th>
+<th>產出物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>requirements.prompt.md</code></td>
+<td>新需求或需求分析階段</td>
+<td>與開發人員討論需求，收集背景資訊</td>
+<td>產出結構化需求</td>
+</tr>
+<tr>
+<td><code>bdd-change.prompt.md</code></td>
+<td>需求在 BDD/SDD/TDD 中途發現變更</td>
+<td>評估變更影響範圍，逐層更新 BDD/SDD/TDD Issue</td>
+<td>更新需求，逐層更新確認</td>
+</tr>
+<tr>
+<td><code>sdd.prompt.md</code></td>
+<td>BDD Issue 已核准，需進行設計提問</td>
+<td>透過提問釐清系統設計、界面契約、資料模型</td>
+<td>建立 SDD Issue（自動成為 BDD 的 Sub-Issue）</td>
+</tr>
+<tr>
+<td><code>tdd-requirements.prompt.md</code></td>
+<td>BDD 已核准 + SDD 已建立，開始測試規劃</td>
+<td>透過提問定義測試場景、資料準備、優先順序</td>
+<td>建立 TDD Issue（自動成為 SDD 的 Sub-Issue） + 測試矩陣</td>
+</tr>
+<tr>
+<td><code>tdd-red.prompt.md</code></td>
+<td>TDD Issue 已建立，開始 Red 階段</td>
+<td>撰寫一定會失敗的測試，記錄失敗詳情</td>
+<td>測試矩陣中對應 Test 狀態改為 🔴 + 獨立 Comment 記錄失敗</td>
+</tr>
+<tr>
+<td><code>tdd-green.prompt.md</code></td>
+<td>Red 階段測試已建立，開始 Green 階段</td>
+<td>實作最小可行程式碼讓測試通過</td>
+<td>在同一 Comment 中追加 Green 階段結果，測試狀態改為 🟢</td>
+</tr>
+<tr>
+<td><code>tdd-refactor.prompt.md</code></td>
+<td>Green 階段測試已通過，開始 Refactor 階段（可選）</td>
+<td>優化程式碼品質、提升可維護性</td>
+<td>在同一 Comment 中追加 Refactor 結果，測試狀態改為 ♻️</td>
+</tr>
+</tbody>
+</table>
+<h1>🔁 重點回顧</h1>
+<ul>
+<li>在測試過大量的 AI 開發工具後發現的了 3 大問題
+<ul>
+<li><strong>需求蒐集階段</strong>：直接跳到 SDD、TDD 階段</li>
+<li><strong>文件管理不易</strong>：AI Agent 產出一堆文件檔，卻全部塞在 Repo 底下</li>
+<li><strong>文件關係混亂</strong>：搞不清楚每個 Task 之間的關係，也不知道 AI Agent 是否有修改到所有關聯 Issue</li>
+</ul>
+</li>
+<li>設計一組流程，從需求（BDD）–&gt;規格（SDD）–&gt;測試（TDD）整個開發步驟的藍圖</li>
+<li>統整每個 prompt 的主要任務、觸發條件以及預期產出</li>
+</ul>
+<h1>🔗 參考資料</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/coleam00/context-engineering-intro"><code>coleam00/context-engineering-intro</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/bmad-code-org/BMAD-METHOD"><code>bmad-code-org/BMAD-METHOD</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/automazeio/ccpm"><code>automazeio/ccpm</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/classmethod/tsumiki"><code>classmethod/tsumiki</code></a></li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>[note] 如何用 GitHub Issue 搞定 AI Agent 的 BDD + SDD + TDD 開發流程</p><p><a href="https://hsiangjenli.github.io/blog/zh-TW/note-github-issue-ai-agent-bdd-sdd-tdd/">https://hsiangjenli.github.io/blog/zh-TW/note-github-issue-ai-agent-bdd-sdd-tdd/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Hsiang-Jen Li &amp; GitHub Copilot</p></div></div><div class="level-item is-narrow"><div><h6>發表於</h6><p>2025-11-12</p></div></div><div class="level-item is-narrow"><div><h6>更新於</h6><p>2025-11-12</p></div></div><div class="level-item is-narrow"><div><h6>許可協議</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/blog/tags/ai/">ai</a><a class="link-muted mr-2" rel="tag" href="/blog/tags/bdd/">bdd</a><a class="link-muted mr-2" rel="tag" href="/blog/tags/sdd/">sdd</a><a class="link-muted mr-2" rel="tag" href="/blog/tags/tdd/">tdd</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/blog/note-github-issue-ai-agent-bdd-sdd-tdd.en/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">[note] How to Use GitHub Issue to Manage AI Agent&#039;s BDD + SDD + TDD Development Workflow</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/blog/tutorial-sigstore.en/"><span class="level-item">[tutorial] Introduction to sigstore&#039;s model signing tool</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">文章目錄</h3><ul class="menu-list"><li><a class="level is-mobile" href="#"><span class="level-left"><span class="level-item">1</span><span class="level-item">📌 簡介</span></span></a></li><li><a class="level is-mobile" href="#"><span class="level-left"><span class="level-item">2</span><span class="level-item">🚀 初步想法</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#欲解決的-3-大痛點"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">欲解決的 3 大痛點</span></span></a></li><li><a class="level is-mobile" href="#開發流程設計"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">開發流程設計</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#流程圖"><span class="level-left"><span class="level-item">2.2.1</span><span class="level-item">流程圖</span></span></a></li><li><a class="level is-mobile" href="#Prompt-列表"><span class="level-left"><span class="level-item">2.2.2</span><span class="level-item">Prompt 列表</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#"><span class="level-left"><span class="level-item">3</span><span class="level-item">🔁 重點回顧</span></span></a></li><li><a class="level is-mobile" href="#"><span class="level-left"><span class="level-item">4</span><span class="level-item">🔗 參考資料</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/blog/js/toc.js" defer></script></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">彙整</h3><ul class="menu-list"><li><a class="level is-mobile" href="/blog/archives/2025/11/"><span class="level-start"><span class="level-item">十一月 2025</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/10/"><span class="level-start"><span class="level-item">十月 2025</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/09/"><span class="level-start"><span class="level-item">九月 2025</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/07/"><span class="level-start"><span class="level-item">七月 2025</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/06/"><span class="level-start"><span class="level-item">六月 2025</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/05/"><span class="level-start"><span class="level-item">五月 2025</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/04/"><span class="level-start"><span class="level-item">四月 2025</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/03/"><span class="level-start"><span class="level-item">三月 2025</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/02/"><span class="level-start"><span class="level-item">二月 2025</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/01/"><span class="level-start"><span class="level-item">一月 2025</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2024/12/"><span class="level-start"><span class="level-item">十二月 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2024/09/"><span class="level-start"><span class="level-item">九月 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2023/10/"><span class="level-start"><span class="level-item">十月 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2023/07/"><span class="level-start"><span class="level-item">七月 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2023/03/"><span class="level-start"><span class="level-item">三月 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-11-11T16:00:00.000Z">2025-11-12</time></p><p class="title"><a href="/blog/note-github-issue-ai-agent-bdd-sdd-tdd.en/">[note] How to Use GitHub Issue to Manage AI Agent&#039;s BDD + SDD + TDD Development Workflow</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-11-11T16:00:00.000Z">2025-11-12</time></p><p class="title"><a href="/blog/zh-TW/note-github-issue-ai-agent-bdd-sdd-tdd/">[note] 如何用 GitHub Issue 搞定 AI Agent 的 BDD + SDD + TDD 開發流程</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-11-05T16:00:00.000Z">2025-11-06</time></p><p class="title"><a href="/blog/tutorial-sigstore.en/">[tutorial] Introduction to sigstore&#039;s model signing tool</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-11-05T16:00:00.000Z">2025-11-06</time></p><p class="title"><a href="/blog/zh-TW/tutorial-sigstore/">[tutorial] 介紹 sigstore 的模型簽章工具</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-11-04T16:00:00.000Z">2025-11-05</time></p><p class="title"><a href="/blog/note-sbom-aibom.en/">[note] Introduction to SBOM, AIBOM and Their Tools</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/blog/"><img src="https://hsiangjenli.github.io/static/image/ico.svg" alt="Hsiang-Jen Li&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2025 Hsiang-Jen Li, & GitHub Copilot</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-tw");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/blog/js/column.js"></script><a id="back-to-top" title="回到頁首" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/mhchem.min.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><script src="/blog/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="請輸入關鍵字..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/blog/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/blog/content.json"}, {"hint":"請輸入關鍵字...","untitled":"(無標題)","posts":"文章","pages":"頁面","categories":"分類","tags":"標籤"});
+        });</script><!-- hexo injector body_end start -->
+<script>
+(function(){
+  function basePath() {
+    var p = window.location.pathname; // e.g. /blog/zh-TW/...
+    var segs = p.split('/').filter(Boolean);
+    // If first segment is 'blog', treat '/blog/' as base; otherwise '/'
+    return (segs[0] === 'blog') ? '/blog/' : '/';
+  }
+  
+  function toggleLangHref(){
+    var a = document.querySelector('.navbar .navbar-end a.navbar-item[title="Language"]');
+    if(!a) return;
+    
+    function setHref(url){
+      if (!url) return;
+      a.setAttribute('href', url);
+      a.removeAttribute('target');
+      a.removeAttribute('rel');
+    }
+
+    var explicit = a.getAttribute('data-lang-switch-href');
+    if (explicit) {
+      setHref(explicit);
+      return;
+    }
+
+    // If page-level translation switch exists (for posts), use its target
+    var postSwitch = document.querySelector('.post-lang-switch');
+    if (postSwitch && postSwitch.getAttribute('href')) {
+      setHref(postSwitch.getAttribute('href'));
+      return;
+    } else {
+      // Smart path switching for archives, tags, categories, and other pages
+      var p = window.location.pathname;
+      var base = basePath();
+      var segs = p.split('/').filter(Boolean);
+      
+      // Determine if we're at base level (e.g., /blog/) or root (/)
+      var baseSegs = base.split('/').filter(Boolean);
+      var idx = baseSegs.length; // Index where language or path starts after base
+      
+      // Check if current path has zh-TW language prefix
+      var inZh = (segs[idx] === 'zh-TW');
+      
+      var targetUrl;
+      if (inZh) {
+        // Currently in zh-TW, switch to EN (remove zh-TW prefix)
+        var pathSegs = segs.slice(idx + 1); // Remove base + zh-TW
+        targetUrl = base + pathSegs.join('/');
+        if (pathSegs.length > 0) targetUrl += '/';
+      } else {
+        // Currently in EN (default), switch to zh-TW (add zh-TW prefix)
+        var pathSegs = segs.slice(idx); // Get path after base
+        targetUrl = base + 'zh-TW/' + pathSegs.join('/');
+        if (pathSegs.length > 0) targetUrl += '/';
+        else targetUrl = base + 'zh-TW/'; // Just the language root
+      }
+
+      setHref(targetUrl);
+    }
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', toggleLangHref);
+  } else {
+    toggleLangHref();
+  }
+})();
+</script>
+<!-- hexo injector body_end end --></body></html>
