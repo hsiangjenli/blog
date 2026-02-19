@@ -1,7 +1,7 @@
 ---
 title: '[tutorial] GitHub + PicGo + VSCode Extension'
 date: '2025-01-29'
-updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
+updated: '2026-02-19'
 author:
 - Hsiang-Jen Li
 - ' & ChatGPT-4o Mini'
@@ -58,14 +58,14 @@ To ensure your images are accessible, set your repo to ***public***.
 1. Set **`Pic Bed > Github: Repo`** to your previously created public repo. Format is `{username}/{repo_name}`
 1. Set **`Pic Bed: Uploader`** to **github**
 1. Set **`Pic Bed > Github: Branch`** to the branch of your public repo
-1. Set **`Pic Bed > Github: Path`** (Optional). If you want to store images in specific folder (e.g. `images`). Make sure to include a trailing slash (`/`), otherwise, it will be used as a prefix for image names
 1. Set **`Pic Bed > Github: Token`** to the Github token you created earlier
 
 <details>
 
 ![image](https://hackmd.io/_uploads/r1Yv0Pvu1g.png)
 ![image](https://hackmd.io/_uploads/SJHrBdwuyg.png)
-![image](https://hackmd.io/_uploads/rkkYiuP_1l.png)
+<!-- ![image](https://hackmd.io/_uploads/rkkYiuP_1l.png) -->
+![20260219175145](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260219175145.png)
 
 </details>
 
