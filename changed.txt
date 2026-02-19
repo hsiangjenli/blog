@@ -1,2 +1,1 @@
 source/_posts/job_cathay.md
-source/_posts/tutorial_github_picgo_vscode.md
