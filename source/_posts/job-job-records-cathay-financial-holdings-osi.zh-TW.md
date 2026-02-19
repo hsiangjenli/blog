@@ -1,5 +1,5 @@
 ---
-title: '[job] 工作紀錄 @ 國泰金控 - 開源創新發展小組'
+title: '[job] 工作記錄 @ 國泰金控 - 開源創新發展小組'
 date: '2025-10-24'
 updated: '2025-10-24'
 author:
@@ -9,7 +9,7 @@ tags:
 toc: true
 lang: zh-TW
 slug: job-job-records-cathay-financial-holdings-osi
-source_sha: b061055a04659ce5115eaec5097ea34d0cf7c9382ad2224620d0dad08873d36a
+source_sha: c3852c0c52b81be4cd32e9bbff6a4491a8fe10aeef4961777f46bcabf87fd9a1
 origin_lang: en
 permalink: zh-TW/job-job-records-cathay-financial-holdings-osi/
 translations:
@@ -22,7 +22,22 @@ translations:
 
 # 🚩 里程碑
 
+## 🗓️ 2026
+
+### 02/06 - 國泰世華銀行 - 年終派對
+
+![20260219175952](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260219175952.png)
+
+### 01/12 - 國泰金控 - 年終派對
+
+![20260219175852](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260219175852.png)
+
 ## 🗓️ 2025
+
+### 12/18 - 數位數據暨科技發展中心 座談會
+
+![20260219175351](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260219175351.png)
+
 
 ### 10/30 - Cathay Open Source Meetup #3
 
