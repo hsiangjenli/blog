@@ -16,6 +16,8 @@ translations:
 
 # 💼 Cathay Financial Holdings - OSI
 
+<!-- Terms: Town Hall Meeting = Town Hall Meeting -->
+<!-- Terms: Year-end Party = 尾牙 -->
 <!-- Terms: Cathay United Bank = 國泰世華銀行 -->
 <!-- Terms: DDT (Digital, Data & Technology) = 數位數據暨科技發展中心-->
 <!-- Terms: Cathay Financial Holdings = 國泰金控 -->
