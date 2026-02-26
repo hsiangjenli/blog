@@ -10,6 +10,8 @@ toc: true
 lang: zh-TW
 slug: note-vscode-static-members
 permalink: zh-TW/note-vscode-static-members/
+translations:
+  en: /note-vscode-static-members.en/
 ---
 
 # 📌 簡介

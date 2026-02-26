@@ -1,1 +1,2 @@
+source/_posts/note-vscode-static-members.en.md
 source/_posts/note_vscode_java_static_member.md
