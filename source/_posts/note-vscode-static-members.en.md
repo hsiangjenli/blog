@@ -1,5 +1,5 @@
 ---
-title: '[note] 在 VScode 內設定常用的 Static Members'
+title: '[note] Setting commonly used Static Members in VScode'
 date: '2026-02-26'
 updated: '2026-02-26'
 author:
@@ -7,22 +7,26 @@ author:
 tags:
 - java
 toc: true
-lang: zh-TW
+lang: en
 slug: note-vscode-static-members
-permalink: zh-TW/note-vscode-static-members/
+source_sha: 3540e5fe070901bec14c2d94f76c48889d211456c53f2f956fd206f7ac73442c
+origin_lang: zh-TW
+permalink: note-vscode-static-members.en/
 translations:
-  en: /note-vscode-static-members.en/
+  zh-TW: /zh-TW/note-vscode-static-members/
 ---
 
-# 📌 簡介
+> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
+
+# 📌 Introduction
 
 在 VSCode 內設定常用的 Staic Member
 
 <!-- more -->
 
-# 🚀 如何在 VScode 內設定
+# 🚀 How to configure in VScode
 
-開啟設定並搜尋 `Java Completion`，找到 `Favoriate Static Members` 點選`Edit in setting.json`，把自己常用的 Member 加入，像下面這樣。
+Open settings and search `Java Completion`, find `Favoriate Static Members` and click `Edit in setting.json`. Add your commonly used Member entries, like the following.
 
 ```jsonld
 "java.completion.favoriteStaticMembers": [
@@ -43,7 +47,7 @@ translations:
 
 <!-- # 🔁 重點回顧 -->
 
-# 🔗 參考資料
+# 🔗 References
 
 - [Code action: add static import #796](https://github.com/redhat-developer/vscode-java/issues/796)
-- [浅谈 Java 中的 import static 使用方式](https://blog.csdn.net/weixin_43844521/article/details/150965843)
+- [A brief discussion on using import static in Java](https://blog.csdn.net/weixin_43844521/article/details/150965843)
