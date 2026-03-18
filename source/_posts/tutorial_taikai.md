@@ -3,13 +3,17 @@ title: '[tutorial] Taikai 介紹（based on ArchUnit）'
 date: '2026-03-18'
 updated: '2026-03-18'
 author:
-- 'Hsiang-Jen Li'
+- Hsiang-Jen Li
 - ' & DeepWiki'
 tags:
 - java
 - policy-as-code
 toc: true
 lang: zh-TW
+slug: tutorial-taikai-based-on-archunit
+permalink: zh-TW/tutorial-taikai-based-on-archunit/
+translations:
+  en: /tutorial-taikai-based-on-archunit.en/
 ---
 
 # 📌 簡介
