@@ -1,5 +1,6 @@
 ---
-title: '[tutorial] 讓在 VScode 開發 Java 跟 Intellij 一樣好用的 Extension'
+title: '[tutorial] Extensions that make developing Java in VScode as convenient as
+  in Intellij'
 date: '2026-03-18'
 updated: '2026-03-18'
 author:
@@ -7,22 +8,26 @@ author:
 tags:
 - java
 toc: true
-lang: zh-TW
+lang: en
 slug: tutorial-vscode-java-intellij-extension
-permalink: zh-TW/tutorial-vscode-java-intellij-extension/
+source_sha: 0e189118d66a6f409213a1a51a4fa6f57314945d70f688565fbb708699c7a525
+origin_lang: zh-TW
+permalink: tutorial-vscode-java-intellij-extension.en/
 translations:
-  en: /tutorial-vscode-java-intellij-extension.en/
+  zh-TW: /zh-TW/tutorial-vscode-java-intellij-extension/
 ---
 
-# 📌 簡介
+> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
 
-讓在 VScode 開發 Java 跟 Intellij 一樣好用 ~~
+# 📌 Introduction
+
+Make developing Java in VScode as convenient as in Intellij ~~
 
 <!-- more -->
 
-# 🚀 介紹 Extension
+# 🚀 Introducing Extensions
 
-## Indention Setup
+## Indentation Setup
 
 ![image](https://hackmd.io/_uploads/r1akTW6t-e.png)
 
@@ -58,10 +63,10 @@ translations:
 
 ### After
 
-#### 建立新的 Method
+#### Create a new Method
 
 1. <kbd>Option</kbd> + <kbd>Enter</kbd>
-2. 選 `Create method xxx`
+2. Select `Create method xxx`
 
 ![image](https://hackmd.io/_uploads/HJrUid8YZe.png)
 
@@ -73,15 +78,15 @@ translations:
 
 ![image](https://hackmd.io/_uploads/BJ-2a_IF-g.png)
 
-漂浮視窗
+Floating window
 
 ### After
 
 ![image](https://hackmd.io/_uploads/SyM9Ou8t-x.png)
 
-點選 Java Class 可以直接 preview Java Doc
+Clicking a Java Class lets you directly preview Java Doc
 
-# 🔗 參考資料
+# 🔗 References
 
 - [Improve readability of javadoc #3773](https://github.com/redhat-developer/vscode-java/issues/3773)
 - [Java formatting and linting](https://code.visualstudio.com/docs/java/java-linting)
