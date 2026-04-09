@@ -30,8 +30,7 @@ def convert_to_markdown(md_file: MarkdownFile) -> str:
     Convert a MarkdownFile object to a properly formatted Markdown string.
     """
     # Convert YAML to string format
-    yaml_content = yaml.dump(
-        md_file.yaml.model_dump(mode="json"), sort_keys=False)
+    yaml_content = yaml.dump(md_file.yaml.model_dump(mode="json"), sort_keys=False)
 
     # Convert reference list to Markdown bullet points
     references = "\n".join(f"- {url}" for url in md_file.content.reference)
@@ -61,7 +60,6 @@ def convert_to_markdown(md_file: MarkdownFile) -> str:
 
 
 def refactor_md_file(client: OpenAI, full_text: str) -> MarkdownFile:
-
     prompt = """
     Please read the following IT Blog article and summarize it according to the specified format:
 
@@ -82,16 +80,18 @@ def refactor_md_file(client: OpenAI, full_text: str) -> MarkdownFile:
     response = client.beta.chat.completions.parse(
         model="gpt-4o-mini",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant for refactoring markdown files into specific formats."},
+            {
+                "role": "system",
+                "content": "You are a helpful assistant for refactoring markdown files into specific formats.",
+            },
             {"role": "user", "content": prompt.format(full_text=full_text)},
         ],
-        response_format=MarkdownFile
+        response_format=MarkdownFile,
     )
     return response.choices[0].message.parsed
 
 
 if __name__ == "__main__":
-
     import datetime
     import os
     from dotenv import load_dotenv
