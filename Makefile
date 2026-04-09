@@ -15,4 +15,5 @@ serve:
 	-v ${PWD}/source:/app/source \
 	-v ${PWD}/scripts:/app/scripts -w /app \
 	-v ${PWD}/_config.yml:/app/_config.yml \
+	-v ${PWD}/_config_icarus.yml:/app/_config_icarus.yml \
 	-p 4000:4000 ${DOCKER_USERNAME}/${APPLICATION_NAME}:latest

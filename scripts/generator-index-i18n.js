@@ -1,6 +1,7 @@
 'use strict';
 
 const pagination = require('hexo-pagination');
+const { sortPosts } = require('./post-sort');
 
 function getLangs(config) {
   if (Array.isArray(config.language)) return config.language.slice();
@@ -23,10 +24,9 @@ hexo.extend.generator.register('index', function(locals) {
   const perPage = (config.index_generator && typeof config.index_generator.per_page !== 'undefined')
     ? config.index_generator.per_page
     : (typeof config.per_page === 'undefined' ? 10 : config.per_page);
-  const orderBy = (config.index_generator && config.index_generator.order_by) || '-date';
+  const orderBy = (config.index_generator && config.index_generator.order_by) || ['-updated', '-date'];
 
-  const posts = locals.posts.sort(orderBy);
-  posts.data.sort((a, b) => (b.sticky || 0) - (a.sticky || 0));
+  const posts = sortPosts(locals.posts, orderBy);
 
   const routes = [];
 

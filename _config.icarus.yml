@@ -2,78 +2,76 @@ version: 5.1.0
 variant: default
 logo: https://hsiangjenli.github.io/static/image/ico.svg
 head:
-    favicon: https://hsiangjenli.github.io/static/image/ico.svg
-    manifest:
-        display: standalone
-        icons:
-            -
-                src: 'https://hsiangjenli.github.io/static/image/ico.svg'
-                sizes: ''
-                type: 
-    open_graph:
-        title: Hsiang-Jen Li's Blog
-        type: blog
-    meta:
-        - 'name=theme-color;content=#123456'
+  favicon: https://hsiangjenli.github.io/static/image/ico.svg
+  manifest:
+    display: standalone
+    icons:
+
+    - src: 'https://hsiangjenli.github.io/static/image/ico.svg'
+      sizes: ''
+      type:
+  open_graph:
+    title: Hsiang-Jen Li's Blog
+    type: blog
+  meta:
+  - 'name=theme-color;content=#123456'
 
 navbar:
-    menu:
-        Home: /
-        About me: http://hsiangjenli.github.io/
-        Archives: /archives
-        Stragetic Thinking: note_strategic_thinking_models/
-        Cheat sheets: https://hsiangjenli.github.io/cheat-sheet/
-    links:
-        Language:
-            url: /zh-TW/
-            icon: fas fa-globe
+  menu:
+    Home: /
+    About me: http://hsiangjenli.github.io/
+    Archives: /archives
+    Stragetic Thinking: note_strategic_thinking_models/
+    Cheat sheets: https://hsiangjenli.github.io/cheat-sheet/
+  links:
+    Language:
+      url: /zh-TW/
+      icon: fas fa-globe
 
 article:
-    highlight:
-        theme: atom-one-light
-        clipboard: true
-        fold: unfolded
-    update_time: false
-    licenses:
-        Creative Commons:
-            icon: fab fa-creative-commons
-            url: https://creativecommons.org/
-        Attribution:
-            icon: fab fa-creative-commons-by
-            url: https://creativecommons.org/licenses/by/4.0/
-        Noncommercial:
-            icon: fab fa-creative-commons-nc
-            url: https://creativecommons.org/licenses/by-nc/4.0/
+  highlight:
+    theme: atom-one-light
+    clipboard: true
+    fold: unfolded
+  update_time: false
+  licenses:
+    Creative Commons:
+      icon: fab fa-creative-commons
+      url: https://creativecommons.org/
+    Attribution:
+      icon: fab fa-creative-commons-by
+      url: https://creativecommons.org/licenses/by/4.0/
+    Noncommercial:
+      icon: fab fa-creative-commons-nc
+      url: https://creativecommons.org/licenses/by-nc/4.0/
 search:
-    type: insight
-    index_pages: true
+  type: insight
+  index_pages: true
 
 sidebar:
-    left:
-        sticky: false
-    right:
-        sticky: true
+  left:
+    sticky: false
+  right:
+    sticky: true
 
 widgets:
-    - type: recent_posts
-      position: right
-    - type: toc
-      position: left
-    - type: archives
-      position: left
+- type: recent_posts
+  position: right
+- type: toc
+  position: left
+- type: archives
+  position: left
 
-        
 plugins:
-    back_to_top: true
-    gallery: true
-    katex: true
-    mathjax: true
-    outdated_browser: false
-    progressbar: true
-    google_analytics:
-        tracking_id: G-RMY40RWC3B
-        
+  back_to_top: true
+  gallery: true
+  katex: true
+  mathjax: true
+  outdated_browser: false
+  progressbar: true
+  google_analytics:
+  tracking_id: G-RMY40RWC3B
 providers:
-    cdn: jsdelivr
-    fontcdn: google
-    iconcdn: fontawesome
+  cdn: jsdelivr
+  iconcdn: fontawesome
+  fontcdn: google

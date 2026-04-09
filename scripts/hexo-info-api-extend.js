@@ -1,5 +1,7 @@
 'use strict';
 
+const { sortPosts } = require('./post-sort');
+
 // Extend hexo-info-api to include lang and other custom fields in post objects
 // This script provides enhanced API endpoints with additional metadata
 
@@ -48,6 +50,7 @@ hexo.extend.generator.register('enhanced-info-api', function(locals) {
   }
 
   const routes = [];
+  const sortedPosts = sortPosts(locals.posts, ['-updated', '-date']);
   
   // Enhanced getPosts endpoint
   routes.push({
@@ -69,7 +72,7 @@ hexo.extend.generator.register('enhanced-info-api', function(locals) {
   routes.push({
     path: 'api/enhanced/getLatestPost/',
     data: function() {
-      const latestPost = locals.posts.sort('-date').first();
+      const latestPost = sortedPosts[0];
       if (!latestPost) {
         return JSON.stringify({
           type: 'getLatestPostEnhanced',
@@ -91,7 +94,7 @@ hexo.extend.generator.register('enhanced-info-api', function(locals) {
   routes.push({
     path: 'api/enhanced/getLatest5Posts/',
     data: function() {
-      const posts = locals.posts.sort('-date').limit(5).map(post => enhancePostData(post, config, defaultLang));
+      const posts = sortedPosts.slice(0, 5).map(post => enhancePostData(post, config, defaultLang));
       
       return JSON.stringify({
         type: 'getLatest5PostsEnhanced',
