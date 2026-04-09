@@ -9,7 +9,7 @@ tags:
 toc: true
 lang: zh-TW
 slug: job-job-records-cathay-financial-holdings-osi
-source_sha: 424e1a8fa71b1b89ce09565f420b910d450fdac544579df0331e8d678f23b55f
+source_sha: a5716478a8a896458d1376b24ddb0a9cdc29e273448d71a16af1ff9e77420490
 origin_lang: en
 permalink: zh-TW/job-job-records-cathay-financial-holdings-osi/
 translations:
@@ -18,9 +18,9 @@ translations:
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。
 
-# 💼 Cathay
+# 🌳 Cathay
 
-# 🛸 內部調動
+## 🛸 內部轉調
 
 - **2026 @ 國泰世華銀行 (資訊處)**
    - 主要職務：業務中台部 - 信用卡中台科
@@ -50,7 +50,7 @@ translations:
 
 ## 🗓️ 2025
 
-### 12/18 - 數位數據暨科技發展中心 Town Hall Meeting
+### 12/18 - 數位數據暨科技發展中心 - Town Hall Meeting
 
 ![](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260219175351.png)
 
