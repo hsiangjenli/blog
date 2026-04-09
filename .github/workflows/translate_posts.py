@@ -252,7 +252,7 @@ def load_posts(root: Path):
         md = read_text(p)
         fm, body = split_front_matter(md)
         lang = normalize_lang(fm.get("lang") or "")
-        lang_from_path = detect_lang_from_path(p, fm.get("lang"))
+        lang_from_path = detect_lang_from_path(p, str(fm.get("lang") or ""))
         if not lang:
             lang = lang_from_path or "en"
         key = infer_key(fm, p)
