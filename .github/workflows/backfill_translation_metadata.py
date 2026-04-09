@@ -126,7 +126,9 @@ def load_posts(root: Path, default_lang: str) -> Dict[str, Dict[str, Dict]]:
     return groups
 
 
-def sync_group(entries: Dict[str, Dict], slug: str, default_lang: str, dry_run: bool) -> int:
+def sync_group(
+    entries: Dict[str, Dict], slug: str, default_lang: str, dry_run: bool
+) -> int:
     changed_count = 0
     permalink_map: Dict[str, str] = {}
 
@@ -157,7 +159,9 @@ def sync_group(entries: Dict[str, Dict], slug: str, default_lang: str, dry_run: 
         ordered_langs = sorted(permalink_map.keys())
         for lang, entry in entries.items():
             fm = entry["front_matter"]
-            desired = {other: permalink_map[other] for other in ordered_langs if other != lang}
+            desired = {
+                other: permalink_map[other] for other in ordered_langs if other != lang
+            }
             current = fm.get("translations") or {}
             if current != desired:
                 if desired:
@@ -184,10 +188,20 @@ def sync_group(entries: Dict[str, Dict], slug: str, default_lang: str, dry_run: 
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Fill missing multilingual metadata for Hexo posts.")
-    parser.add_argument("--posts-dir", default="source/_posts", help="Directory containing Markdown posts.")
+    parser = argparse.ArgumentParser(
+        description="Fill missing multilingual metadata for Hexo posts."
+    )
+    parser.add_argument(
+        "--posts-dir",
+        default="source/_posts",
+        help="Directory containing Markdown posts.",
+    )
     parser.add_argument("--default-lang", default="en", help="Site default language.")
-    parser.add_argument("--dry-run", action="store_true", help="Show files that would change without writing.")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Show files that would change without writing.",
+    )
     args = parser.parse_args()
 
     posts_root = Path(args.posts_dir).resolve()

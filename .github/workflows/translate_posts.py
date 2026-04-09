@@ -14,18 +14,23 @@ except ImportError:
     print("Missing openai. pip install openai pyyaml", file=sys.stderr)
     sys.exit(2)
 
-FM_BOUND = re.compile(r'^---\s*$')
-DATE_PREFIX = re.compile(r'^(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.+)$', re.IGNORECASE)
+FM_BOUND = re.compile(r"^---\s*$")
+DATE_PREFIX = re.compile(r"^(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.+)$", re.IGNORECASE)
+MORE_MARKER = "<!-- more -->"
+
 
 def read_text(p: Path) -> str:
-    return p.read_text(encoding='utf-8')
+    return p.read_text(encoding="utf-8")
+
 
 def write_text(p: Path, s: str):
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(s, encoding='utf-8')
+    p.write_text(s, encoding="utf-8")
+
 
 def sha256(s: str) -> str:
-    return hashlib.sha256(s.encode('utf-8')).hexdigest()
+    return hashlib.sha256(s.encode("utf-8")).hexdigest()
+
 
 def split_front_matter(md: str):
     lines = md.splitlines()
@@ -35,19 +40,26 @@ def split_front_matter(md: str):
     for i in range(1, len(lines)):
         if FM_BOUND.match(lines[i]):
             fm = "\n".join(lines[1:i])
-            body = "\n".join(lines[i+1:])
+            body = "\n".join(lines[i + 1 :])
             data = yaml.safe_load(fm) or {}
             return data, body.lstrip("\n")
     return {}, md
+
 
 def join_front_matter(data: dict, body: str) -> str:
     fm = yaml.safe_dump(data, sort_keys=False, allow_unicode=True).strip()
     return f"---\n{fm}\n---\n\n{body.rstrip()}\n"
 
+
 def normalize_lang(lang: str) -> str:
     if not lang:
         return ""
-    return ("zh-TW" if str(lang).lower() in ["zh", "zh-tw", "zh_tw", "zh-hant", "zh-hant-tw"] else "en")
+    return (
+        "zh-TW"
+        if str(lang).lower() in ["zh", "zh-tw", "zh_tw", "zh-hant", "zh-hant-tw"]
+        else "en"
+    )
+
 
 def infer_key(data: dict, path: Path) -> str:
     # Prefer explicit translation_key, then slug, then filename slug, then kebab-case title
@@ -57,26 +69,28 @@ def infer_key(data: dict, path: Path) -> str:
         return str(data["slug"])
     stem = path.stem
     # strip language suffix like .zh-TW/.en
-    if '.' in stem:
-        parts = stem.split('.')
-        if parts[-1].lower() in ['en', 'zh-tw', 'zh_tw', 'zh']:
+    if "." in stem:
+        parts = stem.split(".")
+        if parts[-1].lower() in ["en", "zh-tw", "zh_tw", "zh"]:
             stem = ".".join(parts[:-1])
     m = DATE_PREFIX.match(stem)
-    base = m.group('slug') if m else stem
+    base = m.group("slug") if m else stem
     title = data.get("title")
     if title:
-        base = re.sub(r'[^a-zA-Z0-9]+', '-', str(title)).strip('-').lower() or base
+        base = re.sub(r"[^a-zA-Z0-9]+", "-", str(title)).strip("-").lower() or base
     return base
 
+
 def parse_date_from_filename(path: Path, fallback: str) -> str:
-    m = DATE_PREFIX.match(path.stem.split('.')[0])
+    m = DATE_PREFIX.match(path.stem.split(".")[0])
     if m:
-        return m.group('date')
+        return m.group("date")
     # fallback front-matter date (yyyy-mm-dd) or today
     try:
         return datetime.fromisoformat(str(fallback)).date().isoformat()
     except Exception:
         return datetime.utcnow().date().isoformat()
+
 
 def detect_lang_from_path(path: Path, fm_lang: str) -> str:
     # Trust front-matter first
@@ -84,16 +98,17 @@ def detect_lang_from_path(path: Path, fm_lang: str) -> str:
         return normalize_lang(fm_lang)
     # else infer from suffix
     stem = path.stem
-    if stem.endswith('.zh-TW') or stem.endswith('.zh_tw') or stem.endswith('.zh'):
+    if stem.endswith(".zh-TW") or stem.endswith(".zh_tw") or stem.endswith(".zh"):
         return "zh-TW"
-    if stem.endswith('.en'):
+    if stem.endswith(".en"):
         return "en"
     return ""
 
+
 def target_filename(src_path: Path, target_lang: str, key_slug: str) -> Path:
     # keep same date and base slug, append .<lang> if needed
-    m = DATE_PREFIX.match(src_path.stem.split('.')[0])
-    date_part = m.group('date') if m else None
+    m = DATE_PREFIX.match(src_path.stem.split(".")[0])
+    date_part = m.group("date") if m else None
     base = key_slug
     if date_part:
         fname = f"{date_part}-{base}.{target_lang}.md"
@@ -101,27 +116,54 @@ def target_filename(src_path: Path, target_lang: str, key_slug: str) -> Path:
         fname = f"{base}.{target_lang}.md"
     return src_path.with_name(fname)
 
+
 def ensure_slug(key: str) -> str:
-    s = re.sub(r'[^a-zA-Z0-9]+', '-', str(key)).strip('-').lower()
+    s = re.sub(r"[^a-zA-Z0-9]+", "-", str(key)).strip("-").lower()
     return s or str(key)
+
 
 def build_permalink(lang: str, slug: str, default_lang: str) -> str:
     if not slug:
-        return ''
+        return ""
     normalized_lang = normalize_lang(lang) or lang
     if normalized_lang == default_lang:
         path = f"{slug}.{normalized_lang}"
     else:
         path = f"{normalized_lang}/{slug}"
-    return path if path.endswith('/') else path + '/'
+    return path if path.endswith("/") else path + "/"
+
 
 def format_translation_url(path: str) -> str:
     if not path:
-        return ''
-    value = '/' + path.lstrip('/')
-    return value if value.endswith('/') else value + '/'
+        return ""
+    value = "/" + path.lstrip("/")
+    return value if value.endswith("/") else value + "/"
 
-def translate_text(client: OpenAI, model: str, text: str, src_lang: str, dst_lang: str, title: str):
+
+def split_more_marker(text: str):
+    if MORE_MARKER not in text:
+        return text, None
+    before, after = text.split(MORE_MARKER, 1)
+    return before.rstrip(), after.lstrip("\n")
+
+
+def restore_more_marker(before: str, after: str | None) -> str:
+    if after is None:
+        return before.rstrip()
+    before_part = before.rstrip()
+    after_part = after.lstrip("\n")
+    if before_part and after_part:
+        return f"{before_part}\n\n{MORE_MARKER}\n\n{after_part}"
+    if before_part:
+        return f"{before_part}\n\n{MORE_MARKER}"
+    if after_part:
+        return f"{MORE_MARKER}\n\n{after_part}"
+    return MORE_MARKER
+
+
+def translate_text(
+    client: OpenAI, model: str, text: str, src_lang: str, dst_lang: str, title: str
+):
     sys_prompt = (
         "You are a professional bilingual translator. "
         "Translate Markdown from {src} to {dst}. "
@@ -130,11 +172,13 @@ def translate_text(client: OpenAI, model: str, text: str, src_lang: str, dst_lan
         "If the content contains any names, places, or technical terms, keep them unchanged. "
         "Return a compact JSON with keys: title, body. "
         "If the content contains comments in the format <!-- Terms: [Original Term] = [Translated Term] -->, use those mappings to translate the specified terms."
-    ).format(src=("Traditional Chinese" if src_lang=="zh-TW" else "English"),
-             dst=("Traditional Chinese" if dst_lang=="zh-TW" else "English"))
+    ).format(
+        src=("Traditional Chinese" if src_lang == "zh-TW" else "English"),
+        dst=("Traditional Chinese" if dst_lang == "zh-TW" else "English"),
+    )
 
     user_prompt = f"""Source title:
-{title or ''}
+{title or ""}
 
 Source markdown body:
 {text}
@@ -142,30 +186,63 @@ Source markdown body:
 
     resp = client.chat.completions.create(
         model=model,
-        response_format={"type":"json_object"},
+        response_format={"type": "json_object"},
         messages=[
-            {"role":"system","content": sys_prompt},
-            {"role":"user","content": user_prompt}
+            {"role": "system", "content": sys_prompt},
+            {"role": "user", "content": user_prompt},
         ],
     )
     content = resp.choices[0].message.content
     try:
         data = yaml.safe_load(content)  # JSON is YAML-compatible
-        return str(data.get("title","")), str(data.get("body",""))
+        return str(data.get("title", "")), str(data.get("body", ""))
     except Exception:
         # Fallback: treat whole as body
         return title, content
 
+
+def translate_body(
+    client: OpenAI, model: str, text: str, src_lang: str, dst_lang: str, title: str
+):
+    _, body = translate_text(client, model, text, src_lang, dst_lang, title)
+    return body
+
+
+def translate_body_preserving_more(
+    client: OpenAI, model: str, text: str, src_lang: str, dst_lang: str, title: str
+):
+    before, after = split_more_marker(text)
+    if after is None:
+        return translate_text(client, model, text, src_lang, dst_lang, title)
+
+    title_dst, body_before = translate_text(
+        client, model, before, src_lang, dst_lang, title
+    )
+    body_after = translate_body(client, model, after, src_lang, dst_lang, title)
+    body = restore_more_marker(body_before, body_after)
+    return title_dst, body
+
+
 def prepend_notice(body: str, src_lang: str, dst_lang: str, model: str) -> str:
     # Add a locale-specific note that this article is AI translated.
     if dst_lang == "zh-TW":
-        note = f"註記：此頁為由 AI（{model}）自動翻譯自英文原文，可能含有少量不準確之處。"
+        note = (
+            f"註記：此頁為由 AI（{model}）自動翻譯自英文原文，可能含有少量不準確之處。"
+        )
     else:
         # default to English
         source_label = "Traditional Chinese" if src_lang == "zh-TW" else "English"
         note = f"Note: This page is an AI-generated ({model}) translation from {source_label} and may contain minor inaccuracies."
     # Use a single-line blockquote, then leave a plain blank line to terminate the quote.
     return f"> {note}\n\n{body.lstrip()}"
+
+
+def source_updated_value(item: dict):
+    updated = item["fm"].get("updated")
+    if updated:
+        return updated
+    return item["fm"].get("date") or item["date"]
+
 
 def load_posts(root: Path):
     posts = []
@@ -180,18 +257,21 @@ def load_posts(root: Path):
             lang = lang_from_path or "en"
         key = infer_key(fm, p)
         slug = ensure_slug(fm.get("slug") or key)
-        date = parse_date_from_filename(p, str(fm.get("date","")))
-        posts.append({
-            "path": p,
-            "fm": fm,
-            "body": body,
-            "lang": lang,
-            "key": key,
-            "slug": slug,
-            "date": date,
-            "content_sha": sha256(body),
-        })
+        date = parse_date_from_filename(p, str(fm.get("date", "")))
+        posts.append(
+            {
+                "path": p,
+                "fm": fm,
+                "body": body,
+                "lang": lang,
+                "key": key,
+                "slug": slug,
+                "date": date,
+                "content_sha": sha256(body),
+            }
+        )
     return posts
+
 
 def main():
     ap = argparse.ArgumentParser()
@@ -210,13 +290,20 @@ def main():
 
     api_key = (os.environ.get("OPENAI_API_KEY") or "").strip()
     if not api_key:
-        print("Missing OPENAI_API_KEY. Please set it in GitHub Actions secrets or environment.", file=sys.stderr)
+        print(
+            "Missing OPENAI_API_KEY. Please set it in GitHub Actions secrets or environment.",
+            file=sys.stderr,
+        )
         sys.exit(2)
     base_url_raw = (os.environ.get("OPENAI_API_BASE") or "").strip()
     if not base_url_raw:
         base_url = "https://api.openai.com/v1"
     else:
-        base_url = base_url_raw if base_url_raw.startswith("http://") or base_url_raw.startswith("https://") else ("https://" + base_url_raw)
+        base_url = (
+            base_url_raw
+            if base_url_raw.startswith("http://") or base_url_raw.startswith("https://")
+            else ("https://" + base_url_raw)
+        )
     client = OpenAI(api_key=api_key, base_url=base_url)
 
     posts = load_posts(root)
@@ -231,7 +318,11 @@ def main():
 
     # Determine work set
     changed = set()
-    if args.changed_file_list and Path(args.changed_file_list).exists() and not args.scan_all:
+    if (
+        args.changed_file_list
+        and Path(args.changed_file_list).exists()
+        and not args.scan_all
+    ):
         for line in read_text(Path(args.changed_file_list)).splitlines():
             pth = line.strip()
             if not pth:
@@ -265,18 +356,39 @@ def main():
         if not entries or len(entries) < 2:
             return
 
+        source_item = None
+        for lang_key in language_order:
+            candidate = entries.get(lang_key)
+            if candidate and "source_sha" not in candidate["fm"]:
+                source_item = candidate
+                break
+        if source_item is None:
+            for candidate in entries.values():
+                if "source_sha" not in candidate["fm"]:
+                    source_item = candidate
+                    break
+
         for lang_key, item_obj in entries.items():
             fm_current = dict(item_obj["fm"])
             desired_permalink = build_permalink(lang_key, slug_value, default_lang)
             if desired_permalink and not fm_current.get("permalink"):
                 fm_current["permalink"] = desired_permalink
+            if source_item is not None and item_obj is not source_item:
+                source_date = source_item["fm"].get("date") or source_item["date"]
+                source_updated = source_updated_value(source_item)
+                if source_date and fm_current.get("date") != source_date:
+                    fm_current["date"] = source_date
+                if source_updated and fm_current.get("updated") != source_updated:
+                    fm_current["updated"] = source_updated
             if fm_current != item_obj["fm"]:
                 save_item(item_obj, fm_current)
 
         path_map = {}
         for lang_key, item_obj in entries.items():
             fm_current = item_obj["fm"]
-            permalink_value = fm_current.get("permalink") or build_permalink(lang_key, slug_value, default_lang)
+            permalink_value = fm_current.get("permalink") or build_permalink(
+                lang_key, slug_value, default_lang
+            )
             if not permalink_value:
                 continue
             path_map[lang_key] = format_translation_url(permalink_value)
@@ -352,8 +464,10 @@ def main():
             # Case 1: counterpart missing -> create translation
             if counterpart is None:
                 print(f"[create] {slug} {src_lang} -> {dst_lang}")
-                title_src = str(it["fm"].get("title",""))
-                title_dst, body_dst = translate_text(client, args.model, it["body"], src_lang, dst_lang, title_src)
+                title_src = str(it["fm"].get("title", ""))
+                title_dst, body_dst = translate_body_preserving_more(
+                    client, args.model, it["body"], src_lang, dst_lang, title_src
+                )
                 body_dst = prepend_notice(body_dst, src_lang, dst_lang, args.model)
 
                 fm_new = dict(it["fm"])  # copy
@@ -361,6 +475,7 @@ def main():
                 fm_new["lang"] = dst_lang
                 fm_new["slug"] = slug  # keep same slug across languages
                 fm_new["date"] = it["fm"].get("date") or it["date"]
+                fm_new["updated"] = source_updated_value(it)
                 fm_new["source_sha"] = source_body_sha
                 fm_new["origin_lang"] = src_lang
                 fm_new["permalink"] = build_permalink(dst_lang, slug, default_lang)
@@ -370,8 +485,13 @@ def main():
                 write_text(dst_path, join_front_matter(fm_new, body_dst))
                 # update in-memory indices for subsequent loops
                 new_item = {
-                    "path": dst_path, "fm": fm_new, "body": body_dst, "lang": dst_lang,
-                    "key": it["key"], "slug": slug, "date": fm_new["date"],
+                    "path": dst_path,
+                    "fm": fm_new,
+                    "body": body_dst,
+                    "lang": dst_lang,
+                    "key": it["key"],
+                    "slug": slug,
+                    "date": fm_new["date"],
                     "content_sha": sha256(body_dst),
                 }
                 by_slug_lang[(slug, dst_lang)] = new_item
@@ -385,21 +505,28 @@ def main():
             counterpart_fm = counterpart["fm"]
             cp_source_sha = str(counterpart_fm.get("source_sha") or "")
             if do_all:
-                should_update = (cp_source_sha != source_body_sha)
+                should_update = cp_source_sha != source_body_sha
             else:
-                should_update = (cp_source_sha != source_body_sha) and (it["path"] in changed)
+                should_update = (cp_source_sha != source_body_sha) and (
+                    it["path"] in changed
+                )
 
             if should_update:
                 print(f"[update] {slug} {src_lang} -> {dst_lang}")
-                title_src = str(it["fm"].get("title",""))
-                title_dst, body_dst = translate_text(client, args.model, it["body"], src_lang, dst_lang, title_src)
+                title_src = str(it["fm"].get("title", ""))
+                title_dst, body_dst = translate_body_preserving_more(
+                    client, args.model, it["body"], src_lang, dst_lang, title_src
+                )
                 body_dst = prepend_notice(body_dst, src_lang, dst_lang, args.model)
 
                 new_fm = dict(counterpart_fm)
                 new_fm["title"] = title_dst or new_fm.get("title")
                 new_fm["lang"] = dst_lang
                 new_fm["slug"] = slug
-                new_fm["date"] = counterpart_fm.get("date") or it["fm"].get("date") or it["date"]
+                new_fm["date"] = (
+                    counterpart_fm.get("date") or it["fm"].get("date") or it["date"]
+                )
+                new_fm["updated"] = source_updated_value(it)
                 new_fm["source_sha"] = source_body_sha
                 new_fm["origin_lang"] = src_lang
                 if not new_fm.get("permalink"):
@@ -412,7 +539,9 @@ def main():
                 updates += 1
 
     if do_all:
-        slugs_pending = {slug for slug, entries in slug_index.items() if len(entries) >= 2}
+        slugs_pending = {
+            slug for slug, entries in slug_index.items() if len(entries) >= 2
+        }
     else:
         slugs_pending = slugs_to_sync
 
@@ -421,6 +550,7 @@ def main():
 
     print(f"Done. Updated/created: {updates}")
     # exit 0 always; git diff step decides whether to commit
+
 
 if __name__ == "__main__":
     main()
