@@ -14,7 +14,7 @@ translations:
   zh-TW: /zh-TW/job-job-records-cathay-financial-holdings-osi/
 ---
 
-# 💼 Cathay
+# 🌳 Cathay
 
 <!-- Terms: Town Hall Meeting = Town Hall Meeting -->
 <!-- Terms: Year-end Party = 尾牙 -->
@@ -28,7 +28,7 @@ translations:
 <!-- Terms: Credit Card Middle Platform Section = 信用卡中台科 -->
 <!-- Terms: Data Middle Platform Section = 數據中台科 -->
 
-# 🛸 Internal transfer
+## 🛸 Internal transfer
 
 - **2026 @ Cathay United Bank (IT Department)**
    - Primary Role: BIPD - Credit Card Middle Platform Section
