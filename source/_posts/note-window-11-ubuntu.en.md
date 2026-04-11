@@ -13,6 +13,7 @@ origin_lang: zh-TW
 permalink: note-window-11-ubuntu.en/
 translations:
   zh-TW: /zh-TW/note-window-11-ubuntu/
+updated: 2025-01-17
 ---
 
 > Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.

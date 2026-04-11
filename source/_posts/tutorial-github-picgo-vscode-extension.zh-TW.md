@@ -1,7 +1,7 @@
 ---
 title: '[教學] GitHub + PicGo + VSCode Extension'
 date: '2025-01-29'
-updated: 2025-02-28 (Refactored by ChatGPT-4o Mini)
+updated: '2026-02-19'
 author:
 - Hsiang-Jen Li
 - ' & ChatGPT-4o Mini'
