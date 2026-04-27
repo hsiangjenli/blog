@@ -1,5 +1,5 @@
 ---
-title: '[tutorial] 使用 mise 管理多程式語言環境'
+title: '[tutorial] Using mise to manage multiple programming language environments'
 date: '2026-03-29'
 updated: '2026-04-27'
 author:
@@ -7,14 +7,18 @@ author:
 tags:
 - devops
 toc: true
-lang: zh-TW
+lang: en
 slug: tutorial-mise
-permalink: zh-TW/tutorial-mise/
+source_sha: 73b5d81c261a6932c0db07c8bb311e92c22fa4ffc1242747b6a55fff3eda43a0
+origin_lang: zh-TW
+permalink: tutorial-mise.en/
 translations:
-  en: /tutorial-mise.en/
+  zh-TW: /zh-TW/tutorial-mise/
 ---
 
-# 🚀 實際安裝 mise
+> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
+
+# 🚀 Installing mise
 
 ```shell
 curl https://mise.run | sh
@@ -26,9 +30,7 @@ mise --version
 
 <!-- more -->
 
-
 ![image](https://hackmd.io/_uploads/SyLek5IoZg.png)
-
 
 ## Java
 
@@ -59,12 +61,12 @@ which cargo
 >>> /home/xxx/.cargo/bin/cargo
 ```
 
-- Rust 的安裝路徑跟其它的不同，即使是透過 mise 也是安裝在 `.cargo` 底下
+- The installation path for Rust is different from the others; even when installed via mise, it is installed under `.cargo`
 
 ## Bun
 
 ```shell
-mise latest bun # 搜尋最新的版本
+mise latest bun # search for the latest version
 mise use -g bun@1.3.13
 source ~/.bashrc 
 
@@ -86,6 +88,6 @@ which node
 >>> /home/xxx/.local/share/mise/installs/node/22.22.2/bin/node
 ```
 
-# 🔗 參考資料
+# 🔗 References
 
 - [mise- java](https://mise.jdx.dev/lang/java.html)
