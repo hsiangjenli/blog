@@ -4,7 +4,7 @@ name: Reading Note Automation
 
 on:
   issues:
-    types: [opened, labeled]
+    types: [ opened ]
 
 jobs:
   call:
