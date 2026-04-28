@@ -1,0 +1,18 @@
+# Put this file in your content repository as .github/workflows/reading-note.yml
+
+name: Reading Note Automation
+
+on:
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  call:
+    uses: hsiangjenli/.github/.github/workflows/create-reading-note.yml@main
+    with:
+      issue_number: ${{ github.event.issue.number }}
+      issue_title: ${{ github.event.issue.title }}
+      issue_body: ${{ github.event.issue.body }}
+      issue_created_at: ${{ github.event.issue.created_at }}
+      issue_labels: ${{ toJson(github.event.issue.labels.*.name) }}
+    secrets: inherit
