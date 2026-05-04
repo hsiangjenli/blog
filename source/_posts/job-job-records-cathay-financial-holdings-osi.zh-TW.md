@@ -1,7 +1,7 @@
 ---
-title: '[job] 工作紀錄 @ Cathay'
+title: '[job] 工作紀錄 @ 國泰金融集團'
 date: '2025-10-24'
-updated: '2026-04-09'
+updated: '2026-05-04'
 author:
 - Hsiang-Jen Li
 tags:
@@ -9,7 +9,7 @@ tags:
 toc: true
 lang: zh-TW
 slug: job-job-records-cathay-financial-holdings-osi
-source_sha: a5716478a8a896458d1376b24ddb0a9cdc29e273448d71a16af1ff9e77420490
+source_sha: 3763d92cae0cfeb881507feeab2896f2090feb954882c79dfbda3a92159cd46b
 origin_lang: en
 permalink: zh-TW/job-job-records-cathay-financial-holdings-osi/
 translations:
@@ -18,39 +18,41 @@ translations:
 
 > 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。
 
-# 🌳 Cathay
+# 🌳 國泰金融集團
 
-## 🛸 內部轉調
+## 🛸 內部調動
 
-- **2026 @ 國泰世華銀行 (資訊處)**
+- **2026 @ 國泰世華銀行（資訊處）**
    - 主要職務：業務中台部 - 信用卡中台科
-- **2025 @ 國泰金控 (數位數據暨科技發展中心 & 資訊處)**
+- **2025 @ 國泰金控（數位數據暨科技發展中心 & 資訊處）**
    - 主要職務：開源創新發展小組
    - 兼任職務：技術中台部 - 數據中台科 @ 國泰世華銀行
+
+<!-- more -->
 
 # 🚩 里程碑
 
 ## 🗓️ 2026
 
-### 03/13 - 國泰世華銀行 - 聚會
+### 03/13 - Cathay United Bank - 聚會
 
-> 業務中台部 - 信用卡中台科
+> BIPD - Credit Card Middle Platform Section
 
 ![](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/1774479193088.jpg)
 
-### 02/06 - 國泰世華銀行 - 尾牙
+### 02/06 - Cathay United Bank - 年終派對
 
-> 技術中台部 - 數據中台科
+> TIPD - Data Middle Platform Section
 
 ![](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260219175952.png)
 
-### 01/12 - 國泰金控 - 尾牙
+### 01/12 - Cathay Financial Holdings - 年終派對
 
 ![](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260219175852.png)
 
 ## 🗓️ 2025
 
-### 12/18 - 數位數據暨科技發展中心 - Town Hall Meeting
+### 12/18 - DDT Town Hall Meeting
 
 ![](https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260219175351.png)
 
