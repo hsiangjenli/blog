@@ -1,7 +1,7 @@
 ---
-title: '[job] Job Records @ Cathay'
+title: '[job] Job Records @ Cathay Financial Group'
 date: '2025-10-24'
-updated: '2026-04-09'
+updated: '2026-05-04'
 author:
 - Hsiang-Jen Li
 tags:
@@ -14,7 +14,7 @@ translations:
   zh-TW: /zh-TW/job-job-records-cathay-financial-holdings-osi/
 ---
 
-# 🌳 Cathay
+# 🌳 Cathay Financial Group
 
 <!-- Terms: Town Hall Meeting = Town Hall Meeting -->
 <!-- Terms: Year-end Party = 尾牙 -->
@@ -22,6 +22,7 @@ translations:
 <!-- Terms: DDT (Digital, Data & Technology) = 數位數據暨科技發展中心-->
 <!-- Terms: IT Department = 資訊處 -->
 <!-- Terms: Cathay Financial Holdings = 國泰金控 -->
+<!-- Terms: Cathay Financial Group = 國泰金融集團 -->
 <!-- Terms: OSI = 開源創新發展小組 -->
 <!-- Terms: BIPD = Business Intermediate-Platform Development = 業務中台部 -->
 <!-- Terms: TIPD = Technology Intermediate-Platform Development = 技術中台部 -->
