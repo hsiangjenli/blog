@@ -9,10 +9,10 @@ tags:
 - skill
 toc: true
 slug: tutorial-open-slide
-lang: en
-permalink: tutorial-open-slide.en/
+lang: zh-TW
+permalink: zh-TW/tutorial-open-slide/
 translations:
-  zh-TW: /zh-TW/tutorial-open-slide/
+  en: /tutorial-open-slide.en/
 ---
 
 # 📌 介紹
