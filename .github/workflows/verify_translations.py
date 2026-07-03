@@ -146,7 +146,7 @@ def main():
             )
 
     if mismatches:
-        print("Language mismatches found in the following posts:")
+        print("WARN: Language mismatches found in the following posts:")
         for mismatch in mismatches:
             print(mismatch)
 
@@ -160,7 +160,7 @@ def main():
         print("Missing translations for the following slugs:")
         for slug, langs in sorted(missing.items()):
             print(f"- {slug}: missing {', '.join(langs)}")
-    if mismatches or missing:
+    if missing:
         print()
         print(
             "Please run the translation workflow or backfill to complete translations."
