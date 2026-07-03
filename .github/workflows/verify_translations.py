@@ -25,7 +25,7 @@ def split_front_matter(md: str):
     return {}, md
 
 
-def normalize_lang(lang: str) -> str:
+def normalize_lang(lang: object) -> str:
     if not lang:
         return ""
     s = str(lang).lower()
@@ -68,16 +68,14 @@ def detect_lang_from_content(text: str) -> str:
     if total < 50:
         return ""
 
-    # compute CJK ratio
+    # Bias mixed-language posts toward Chinese once CJK content is substantial.
     ratio = cjk / total if total > 0 else 0.0
-    if ratio >= 0.6:
+    if ratio >= 0.3:
         return "zh-TW"
-    if ratio <= 0.4:
-        return "en"
-    return ""
+    return "en"
 
 
-def detect_lang_from_path(path: Path, fm_lang: str) -> str:
+def detect_lang_from_path(path: Path, fm_lang: object) -> str:
     if fm_lang:
         return normalize_lang(fm_lang)
     stem = path.stem
@@ -122,6 +120,7 @@ def main():
 
     pairs = {}
     missing = {}
+    mismatches = []
 
     for p in root.rglob("*.md"):
         if p.is_dir():
@@ -142,9 +141,14 @@ def main():
         entry.add(lang)
         # Report suspicious mismatch between declared lang and content
         if declared and content_lang and declared != content_lang:
-            print(
-                f"WARN: Language mismatch in {p}: declared {declared}, content looks {content_lang}"
+            mismatches.append(
+                f"- {p}: declared {declared}, content looks {content_lang}"
             )
+
+    if mismatches:
+        print("Language mismatches found in the following posts:")
+        for mismatch in mismatches:
+            print(mismatch)
 
     for slug, langs in pairs.items():
         needed = {"en", "zh-TW"}
@@ -156,8 +160,10 @@ def main():
         print("Missing translations for the following slugs:")
         for slug, langs in sorted(missing.items()):
             print(f"- {slug}: missing {', '.join(langs)}")
+    if mismatches or missing:
+        print()
         print(
-            "\nPlease run the translation workflow or backfill to complete translations."
+            "Please run the translation workflow or backfill to complete translations."
         )
         sys.exit(2)
 
