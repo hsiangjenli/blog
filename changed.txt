@@ -1,1 +1,2 @@
+source/_posts/tutorial-open-slide.zh-TW.md
 source/_posts/tutorial-openslide.md
