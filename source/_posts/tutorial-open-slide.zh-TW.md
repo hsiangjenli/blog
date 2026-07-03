@@ -1,5 +1,5 @@
 ---
-title: '[tutorial] open-slide 使用教學'
+title: '[教學] open-slide 使用教學'
 date: '2026-07-03'
 updated: '2026-07-03'
 author:
@@ -9,15 +9,19 @@ tags:
 - skill
 toc: true
 slug: tutorial-open-slide
-lang: en
-permalink: tutorial-open-slide.en/
+lang: zh-TW
+source_sha: 876e33331124f9748ef4855a4dd8df57cbe769a21e25d8605ae516d0314b87b8
+origin_lang: en
+permalink: zh-TW/tutorial-open-slide/
 translations:
-  zh-TW: /zh-TW/tutorial-open-slide/
+  en: /tutorial-open-slide.en/
 ---
+
+> 註記：此頁為由 AI（gpt-5-mini-2025-08-07）自動翻譯自英文原文，可能含有少量不準確之處。
 
 # 📌 介紹
 
-使用 open-slide skill 讓 AI 幫你快速生出一份簡報
+使用 open-slide 技能讓 AI 幫你快速生出一份簡報
 
 <!-- more -->
 

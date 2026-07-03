@@ -1,1 +1,2 @@
-source/_posts/job_cathay.md
+.gitignore
+source/_posts/tutorial-openslide.md
