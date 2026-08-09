@@ -1,0 +1,14 @@
+[project]
+name = "blog-automation"
+version = "0.1.0"
+description = "Automation scripts for the Hexo blog"
+requires-python = ">=3.11"
+dependencies = [
+    "openai>=1.37,<2",
+    "pydantic",
+    "PyYAML",
+    "python-dotenv",
+]
+
+[tool.uv]
+package = false

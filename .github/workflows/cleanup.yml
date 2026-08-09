@@ -21,9 +21,16 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Set up uv
+        uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
+        with:
+          enable-cache: true
+
+      - name: Install Python dependencies
+        run: uv sync --locked
+
       - name: Run cleanup
-        run: |
-          python .github/workflows/cleanup_notice.py
+        run: uv run --locked python scripts/cleanup_notice.py
 
       - name: Commit and push if changed
         run: |

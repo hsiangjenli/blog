@@ -36,10 +36,13 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install deps
-        run: |
-          python -m pip install --upgrade pip
-          pip install 'openai>=1.37,<2' pyyaml
+      - name: Set up uv
+        uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
+        with:
+          enable-cache: true
+
+      - name: Install Python dependencies
+        run: uv sync --locked
 
       - name: List changed files
         id: diff
@@ -58,7 +61,7 @@ jobs:
 
       - name: Run translator (changed only)
         run: |
-          python .github/workflows/translate_posts.py \
+          uv run --locked python scripts/translate_posts.py \
             --src-root source/_posts \
             --default-lang en \
             --other-lang zh-TW \
@@ -83,21 +86,13 @@ jobs:
       - name: Verify translation completeness
         id: verify
         continue-on-error: true
-        run: |
-          python - << 'PY'
-          import sys, subprocess
-          try:
-            out = subprocess.run(['python', '.github/workflows/verify_translations.py'], check=True)
-          except subprocess.CalledProcessError as e:
-            # propagate failure so outcome= failure, but do not fail job due to continue-on-error
-            sys.exit(e.returncode or 2)
-          PY
+        run: uv run --locked python scripts/verify_translations.py
 
       - name: Backfill missing translations (scan all)
         if: ${{ steps.verify.outcome == 'failure' }}
         run: |
           echo "Completeness check failed; running backfill scan-all..."
-          python .github/workflows/translate_posts.py \
+          uv run --locked python scripts/translate_posts.py \
             --src-root source/_posts \
             --default-lang en \
             --other-lang zh-TW \
@@ -139,14 +134,17 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install deps
-        run: |
-          python -m pip install --upgrade pip
-          pip install 'openai>=1.37,<2' pyyaml
+      - name: Set up uv
+        uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
+        with:
+          enable-cache: true
+
+      - name: Install Python dependencies
+        run: uv sync --locked
 
       - name: Run translator (backfill all)
         run: |
-          python .github/workflows/translate_posts.py \
+          uv run --locked python scripts/translate_posts.py \
             --src-root source/_posts \
             --default-lang en \
             --other-lang zh-TW \

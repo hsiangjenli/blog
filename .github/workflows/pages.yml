@@ -32,14 +32,16 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install verifier deps
-        run: |
-          python -m pip install --upgrade pip
-          pip install pyyaml
+      - name: Set up uv
+        uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
+        with:
+          enable-cache: true
+
+      - name: Install Python dependencies
+        run: uv sync --locked
 
       - name: Verify all posts translated
-        run: |
-          python .github/workflows/verify_translations.py
+        run: uv run --locked python scripts/verify_translations.py
 
   pages:
     needs: verify

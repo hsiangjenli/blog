@@ -11,7 +11,7 @@ import yaml
 try:
     from openai import OpenAI
 except ImportError:
-    print("Missing openai. pip install openai pyyaml", file=sys.stderr)
+    print("Missing OpenAI dependency. Run `uv sync`.", file=sys.stderr)
     sys.exit(2)
 
 FM_BOUND = re.compile(r"^---\s*$")
