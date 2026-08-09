@@ -3,14 +3,19 @@ title: '[note] Office Viewer 好用的 Markdown 編輯工具 @ VSCode'
 date: '2026-08-09'
 updated: '2026-08-09'
 author:
-- 'Hsiang-Jen Li'
+- Hsiang-Jen Li
 - ' & GitHub Copilot'
 tags:
 - vscode
 - markdown
 toc: true
 lang: zh-TW
+slug: note-office-viewer-markdown-vscode
+permalink: zh-TW/note-office-viewer-markdown-vscode/
+translations:
+  en: /note-office-viewer-markdown-vscode.en/
 ---
+
 # 📌 簡介
 
 Office Viewer 是一個可以在 VSCode 中預覽、編輯文件（Excel、Word、PPT、Markdown、Zip、SVG 等等）的 Extension
