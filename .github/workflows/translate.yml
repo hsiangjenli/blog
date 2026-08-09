@@ -22,9 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: PROD
     env:
-      TRANSLATION_API_KEY: ${{ secrets.TRANSLATION_API_KEY }}
       TRANSLATION_API_BASE: https://openrouter.ai/api/v1
-      TRANSLATION_MODEL: openai/gpt-5.6-luna
+      TRANSLATION_API_KEY: ${{ secrets.TRANSLATION_API_KEY }}
+      TRANSLATION_MODEL: ${{ vars.TRANSLATION_MODEL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -122,7 +122,7 @@ jobs:
     env:
       TRANSLATION_API_KEY: ${{ secrets.TRANSLATION_API_KEY }}
       TRANSLATION_API_BASE: https://openrouter.ai/api/v1
-      TRANSLATION_MODEL: openai/gpt-5.6-luna
+      TRANSLATION_MODEL: ${{ vars.TRANSLATION_MODEL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
