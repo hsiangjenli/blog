@@ -4,7 +4,7 @@ import re
 import sys
 import hashlib
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 import yaml
 
@@ -89,7 +89,7 @@ def parse_date_from_filename(path: Path, fallback: str) -> str:
     try:
         return datetime.fromisoformat(str(fallback)).date().isoformat()
     except Exception:
-        return datetime.utcnow().date().isoformat()
+        return datetime.now(timezone.utc).date().isoformat()
 
 
 def detect_lang_from_path(path: Path, fm_lang: str) -> str:
@@ -163,7 +163,7 @@ def restore_more_marker(before: str, after: str | None) -> str:
 
 def translate_text(
     client: OpenAI, model: str, text: str, src_lang: str, dst_lang: str, title: str
-):
+) -> tuple[str, str]:
     sys_prompt = (
         "You are a professional bilingual translator. "
         "Translate Markdown from {src} to {dst}. "
@@ -192,9 +192,9 @@ Source markdown body:
             {"role": "user", "content": user_prompt},
         ],
     )
-    content = resp.choices[0].message.content
+    content = resp.choices[0].message.content or ""
     try:
-        data = yaml.safe_load(content)  # JSON is YAML-compatible
+        data = yaml.safe_load(content) or {}  # JSON is YAML-compatible
         return str(data.get("title", "")), str(data.get("body", ""))
     except Exception:
         # Fallback: treat whole as body

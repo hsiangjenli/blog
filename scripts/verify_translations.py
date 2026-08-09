@@ -132,7 +132,9 @@ def main():
             # Skip drafts from completeness requirement
             continue
         declared = normalize_lang(fm.get("lang") or "")
-        path_lang = detect_lang_from_path(p, fm.get("lang"))
+        path_lang = detect_lang_from_path(
+            p, str(fm["lang"]) if fm.get("lang") is not None else ""
+        )
         content_lang = detect_lang_from_content(body)
         # Prefer declared/path if consistent, otherwise fall back to content detection
         candidates = [declared, path_lang, content_lang]

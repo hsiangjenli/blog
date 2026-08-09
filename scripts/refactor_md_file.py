@@ -88,7 +88,10 @@ def refactor_md_file(client: OpenAI, full_text: str) -> MarkdownFile:
         ],
         response_format=MarkdownFile,
     )
-    return response.choices[0].message.parsed
+    parsed = response.choices[0].message.parsed
+    if parsed is None:
+        raise ValueError("OpenAI returned no parsed MarkdownFile response")
+    return parsed
 
 
 if __name__ == "__main__":

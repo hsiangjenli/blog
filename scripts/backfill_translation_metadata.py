@@ -74,7 +74,7 @@ def infer_slug(data: Dict, path: Path) -> str:
 
 def detect_lang(path: Path, data: Dict, fallback: str) -> str:
     lang = data.get("lang") or data.get("language")
-    normalized = normalize_lang(lang)
+    normalized = normalize_lang(str(lang) if lang is not None else "")
     if normalized:
         return normalized
     stem = path.stem.lower()
