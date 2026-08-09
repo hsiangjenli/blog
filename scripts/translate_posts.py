@@ -280,7 +280,7 @@ def main():
     ap.add_argument("--other-lang", default="zh-TW")
     ap.add_argument("--changed-file-list", default="")
     ap.add_argument("--scan-all", action="store_true")
-    ap.add_argument("--model", default="gpt-4o-mini")
+    ap.add_argument("--model", default="openai/gpt-5.6-luna")
     args = ap.parse_args()
 
     root = Path(args.src_root).resolve()
@@ -288,23 +288,24 @@ def main():
         print(f"Missing {root}", file=sys.stderr)
         sys.exit(1)
 
-    api_key = (os.environ.get("OPENAI_API_KEY") or "").strip()
+    api_key = (os.environ.get("TRANSLATION_API_KEY") or "").strip()
     if not api_key:
         print(
-            "Missing OPENAI_API_KEY. Please set it in GitHub Actions secrets or environment.",
+            "Missing TRANSLATION_API_KEY. Please set it in GitHub Actions secrets or environment.",
             file=sys.stderr,
         )
         sys.exit(2)
-    base_url_raw = (os.environ.get("OPENAI_API_BASE") or "").strip()
-    if not base_url_raw:
-        base_url = "https://api.openai.com/v1"
-    else:
-        base_url = (
-            base_url_raw
-            if base_url_raw.startswith("http://") or base_url_raw.startswith("https://")
-            else ("https://" + base_url_raw)
-        )
-    client = OpenAI(api_key=api_key, base_url=base_url)
+    base_url = (
+        os.environ.get("TRANSLATION_API_BASE") or "https://openrouter.ai/api/v1"
+    ).strip()
+    client = OpenAI(
+        api_key=api_key,
+        base_url=base_url,
+        default_headers={
+            "HTTP-Referer": "https://github.com/hsiangjenli/blog",
+            "X-OpenRouter-Title": "hsiangjenli/blog translation workflow",
+        },
+    )
 
     posts = load_posts(root)
     # index by (slug, lang)
