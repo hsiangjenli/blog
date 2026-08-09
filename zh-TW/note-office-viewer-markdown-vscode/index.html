@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh"><head><!-- hexo injector head_begin start --><link rel="stylesheet" href="/blog/css/custom.css" /><!-- hexo injector head_begin end --><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="theme-color" content="#123456"><title>[note] Office Viewer 好用的 Markdown 編輯工具 @ VSCode - Hsiang-Jen Li&#039;s Blog</title><link rel="manifest" href="/blog/manifest.json"><meta name="application-name" content="Hsiang-Jen Li&#039;s Blog"><meta name="msapplication-TileImage" content="https://hsiangjenli.github.io/static/image/ico.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hsiang-Jen Li&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="📌 簡介 Office Viewer 是一個可以在 VSCode 中預覽、編輯文件（Excel、Word、PPT、Markdown、Zip、SVG 等等）的 Extension"><meta property="og:type" content="blog"><meta property="og:title" content="Hsiang-Jen Li&#039;s Blog"><meta property="og:url" content="https://hsiangjenli.github.io/blog/zh-TW/note-office-viewer-markdown-vscode/"><meta property="og:site_name" content="Hsiang-Jen Li&#039;s Blog"><meta property="og:description" content="📌 簡介 Office Viewer 是一個可以在 VSCode 中預覽、編輯文件（Excel、Word、PPT、Markdown、Zip、SVG 等等）的 Extension"><meta property="og:locale" content="zh_TW"><meta property="og:image" content="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809141939.png"><meta property="og:image" content="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809145804.png"><meta property="og:image" content="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809152214.png"><meta property="og:image" content="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809144514.png"><meta property="og:image" content="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809150203.png"><meta property="og:image" content="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809150254.png"><meta property="og:image" content="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809150316.png"><meta property="og:image" content="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809150434.png"><meta property="og:image" content="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/1786259221168.png"><meta property="og:image" content="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809143514.png"><meta property="article:published_time" content="2026-08-08T16:00:00.000Z"><meta property="article:modified_time" content="2026-08-08T16:00:00.000Z"><meta property="article:author"><meta property="article:tag" content="markdown"><meta property="article:tag" content="vscode"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809141939.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hsiangjenli.github.io/blog/zh-TW/note-office-viewer-markdown-vscode/"},"headline":"[note] Office Viewer 好用的 Markdown 編輯工具 @ VSCode","image":["https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809141939.png","https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809145804.png","https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809152214.png","https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809144514.png","https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809150203.png","https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809150254.png","https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809150316.png","https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809150434.png","https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/1786259221168.png","https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809143514.png"],"datePublished":"2026-08-08T16:00:00.000Z","dateModified":"2026-08-08T16:00:00.000Z","author":{"@type":"Person","name":["Hsiang-Jen Li"," & GitHub Copilot"]},"publisher":{"@type":"Organization","name":"Hsiang-Jen Li's Blog","logo":{"@type":"ImageObject","url":"https://hsiangjenli.github.io/static/image/ico.svg"}},"description":"📌 簡介 Office Viewer 是一個可以在 VSCode 中預覽、編輯文件（Excel、Word、PPT、Markdown、Zip、SVG 等等）的 Extension"}</script><link rel="canonical" href="https://hsiangjenli.github.io/blog/zh-TW/note-office-viewer-markdown-vscode/"><link rel="icon" href="https://hsiangjenli.github.io/static/image/ico.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/blog/css/default.css"><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="https://hsiangjenli.github.io/static/image/ico.svg" alt="Hsiang-Jen Li&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/blog/">Home</a><a class="navbar-item" href="http://hsiangjenli.github.io/">About me</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="/blog/note_strategic_thinking_models/">Stragetic Thinking</a><a class="navbar-item" href="https://hsiangjenli.github.io/cheat-sheet/">Cheat sheets</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Language" href="/blog/zh-TW/"><i class="fas fa-globe"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="文章目錄" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜尋" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-08-08T16:00:00.000Z" title="8/8/2026, 4:00:00 PM">2026-08-09</time>發表</span><span class="level-item"> Hsiang-Jen Li &amp; GitHub Copilot </span></div></div><h1 class="title is-3 is-size-4-mobile">[note] Office Viewer 好用的 Markdown 編輯工具 @ VSCode</h1><div class="content">
+    <style>
+    .post-lang-switch{
+      position: absolute;
+      top: .75rem;
+      right: .75rem;
+      z-index: 2;
+      color: var(--link, #3273dc);
+    }
+    .post-lang-switch:hover{opacity:.8}
+    </style>
+  
+    <a class="post-lang-switch" href="/blog/note-office-viewer-markdown-vscode.en/" title="View English version" aria-label="View English version">
+      <i class="fas fa-language"></i>
+    </a>
+  <h1>📌 簡介</h1>
+<p>Office Viewer 是一個可以在 VSCode 中預覽、編輯文件（Excel、Word、PPT、Markdown、Zip、SVG 等等）的 Extension</p>
+<span id="more"></span>
+<h1>🚀 介紹</h1>
+<h2 id="什麼是-WYSIWYG？">什麼是 WYSIWYG？</h2>
+<blockquote>
+<p>“What You See Is What You Get.”</p>
+</blockquote>
+<p>所見即所得，這是一種使用者介面設計理念與軟體功能，指你在編輯畫面（如文字、圖片、排版）上看到的最終效果，就會完全等於它列印、輸出或發布後的實際樣貌。目的是希望使用者可以更專注於內容的創作，而不需要花太多時間在排版上</p>
+<h2 id="安裝">安裝</h2>
+<p><img src="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809141939.png" alt="20260809141939"></p>
+<h2 id="使用">使用</h2>
+<p>有分成「免費」與「付費」版，個人覺得免費版就已經很好用了，不過如果各位有能力可以付費的話，對於開發者是很棒的 Support！</p>
+<p><img src="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809145804.png" alt="20260809145804"></p>
+<h3 id="Markdown-預覽-編輯">Markdown 預覽 + 編輯</h3>
+<p>最棒的是 Table 的功能！！！過去 Markdown 的表格常常為了要對有幾行幾列很麻煩，尤其是表格內有很多文字的時候會讓整個 Markdown 變得很混亂，而且可以直接在 Cell 內換行、在 Cell 內新增一層的 Table。唯一美中不足的是 Markdown 的 Table 還是不能直接在裡面新增 List 或是 Quote。至於其他的 Markdown 功能，像是調整字體顏色等等的就需要付費才能使用，自己是覺得還好，會使用 Markdown 主要就是希望可以越簡單越好，太多花俏的功能反而會讓 Markdown 變得很複雜</p>
+<p><img src="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809152214.png" alt="20260809152214"></p>
+<h3 id="PPT-預覽">PPT 預覽</h3>
+<p>可以在 VSCode 中直接預覽 PPT，但無法編輯</p>
+<p><img src="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809144514.png" alt="20260809144514"></p>
+<h3 id="Excel">Excel</h3>
+<p>可以預覽 + 編輯 Excel（可以有好幾個 sheet 切換）。 基本功能有 merge cell、修改顏色、修改字型、修改字體大小、修改對齊方式、修改欄位寬度、修改列高、排序、篩選、簡易的公式、自動換列等等</p>
+<p><img src="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809150203.png" alt="20260809150203"></p>
+<p><img src="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809150254.png" alt="20260809150254"><br>
+<img src="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809150316.png" alt="20260809150316"><br>
+<img src="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809150434.png" alt="20260809150434"><br>
+<img src="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/1786259221168.png" alt="1786259221168"></p>
+<h3 id="SVG-預覽-編輯顏色">SVG 預覽 + 編輯顏色</h3>
+<p>在 fontawesome 上下載一個 SVG，然後在 VSCode 中開啟，Office Viewer 會自動預覽。可以在右邊的「Preview」面版中直接修改顏色，並且可以匯出成 PNG 檔案！！！！</p>
+<p><img src="https://raw.githubusercontent.com/hsiangjenli/pic-bed/main/images/20260809143514.png" alt="20260809143514"></p>
+<h1>🔗 參考資料</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/cweijan/vscode-office">vscode-office</a></li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>[note] Office Viewer 好用的 Markdown 編輯工具 @ VSCode</p><p><a href="https://hsiangjenli.github.io/blog/zh-TW/note-office-viewer-markdown-vscode/">https://hsiangjenli.github.io/blog/zh-TW/note-office-viewer-markdown-vscode/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Hsiang-Jen Li &amp; GitHub Copilot</p></div></div><div class="level-item is-narrow"><div><h6>發表於</h6><p>2026-08-09</p></div></div><div class="level-item is-narrow"><div><h6>更新於</h6><p>2026-08-09</p></div></div><div class="level-item is-narrow"><div><h6>許可協議</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/blog/tags/markdown/">markdown</a><a class="link-muted mr-2" rel="tag" href="/blog/tags/vscode/">vscode</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/blog/note-office-viewer-markdown-vscode.en/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">[note] Office Viewer A Useful Markdown Editing Tool @ VSCode</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/blog/tutorial-open-slide.en/"><span class="level-item">[tutorial] open-slide Usage Tutorial</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">文章目錄</h3><ul class="menu-list"><li><a class="level is-mobile" href="#"><span class="level-left"><span class="level-item">1</span><span class="level-item">📌 簡介</span></span></a></li><li><a class="level is-mobile" href="#"><span class="level-left"><span class="level-item">2</span><span class="level-item">🚀 介紹</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#什麼是-WYSIWYG？"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">什麼是 WYSIWYG？</span></span></a></li><li><a class="level is-mobile" href="#安裝"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">安裝</span></span></a></li><li><a class="level is-mobile" href="#使用"><span class="level-left"><span class="level-item">2.3</span><span class="level-item">使用</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Markdown-預覽-編輯"><span class="level-left"><span class="level-item">2.3.1</span><span class="level-item">Markdown 預覽 + 編輯</span></span></a></li><li><a class="level is-mobile" href="#PPT-預覽"><span class="level-left"><span class="level-item">2.3.2</span><span class="level-item">PPT 預覽</span></span></a></li><li><a class="level is-mobile" href="#Excel"><span class="level-left"><span class="level-item">2.3.3</span><span class="level-item">Excel</span></span></a></li><li><a class="level is-mobile" href="#SVG-預覽-編輯顏色"><span class="level-left"><span class="level-item">2.3.4</span><span class="level-item">SVG 預覽 + 編輯顏色</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#"><span class="level-left"><span class="level-item">3</span><span class="level-item">🔗 參考資料</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/blog/js/toc.js" defer></script></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">彙整</h3><ul class="menu-list"><li><a class="level is-mobile" href="/blog/archives/2026/08/"><span class="level-start"><span class="level-item">八月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2026/07/"><span class="level-start"><span class="level-item">七月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2026/02/"><span class="level-start"><span class="level-item">二月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/11/"><span class="level-start"><span class="level-item">十一月 2025</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/10/"><span class="level-start"><span class="level-item">十月 2025</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/09/"><span class="level-start"><span class="level-item">九月 2025</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/07/"><span class="level-start"><span class="level-item">七月 2025</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/06/"><span class="level-start"><span class="level-item">六月 2025</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/05/"><span class="level-start"><span class="level-item">五月 2025</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/04/"><span class="level-start"><span class="level-item">四月 2025</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/03/"><span class="level-start"><span class="level-item">三月 2025</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/02/"><span class="level-start"><span class="level-item">二月 2025</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2025/01/"><span class="level-start"><span class="level-item">一月 2025</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2024/12/"><span class="level-start"><span class="level-item">十二月 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2024/09/"><span class="level-start"><span class="level-item">九月 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2023/10/"><span class="level-start"><span class="level-item">十月 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2023/07/"><span class="level-start"><span class="level-item">七月 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2023/03/"><span class="level-start"><span class="level-item">三月 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-01-16T16:00:00.000Z">2025-01-17</time></p><p class="title"><a href="/blog/zh-TW/note-window-11-ubuntu/">[note] Window 11 + Ubuntu 雙系統安裝紀錄</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-08-08T16:00:00.000Z">2026-08-09</time></p><p class="title"><a href="/blog/note-office-viewer-markdown-vscode.en/">[note] Office Viewer A Useful Markdown Editing Tool @ VSCode</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-08-08T16:00:00.000Z">2026-08-09</time></p><p class="title"><a href="/blog/zh-TW/note-office-viewer-markdown-vscode/">[note] Office Viewer 好用的 Markdown 編輯工具 @ VSCode</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-07-02T16:00:00.000Z">2026-07-03</time></p><p class="title"><a href="/blog/tutorial-open-slide.en/">[tutorial] open-slide Usage Tutorial</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-07-02T16:00:00.000Z">2026-07-03</time></p><p class="title"><a href="/blog/zh-TW/tutorial-open-slide/">[tutorial] open-slide 使用教學</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/blog/"><img src="https://hsiangjenli.github.io/static/image/ico.svg" alt="Hsiang-Jen Li&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 Hsiang-Jen Li, & GitHub Copilot</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-tw");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/blog/js/column.js"></script><a id="back-to-top" title="回到頁首" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/mhchem.min.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="/blog/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="請輸入關鍵字..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/blog/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/blog/content.json"}, {"hint":"請輸入關鍵字...","untitled":"(無標題)","posts":"文章","pages":"頁面","categories":"分類","tags":"標籤"});
+        });</script><!-- hexo injector body_end start -->
+<script>
+(function(){
+  function basePath() {
+    var p = window.location.pathname; // e.g. /blog/zh-TW/...
+    var segs = p.split('/').filter(Boolean);
+    // If first segment is 'blog', treat '/blog/' as base; otherwise '/'
+    return (segs[0] === 'blog') ? '/blog/' : '/';
+  }
+  
+  function toggleLangHref(){
+    var a = document.querySelector('.navbar .navbar-end a.navbar-item[title="Language"]');
+    if(!a) return;
+    
+    function setHref(url){
+      if (!url) return;
+      a.setAttribute('href', url);
+      a.removeAttribute('target');
+      a.removeAttribute('rel');
+    }
+
+    var explicit = a.getAttribute('data-lang-switch-href');
+    if (explicit) {
+      setHref(explicit);
+      return;
+    }
+
+    // If page-level translation switch exists (for posts), use its target
+    var postSwitch = document.querySelector('.post-lang-switch');
+    if (postSwitch && postSwitch.getAttribute('href')) {
+      setHref(postSwitch.getAttribute('href'));
+      return;
+    } else {
+      // Smart path switching for archives, tags, categories, and other pages
+      var p = window.location.pathname;
+      var base = basePath();
+      var segs = p.split('/').filter(Boolean);
+      
+      // Determine if we're at base level (e.g., /blog/) or root (/)
+      var baseSegs = base.split('/').filter(Boolean);
+      var idx = baseSegs.length; // Index where language or path starts after base
+      
+      // Check if current path has zh-TW language prefix
+      var inZh = (segs[idx] === 'zh-TW');
+      
+      var targetUrl;
+      if (inZh) {
+        // Currently in zh-TW, switch to EN (remove zh-TW prefix)
+        var pathSegs = segs.slice(idx + 1); // Remove base + zh-TW
+        targetUrl = base + pathSegs.join('/');
+        if (pathSegs.length > 0) targetUrl += '/';
+      } else {
+        // Currently in EN (default), switch to zh-TW (add zh-TW prefix)
+        var pathSegs = segs.slice(idx); // Get path after base
+        targetUrl = base + 'zh-TW/' + pathSegs.join('/');
+        if (pathSegs.length > 0) targetUrl += '/';
+        else targetUrl = base + 'zh-TW/'; // Just the language root
+      }
+
+      setHref(targetUrl);
+    }
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', toggleLangHref);
+  } else {
+    toggleLangHref();
+  }
+})();
+</script>
+<!-- hexo injector body_end end --></body></html>
