@@ -66,11 +66,9 @@ plugins:
   back_to_top: true
   gallery: true
   katex: true
-  mathjax: true
+  mathjax: false
   outdated_browser: false
   progressbar: true
-  google_analytics:
-  tracking_id: G-RMY40RWC3B
 providers:
   cdn: jsdelivr
   iconcdn: fontawesome

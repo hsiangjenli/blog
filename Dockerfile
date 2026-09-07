@@ -2,12 +2,11 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY package.json yarn.lock /app/
+COPY package.json package-lock.json /app/
 
 RUN apk add --no-cache bash git openssh \
-    && npm install --production \
-    && npm install -g hexo-cli hexo-theme-icarus make sass
+    && npm ci --omit=dev
 
 COPY . /app/
 
-CMD ["sh", "-c", "hexo clean && hexo generate && hexo server -p 4000"]
+CMD ["sh", "-c", "npm run clean && npm run build && npm run server -- -p 4000"]

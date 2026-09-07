@@ -63,24 +63,6 @@ ignore: null
 theme: icarus
 deploy:
   type: ''
-hexo_info_api:
-  allowOrigin: "*" # Set to "*" to allow all origins (Access-Control-Allow-Origin)
-  enable:
-  # enable what api u need
-  - getInfo
-  - getPostCount
-  - getPosts
-  - getPostsByCategory
-  - getPostsByCategoryId
-  - getPostsByTag
-  - getPostsByTagId
-  - getPostByPath
-  - getPostById
-  - getCategories
-  - getTags
-  - getLatestPost
-  - getLatest5Posts
-  disable_default_api: false
 # Markdown-it config
 ## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
 markdown:

@@ -4,6 +4,8 @@ db.json
 *.log
 *.env
 .venv/
+__pycache__/
+*.pyc
 node_modules/
 public/
 .deploy*/

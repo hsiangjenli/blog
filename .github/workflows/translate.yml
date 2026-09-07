@@ -61,7 +61,7 @@ jobs:
 
       - name: Run translator (changed only)
         run: |
-          uv run --locked python scripts/translate_posts.py \
+          uv run --locked python tools/translate_posts.py \
             --src-root source/_posts \
             --default-lang en \
             --other-lang zh-TW \
@@ -86,13 +86,13 @@ jobs:
       - name: Verify translation completeness
         id: verify
         continue-on-error: true
-        run: uv run --locked python scripts/verify_translations.py
+        run: uv run --locked python tools/verify_translations.py
 
       - name: Backfill missing translations (scan all)
         if: ${{ steps.verify.outcome == 'failure' }}
         run: |
           echo "Completeness check failed; running backfill scan-all..."
-          uv run --locked python scripts/translate_posts.py \
+          uv run --locked python tools/translate_posts.py \
             --src-root source/_posts \
             --default-lang en \
             --other-lang zh-TW \
@@ -144,7 +144,7 @@ jobs:
 
       - name: Run translator (backfill all)
         run: |
-          uv run --locked python scripts/translate_posts.py \
+          uv run --locked python tools/translate_posts.py \
             --src-root source/_posts \
             --default-lang en \
             --other-lang zh-TW \
