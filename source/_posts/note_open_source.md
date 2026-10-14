@@ -3,15 +3,12 @@ title: '[note] 有關 Open Source 的資源整理'
 date: '2026-10-14'
 updated: '2026-10-14'
 author:
-- Hsiang-Jen Li
+- 'Hsiang-Jen Li'
 - ' & ChatGPT'
-tags: null
+tags:
+- 'Open Source'
 toc: true
 lang: zh-TW
-slug: note-open-source
-permalink: zh-TW/note-open-source/
-translations:
-  en: /note-open-source.en/
 ---
 
 # 📌 簡介
