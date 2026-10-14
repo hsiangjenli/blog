@@ -1,16 +1,1 @@
-.github/workflows/cleanup.yml
-.github/workflows/pages.yml
-.github/workflows/ref_markdownfile.sh
-.github/workflows/translate.yml
-.gitignore
-Makefile
-pyproject.toml
-scripts/backfill_translation_metadata.py
-scripts/cleanup_notice.py
-scripts/math_underscore_replace.py
-scripts/refactor_md_file.py
-scripts/translate_posts.py
-scripts/verify_translations.py
-source/_posts/note_office_viewer.md
-source/_templates/it_blog.md
-uv.lock
+source/_posts/note_open_source.md
