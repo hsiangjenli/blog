@@ -1,2 +1,1 @@
-source/_posts/note-open-source.en.md
-source/_posts/note_open_source.md
+source/_posts/tutorial_mise.md

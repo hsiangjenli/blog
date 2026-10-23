@@ -1,7 +1,7 @@
 ---
-title: '[tutorial] Using mise to manage multiple programming language environments'
+title: '[tutorial] Managing Multi-Language Environments with mise'
 date: '2026-03-29'
-updated: '2026-04-27'
+updated: '2026-10-24'
 author:
 - Hsiang-Jen Li
 tags:
@@ -9,16 +9,16 @@ tags:
 toc: true
 lang: en
 slug: tutorial-mise
-source_sha: 73b5d81c261a6932c0db07c8bb311e92c22fa4ffc1242747b6a55fff3eda43a0
+source_sha: db1ebd8d079c27eae1ae8bc7e4f211e2cef23e5dd56203b3852c98b6459dcd9f
 origin_lang: zh-TW
 permalink: tutorial-mise.en/
 translations:
   zh-TW: /zh-TW/tutorial-mise/
 ---
 
-> Note: This page is an AI-generated (gpt-5-mini-2025-08-07) translation from Traditional Chinese and may contain minor inaccuracies.
+> Note: This page is an AI-generated (openai/gpt-6-luna) translation from Traditional Chinese and may contain minor inaccuracies.
 
-# 🚀 Installing mise
+# 🚀 Installing mise in Practice
 
 ```shell
 curl https://mise.run | sh
@@ -31,6 +31,12 @@ mise --version
 <!-- more -->
 
 ![image](https://hackmd.io/_uploads/SyLek5IoZg.png)
+
+## Update mise
+
+```shell
+mise self-update
+```
 
 ## Java
 
@@ -48,6 +54,34 @@ which java
 >>> /home/xxx/.local/share/mise/installs/java/openjdk-21.0.2/bin/java
 ```
 
+## Java Spring Boot CLI (Spring Initializr)
+
+```shell
+mise registry spring-boot
+
+>>> vfox:jdx/vfox-spring-boot asdf:mise-plugins/mise-spring-boot
+
+mise use -g vfox:jdx/vfox-spring-boot@latest
+
+>>> plugin:vfox-jdx-vfox-spring-boot clone https://github.com/jdx/vfox-spring-boot
+>>> mise ~/.config/mise/config.toml tools: vfox:jdx/vfox-spring-boot@4.2.0-M2
+```
+
+```shell
+# See which Project Types or Dependencies are supported
+spring init --list
+```
+
+```shell
+spring init --extract --build=maven --java-version=25 demo-spring-project
+```
+
+## Java Maven
+
+```shell
+mise use -g aqua:apache/maven@latest
+```
+
 ## Rust
 
 ```shell
@@ -61,12 +95,12 @@ which cargo
 >>> /home/xxx/.cargo/bin/cargo
 ```
 
-- The installation path for Rust is different from the others; even when installed via mise, it is installed under `.cargo`
+- Rust has a different installation path from the others; even when installed through mise, it is installed under `.cargo`.
 
 ## Bun
 
 ```shell
-mise latest bun # search for the latest version
+mise latest bun # Search for the latest version
 mise use -g bun@1.3.13
 source ~/.bashrc 
 
