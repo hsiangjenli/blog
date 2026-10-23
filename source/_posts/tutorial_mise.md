@@ -1,7 +1,7 @@
 ---
 title: '[tutorial] 使用 mise 管理多程式語言環境'
 date: '2026-03-29'
-updated: '2026-04-27'
+updated: '2026-10-24'
 author:
 - Hsiang-Jen Li
 tags:
@@ -29,6 +29,11 @@ mise --version
 
 ![image](https://hackmd.io/_uploads/SyLek5IoZg.png)
 
+## 更新 mise
+
+```shell
+mise self-update
+```
 
 ## Java
 
@@ -44,6 +49,34 @@ java --version
 
 which java
 >>> /home/xxx/.local/share/mise/installs/java/openjdk-21.0.2/bin/java
+```
+
+## Java Spring Boot CLI (Spring Initializr)
+
+```shell
+mise registry spring-boot
+
+>>> vfox:jdx/vfox-spring-boot asdf:mise-plugins/mise-spring-boot
+
+mise use -g vfox:jdx/vfox-spring-boot@latest
+
+>>> plugin:vfox-jdx-vfox-spring-boot clone https://github.com/jdx/vfox-spring-boot
+>>> mise ~/.config/mise/config.toml tools: vfox:jdx/vfox-spring-boot@4.2.0-M2
+```
+
+```shell
+# 查看支援哪些 Project Type 或是 Dependencies
+spring init --list
+```
+
+```shell
+spring init --extract --build=maven --java-version=25 demo-spring-project
+```
+
+## Java Maven
+
+```shell
+mise use -g aqua:apache/maven@latest
 ```
 
 ## Rust
